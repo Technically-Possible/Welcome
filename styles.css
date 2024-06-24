@@ -38,7 +38,7 @@ footer {
   text-align: center;
   padding: 20px 0;
   font-size: 12px;
-  color: #edf508;
+  color: #b5811c;
   z-index: 2;
   background-color: black;
   background: var(--stripes);
@@ -60,7 +60,7 @@ body {
   background-image: radial-gradient(circle at center, rgba(37, 22, 0, 0.6), rgba(25, 15, 0, 0.8) 50%, rgb(var(--color-tertiary)) 100%);
   font-family: 'dos', sans-serif;
   background-color: black;
-  color: #edf508;
+  color: #b5811c;
   font-size: 20px;
   justify-content: center;
   margin: 0px;
@@ -105,14 +105,14 @@ width: 100%;
 }
 
 .profile-table tr {
-border: 4px solid #edf508; /* Change the color and style as needed */
+border: 4px solid #b5811c; /* Change the color and style as needed */
 }
 
 .profile-table td {
 padding: 7px;
 padding-left: 10px;
 text-align: left;
-border: 4px solid #edf508;
+border: 4px solid #b5811c;
 }
 
 .profile-container {
