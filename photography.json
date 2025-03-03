@@ -259,6 +259,31 @@
                             "full": "photography\\2025\\Liverpool/DSC02135.jpg"
                         }
                     ]
+                },
+                {
+                    "name": "Manfeild",
+                    "images": [
+                        {
+                            "thumb": "thumbnails\\2025\\Manfeild/DSC02139.jpg",
+                            "full": "photography\\2025\\Manfeild/DSC02139.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails\\2025\\Manfeild/DSC02142.jpg",
+                            "full": "photography\\2025\\Manfeild/DSC02142.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails\\2025\\Manfeild/DSC02160.jpg",
+                            "full": "photography\\2025\\Manfeild/DSC02160.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails\\2025\\Manfeild/DSC02161.jpg",
+                            "full": "photography\\2025\\Manfeild/DSC02161.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails\\2025\\Manfeild/DSC02163.jpg",
+                            "full": "photography\\2025\\Manfeild/DSC02163.jpg"
+                        }
+                    ]
                 }
             ]
         }
