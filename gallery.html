@@ -9,29 +9,31 @@
 
     <!-- ✅ Styles for This Page Only -->
     <style>
-        /* ✅ Responsive Grid Layout */
+        /* ✅ Keep Desktop Layout Unchanged */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 10px;
             padding: 10px;
         }
-          /* ✅ Disable Load Animation for the Gallery Page */
-            body {
-               animation: none !important;
-             }
-        /* ✅ Maintain Aspect Ratio, Shrink to Fit */
+
+        /* ✅ Disable Load Animation for Gallery Page */
+        body {
+            animation: none !important;
+        }
+
+        /* ✅ Ensure Images Maintain Aspect Ratio */
         .photo-thumb {
             width: 100%;
-            height: auto; /* Keep aspect ratio */
-            max-height: 300px; /* Limit height but keep proportions */
+            height: auto;
+            max-height: 300px;
             object-fit: contain;
             cursor: pointer;
             border: 2px solid rgba(255, 173, 51, 0.5);
             transition: transform 0.2s ease-in-out;
-            z-index: 10; /* Ensure images are above any overlays */
+            z-index: 10;
             position: relative;
-            pointer-events: auto; /* Ensure clickability */
+            pointer-events: auto;
         }
 
         .photo-thumb:hover {
@@ -67,7 +69,7 @@
             opacity: 1;
         }
 
-        /* ✅ Close Button */
+        /* ✅ Lightbox Close Button */
         .lightbox-close {
             position: absolute;
             top: 20px;
@@ -77,7 +79,7 @@
             cursor: pointer;
         }
 
-        /* ✅ Fix: Apply Scanlines Only to Text Without Affecting Clicks */
+        /* ✅ Fix Scanlines Only for Text */
         h1, h2, p {
             position: relative;
             display: inline-block;
@@ -94,12 +96,6 @@
             opacity: 0.55;
         }
 
-        /* ✅ Ensure Images are Clickable */
-        img {
-            position: relative;
-            z-index: 10; /* Ensure images are above scanlines */
-            pointer-events: auto; /* Allow clicks */
-        }
         /* ✅ Lightbox Navigation Arrows */
         .lightbox-arrow {
             position: absolute;
@@ -113,42 +109,106 @@
             user-select: none;
             transition: background 0.3s ease;
         }
-        
+
         .lightbox-arrow:hover {
             background: rgba(255, 173, 51, 0.8);
         }
-        
+
         .left-arrow {
             left: 20px;
         }
-        
+
         .right-arrow {
             right: 20px;
         }
-        
-        /* ✅ Adjust arrows for smaller screens */
-        @media (max-width: 768px) {
-            .lightbox-arrow {
-                font-size: 30px;
-                padding: 5px 15px;
+
+        /* ✅ Fix for Large Screens (Keep Desktop Layout Unchanged) */
+        @media (min-width: 1024px) {
+            .image-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ✅ Full width images */
+                max-width: 1400px;
             }
         }
 
-        /* ✅ Mobile-Friendly Adjustments */
+        /* ✅ Final Mobile Fix */
         @media (max-width: 768px) {
-            .image-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            /* ✅ Prevent the title from getting pushed off-screen */
+            body {
+                display: block; /* Remove flex that was causing issues */
+                width: 100%;
+                overflow-x: hidden; /* Stop horizontal scrolling issues */
+                padding: 10px;
             }
 
+            /* ✅ Ensure Title and Sections Are Centered */
+            .gallery-header {
+                text-align: center;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .gallery-header h1 {
+                font-size: 28px;
+                text-align: center;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            /* ✅ Fix Year & Event Titles */
+            .year-section h2 {
+                margin-top: 10px;
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .event-section h3 {
+                font-size: 20px;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            /* ✅ Center Year Sections */
+            .year-section {
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .event-section {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            /* ✅ Arrange images in a neat grid (2 per row on mobile) */
+            .image-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 5px;
+                justify-content: center;
+                max-width: 90%;
+                margin: 0 auto;
+            }
+
+            /* ✅ Ensure images scale correctly */
             .photo-thumb {
-                max-height: 200px;
+                max-width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            /* ✅ Fix Header Spacing */
+            header {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <header class="gallery-header">
         <h1>Photography Gallery</h1>
     </header>
 
@@ -159,9 +219,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Your Name | Photography</p>
+        <p>&copy; 2025 Jennifer Freeman Colquhoun | Photography</p>
     </footer>
 
 </body>
-
 </html>
