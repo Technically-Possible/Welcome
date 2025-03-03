@@ -1,225 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography Gallery</title>
-    <link rel="stylesheet" href="../styles.css"> <!-- Updated path -->
-    <script defer src="../photography.js"></script> <!-- Updated path -->
-
-    <!-- ✅ Styles for This Page Only -->
-    <style>
-        /* ✅ Keep Desktop Layout Unchanged */
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
-            padding: 10px;
-        }
-
-        /* ✅ Disable Load Animation for Gallery Page */
-        body {
-            animation: none !important;
-        }
-
-        /* ✅ Ensure Images Maintain Aspect Ratio */
-        .photo-thumb {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: contain;
-            cursor: pointer;
-            border: 2px solid rgba(255, 173, 51, 0.5);
-            transition: transform 0.2s ease-in-out;
-            z-index: 10;
-            position: relative;
-            pointer-events: auto;
-        }
-
-        .photo-thumb:hover {
-            transform: scale(1.05);
-        }
-
-        /* ✅ Lightbox (Fullscreen View) */
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            z-index: 1000;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border: 3px solid #ffad33;
-        }
-
-        /* ✅ Show Lightbox When Active */
-        .lightbox.active {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* ✅ Lightbox Close Button */
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* ✅ Fix Scanlines Only for Text */
-        h1, h2, p {
-            position: relative;
-            display: inline-block;
-        }
-
-        h1::before, h2::before, p::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--stripes);
-            background-size: 100% 20px;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.55;
-        }
-
-        /* ✅ Lightbox Navigation Arrows */
-        .lightbox-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 40px;
-            color: white;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            cursor: pointer;
-            user-select: none;
-            transition: background 0.3s ease;
-        }
-
-        .lightbox-arrow:hover {
-            background: rgba(255, 173, 51, 0.8);
-        }
-
-        .left-arrow {
-            left: 20px;
-        }
-
-        .right-arrow {
-            right: 20px;
-        }
-
-        /* ✅ Fix for Large Screens (Keep Desktop Layout Unchanged) */
-        @media (min-width: 1024px) {
-            .image-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                max-width: 1400px;
-            }
-        }
-
-        /* ✅ Final Mobile Fix */
-        @media (max-width: 768px) {
-            body {
-                display: block;
-                width: 100%;
-                overflow-x: hidden;
-                padding: 10px;
-            }
-
-            /* ✅ Ensure Title and Sections Are Centered */
-            .gallery-header {
-                text-align: center;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .gallery-header h1 {
-                font-size: 28px;
-                text-align: center;
-                width: 100%;
-                margin-bottom: 15px;
-            }
-
-            /* ✅ Fix Year & Event Titles */
-            .year-section h2 {
-                margin-top: 10px;
-                font-size: 24px;
-                text-align: center;
-            }
-
-            .event-section h3 {
-                font-size: 20px;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-
-            /* ✅ Center Year Sections */
-            .year-section {
-                width: 100%;
-                text-align: center;
-                margin-top: 10px;
-            }
-
-            .event-section {
-                width: 100%;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-            /* ✅ Arrange images in a neat grid (2 per row on mobile) */
-            .image-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 5px;
-                justify-content: center;
-                max-width: 90%;
-                margin: 0 auto;
-            }
-
-            /* ✅ Ensure images scale correctly */
-            .photo-thumb {
-                max-width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
-
-            /* ✅ Fix Header Spacing */
-            header {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technically-Jen</title>
+  <link rel="icon" type="image/x-icon" href="Pictures/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header class="gallery-header">
-        <h1>Photography Gallery</h1>
-    </header>
-
-    <main>
-        <div id="gallery">
-            <p>Loading images...</p>
+  <header>
+    <div class="profile-container">
+      <div class="profile">
+        <img src="Pictures/profile2.jpg" alt="Profile Picture">
+        <div class="bio">
+          <table class="profile-table">
+            <tr>
+              <td>Name:</td>
+              <td>Jennifer</td>
+            </tr>
+            <tr>
+              <td>Handle:</td>
+              <td>Technically Possible</td>
+            </tr>
+            <tr>
+              <td>Gender:</td>
+              <td>Female Cyborg</td>
+            </tr>
+            <tr>
+              <td>Location:</td>
+              <td>Nottinghamshire , UK</td>
+            </tr>
+            <tr>
+              <td>Professional Interests:</td>
+              <td>CyberSecurity, Development, LLM, Automation</td>
+            </tr>
+            <tr>
+              <td>Personal Interests:</td>
+              <td>VRChat World & Avatar Creator, Star Trek, Cyberdecks, retrofuturism, fallout, sci-fi</td>
+            </tr>
+            <tr>
+              <td>Instagram:</td>
+              <td><span class="emoji">📷</span>thedomainatrix</td>
+            </tr>
+            <tr>
+              <td>Website:</td>
+              <td><span class="emoji">🌐</span>Technically-Possible</td>
+            </tr>
+            <tr>
+              <td>Discord:</td>
+              <td><span class="emoji">🌐</span>thedomainatrix</td>
+            </tr>
+          </table>
         </div>
-    </main>
+      </div>
+    </div>
+    <div class="gallery-container">
+      <div class="gallery" id="gallery">
+        <!-- Gallery images will be loaded here dynamically -->
+      </div>
+    </div>
+    <p><center>Below is a more detailed website with my blog posts and up-to-date thoughts</center></p>
+    <div class="button-container">
+      <a href="https://technicallypossible.co.uk">
+      <button class="galleryButton">Go To Main Website</button>
+      </a>
+    </div>
+    <div class="button-container">
+      <a href="/gallery/">
+        <button class="galleryButton">Go To Photography Gallery</button>
+      </a>
+    </div>
+    
+  </header>
 
-    <footer>
-        <p>&copy; 2025 Jennifer Freeman Colquhoun | Photography</p>
-    </footer>
+  <footer>
+    <p>&copy; Orginal Site Desgin by <a href=https://github.com/techiemoore>techiemoore</a>  </p>
+  </footer>
 
+  <script src="script.js"></script>
+  
 </body>
 </html>

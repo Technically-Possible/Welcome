@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography Gallery</title>
-    <link rel="stylesheet" href="../styles.css">
-    <script defer src="../photography.js"></script>
-    
+    <link rel="stylesheet" href="../styles.css"> <!-- Updated path -->
+    const response = await fetch("../photography.json");
+
 
     <!-- ✅ Styles for This Page Only -->
     <style>
@@ -126,18 +126,17 @@
         /* ✅ Fix for Large Screens (Keep Desktop Layout Unchanged) */
         @media (min-width: 1024px) {
             .image-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ✅ Full width images */
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 max-width: 1400px;
             }
         }
 
         /* ✅ Final Mobile Fix */
         @media (max-width: 768px) {
-            /* ✅ Prevent the title from getting pushed off-screen */
             body {
-                display: block; /* Remove flex that was causing issues */
+                display: block;
                 width: 100%;
-                overflow-x: hidden; /* Stop horizontal scrolling issues */
+                overflow-x: hidden;
                 padding: 10px;
             }
 
