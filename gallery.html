@@ -125,17 +125,18 @@
         /* ✅ Fix for Large Screens (Keep Desktop Layout Unchanged) */
         @media (min-width: 1024px) {
             .image-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ✅ Full width images */
                 max-width: 1400px;
             }
         }
 
         /* ✅ Final Mobile Fix */
         @media (max-width: 768px) {
+            /* ✅ Prevent the title from getting pushed off-screen */
             body {
-                display: block;
+                display: block; /* Remove flex that was causing issues */
                 width: 100%;
-                overflow-x: hidden;
+                overflow-x: hidden; /* Stop horizontal scrolling issues */
                 padding: 10px;
             }
 

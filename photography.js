@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let currentIndex = 0; // Track the current image index
 
     try {
-        const response = await fetch("../photography.json"); // ✅ Fetch JSON data from root directory
+        const response = await fetch("photography.json"); // Fetch JSON data
         const data = await response.json();
         
         gallery.innerHTML = ""; // Clear loading text
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 // ✅ Sort images before displaying (ensuring correct order)
                 event.images.sort((a, b) => a.full.localeCompare(b.full)).forEach((imageObj) => {
-                    const imgThumbPath = `../thumbnails/${year.year}/${event.name}/${imageObj.thumb}`;
-                    const imgFullPath = `../photography/${year.year}/${event.name}/${imageObj.full}`;
+                    const imgThumbPath = imageObj.thumb;
+                    const imgFullPath = imageObj.full;
 
                     // ✅ Correctly store the index of this specific image
                     const imgIndex = allImages.length;
