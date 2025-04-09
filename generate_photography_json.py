@@ -2,8 +2,8 @@ import os
 import json
 from PIL import Image
 
-PHOTOGRAPHY_DIR = "photography"
-THUMBNAIL_DIR = "thumbnails"
+PHOTOGRAPHY_DIR = "C:\\Users\\Jennifer\\JensScripting\\Jenn dot zzi[\\Welcome\\photography"
+THUMBNAIL_DIR = "C:\\Users\\Jennifer\\JensScripting\\Jenn dot zzi[\\Welcome\\thumbnails"
 THUMB_MAX_WIDTH = 300  # Max width for thumbnails (keeps original aspect ratio)
 JPEG_QUALITY = 85  # Compression quality (lower = smaller file size)
 
@@ -55,7 +55,7 @@ def generate_json():
 
             data["years"].append(year_data)
 
-    with open("photography.json", "w") as json_file:
+    with open("C:\\Users\\Jennifer\\JensScripting\\Jenn dot zzi[\\Welcome\\photography.json", "w") as json_file:
         json.dump(data, json_file, indent=4)
 
 if __name__ == "__main__":
