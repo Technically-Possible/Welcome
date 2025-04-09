@@ -2,10 +2,17 @@ import os
 import json
 from PIL import Image
 
-PHOTOGRAPHY_DIR = "photography"
-THUMBNAIL_DIR = "thumbnails"
-THUMB_MAX_WIDTH = 300  # Max width for thumbnails (keeps original aspect ratio)
-JPEG_QUALITY = 85  # Compression quality (lower = smaller file size)
+# Base directory where the script is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Define absolute paths
+PHOTOGRAPHY_DIR = os.path.join(BASE_DIR, "photography")
+THUMBNAIL_DIR = os.path.join(BASE_DIR, "thumbnails")
+OUTPUT_JSON_PATH = os.path.join(BASE_DIR, "photography.json")
+
+THUMB_MAX_WIDTH = 300  # Max width for thumbnails
+JPEG_QUALITY = 85  # JPEG compression quality
+
 
 def create_thumbnail(source_path, thumb_path):
     """ Generate a thumbnail with the same aspect ratio but reduced width. """
@@ -13,16 +20,18 @@ def create_thumbnail(source_path, thumb_path):
         os.makedirs(os.path.dirname(thumb_path))
 
     with Image.open(source_path) as img:
-        # Calculate new size while keeping aspect ratio
         width_percent = THUMB_MAX_WIDTH / float(img.size[0])
         new_height = int(float(img.size[1]) * width_percent)
 
-        # Resize and save thumbnail
         img = img.resize((THUMB_MAX_WIDTH, new_height), Image.LANCZOS)
         img.save(thumb_path, "JPEG", quality=JPEG_QUALITY)
 
+
 def generate_json():
     """ Scan the photography folder, generate thumbnails, and create photography.json """
+    if not os.path.exists(PHOTOGRAPHY_DIR):
+        raise FileNotFoundError(f"🚫 Photography directory not found: {PHOTOGRAPHY_DIR}")
+
     data = {"years": []}
 
     for year in sorted(os.listdir(PHOTOGRAPHY_DIR)):
@@ -42,22 +51,23 @@ def generate_json():
                             full_image_path = os.path.join(event_path, image)
                             thumb_image_path = os.path.join(thumb_event_path, image)
 
-                            # Generate thumbnail if it doesn't exist
                             if not os.path.exists(thumb_image_path):
                                 create_thumbnail(full_image_path, thumb_image_path)
 
                             event_data["images"].append({
-                                "thumb": f"{thumb_event_path}/{image}",
-                                "full": f"{event_path}/{image}"
+                                "thumb": os.path.relpath(thumb_image_path, BASE_DIR).replace("\\", "/"),
+                                "full": os.path.relpath(full_image_path, BASE_DIR).replace("\\", "/")
                             })
 
                     year_data["events"].append(event_data)
 
             data["years"].append(year_data)
 
-    with open("photography.json", "w") as json_file:
+    with open(OUTPUT_JSON_PATH, "w") as json_file:
         json.dump(data, json_file, indent=4)
+
+    print("✅ Thumbnails generated & photography.json created!")
+
 
 if __name__ == "__main__":
     generate_json()
-    print("✅ Thumbnails generated & photography.json created!")
