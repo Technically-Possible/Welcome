@@ -63,10 +63,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         // ✅ Add Lightbox HTML (Only once)
         document.body.insertAdjacentHTML("beforeend", `
             <div class="lightbox" id="lightbox">
-                <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+                <span class="lightbox-close" id="lightbox-close">&times;</span>
                 <img id="lightbox-img" src="" alt="Expanded Image">
-                <div class="lightbox-arrow left-arrow" onclick="prevImage()">&#10094;</div>
-                <div class="lightbox-arrow right-arrow" onclick="nextImage()">&#10095;</div>
+                <div class="lightbox-arrow left-arrow" id="left-arrow">&#10094;</div>
+                <div class="lightbox-arrow right-arrow" id="right-arrow">&#10095;</div>
             </div>
             
             <!-- Loading throbber -->
@@ -147,6 +147,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         lightboxImg.src = fullImageSrc;
     }
+
+    // ✅ Add Event Listeners for Arrows and Exit Button
+    document.getElementById("left-arrow").addEventListener("click", prevImage);
+    document.getElementById("right-arrow").addEventListener("click", nextImage);
+    document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
 
     // ✅ Keyboard Controls for Navigation
     document.addEventListener("keydown", (event) => {
