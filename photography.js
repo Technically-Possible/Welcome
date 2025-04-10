@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     function openLightbox(index) {
         currentIndex = index; // Set current image index
         const fullImageSrc = allImages[currentIndex];
-        
+
         // Show the loading throbber
         document.getElementById("loading-throbber").style.display = "block";
         
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Hide the throbber when image has loaded
             document.getElementById("loading-throbber").style.display = "none";
         };
-        
+
         // Set the new image source to load the new image
         lightboxImg.src = fullImageSrc; // Load full image when clicked
         document.getElementById("lightbox").classList.add("active");
@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // ✅ Close Lightbox
     function closeLightbox() {
         document.getElementById("lightbox").classList.remove("active");
+        document.getElementById("loading-throbber").style.display = "none"; // Hide throbber when lightbox is closed
     }
 
     // ✅ Navigate Left (Previous Image)
