@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const yearSection = document.createElement("section");
             yearSection.classList.add("year-section");
 
+            // Create year heading
             const yearTitle = document.createElement("h1");
             yearTitle.textContent = year.year;
             yearSection.appendChild(yearTitle);
@@ -22,8 +23,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const eventSection = document.createElement("section");
                 eventSection.classList.add("event-section");
 
+                // Create event (location) subheading
                 const eventTitle = document.createElement("h2");
-                eventTitle.textContent = event.name;
+                eventTitle.textContent = event.name;  // Location Name (e.g., Liverpool)
                 eventSection.appendChild(eventTitle);
 
                 const imageContainer = document.createElement("div");
@@ -66,6 +68,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div class="lightbox-arrow left-arrow" onclick="prevImage()">&#10094;</div>
                 <div class="lightbox-arrow right-arrow" onclick="nextImage()">&#10095;</div>
             </div>
+            
+            <!-- Loading throbber -->
+            <div class="loading-throbber" id="loading-throbber">
+                <div class="spinner"></div>
+                <p>Loading image...</p>
+            </div>
         `);
 
     } catch (error) {
@@ -76,7 +84,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     function openLightbox(index) {
         currentIndex = index; // Set current image index
         const fullImageSrc = allImages[currentIndex];
-        document.getElementById("lightbox-img").src = fullImageSrc; // Load full image when clicked
+        
+        // Show the loading throbber
+        document.getElementById("loading-throbber").style.display = "block";
+        
+        const lightboxImg = document.getElementById("lightbox-img");
+        lightboxImg.src = ''; // Clear the previous image to trigger load event
+
+        // Listen for image load event
+        lightboxImg.onload = () => {
+            // Hide the throbber when image has loaded
+            document.getElementById("loading-throbber").style.display = "none";
+        };
+        
+        // Set the new image source to load the new image
+        lightboxImg.src = fullImageSrc; // Load full image when clicked
         document.getElementById("lightbox").classList.add("active");
     }
 
@@ -88,13 +110,41 @@ document.addEventListener("DOMContentLoaded", async () => {
     // ✅ Navigate Left (Previous Image)
     function prevImage() {
         currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
-        document.getElementById("lightbox-img").src = allImages[currentIndex];
+        const fullImageSrc = allImages[currentIndex];
+
+        // Show loading throbber while the new image is being loaded
+        document.getElementById("loading-throbber").style.display = "block";
+
+        const lightboxImg = document.getElementById("lightbox-img");
+        lightboxImg.src = ''; // Clear the previous image to trigger load event
+
+        // Listen for image load event
+        lightboxImg.onload = () => {
+            // Hide the throbber when image has loaded
+            document.getElementById("loading-throbber").style.display = "none";
+        };
+        
+        lightboxImg.src = fullImageSrc;
     }
 
     // ✅ Navigate Right (Next Image)
     function nextImage() {
         currentIndex = (currentIndex + 1) % allImages.length;
-        document.getElementById("lightbox-img").src = allImages[currentIndex];
+        const fullImageSrc = allImages[currentIndex];
+
+        // Show loading throbber while the new image is being loaded
+        document.getElementById("loading-throbber").style.display = "block";
+
+        const lightboxImg = document.getElementById("lightbox-img");
+        lightboxImg.src = ''; // Clear the previous image to trigger load event
+
+        // Listen for image load event
+        lightboxImg.onload = () => {
+            // Hide the throbber when image has loaded
+            document.getElementById("loading-throbber").style.display = "none";
+        };
+        
+        lightboxImg.src = fullImageSrc;
     }
 
     // ✅ Keyboard Controls for Navigation
