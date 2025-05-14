@@ -82,29 +82,25 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // ✅ Open Lightbox with Correct Image
     function openLightbox(index) {
-        currentIndex = index;
+        currentIndex = index; // Set current image index
         const fullImageSrc = allImages[currentIndex];
-    
+
         // Show the loading throbber
         document.getElementById("loading-throbber").style.display = "block";
-    
+        
         const lightboxImg = document.getElementById("lightbox-img");
-        lightboxImg.src = '';
-    
+        lightboxImg.src = ''; // Clear the previous image to trigger load event
+
+        // Listen for image load event
         lightboxImg.onload = () => {
+            // Hide the throbber when image has loaded
             document.getElementById("loading-throbber").style.display = "none";
         };
-    
-        lightboxImg.src = fullImageSrc;
-    
-        // ✅ Dynamically set Buy Print link
-        const imageName = fullImageSrc.split('/').pop(); // e.g. "liverpool5.jpg"
-        const buyLink = document.getElementById("buy-print-link");
-        buyLink.href = `http://onlyphans.co.uk`;
-    
+
+        // Set the new image source to load the new image
+        lightboxImg.src = fullImageSrc; // Load full image when clicked
         document.getElementById("lightbox").classList.add("active");
     }
-    
 
     // ✅ Close Lightbox
     function closeLightbox() {
