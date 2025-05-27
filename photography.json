@@ -176,6 +176,143 @@
             "year": "2025",
             "events": [
                 {
+                    "name": "Brighton",
+                    "images": [
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02319.jpg",
+                            "full": "photography/2025/Brighton/DSC02319.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02325.jpg",
+                            "full": "photography/2025/Brighton/DSC02325.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02342.jpg",
+                            "full": "photography/2025/Brighton/DSC02342.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02343.jpg",
+                            "full": "photography/2025/Brighton/DSC02343.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02353.jpg",
+                            "full": "photography/2025/Brighton/DSC02353.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02357.jpg",
+                            "full": "photography/2025/Brighton/DSC02357.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02361.jpg",
+                            "full": "photography/2025/Brighton/DSC02361.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02366.jpg",
+                            "full": "photography/2025/Brighton/DSC02366.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02371.jpg",
+                            "full": "photography/2025/Brighton/DSC02371.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02372.jpg",
+                            "full": "photography/2025/Brighton/DSC02372.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02374.jpg",
+                            "full": "photography/2025/Brighton/DSC02374.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02378.jpg",
+                            "full": "photography/2025/Brighton/DSC02378.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02381.jpg",
+                            "full": "photography/2025/Brighton/DSC02381.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02384.jpg",
+                            "full": "photography/2025/Brighton/DSC02384.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02398.jpg",
+                            "full": "photography/2025/Brighton/DSC02398.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02399.jpg",
+                            "full": "photography/2025/Brighton/DSC02399.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02400.jpg",
+                            "full": "photography/2025/Brighton/DSC02400.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02412.jpg",
+                            "full": "photography/2025/Brighton/DSC02412.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02422.jpg",
+                            "full": "photography/2025/Brighton/DSC02422.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02427.jpg",
+                            "full": "photography/2025/Brighton/DSC02427.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02433.jpg",
+                            "full": "photography/2025/Brighton/DSC02433.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02461.jpg",
+                            "full": "photography/2025/Brighton/DSC02461.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02480.jpg",
+                            "full": "photography/2025/Brighton/DSC02480.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02481.jpg",
+                            "full": "photography/2025/Brighton/DSC02481.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02487.jpg",
+                            "full": "photography/2025/Brighton/DSC02487.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02490.jpg",
+                            "full": "photography/2025/Brighton/DSC02490.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02493.jpg",
+                            "full": "photography/2025/Brighton/DSC02493.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02495.jpg",
+                            "full": "photography/2025/Brighton/DSC02495.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02496.jpg",
+                            "full": "photography/2025/Brighton/DSC02496.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02500.jpg",
+                            "full": "photography/2025/Brighton/DSC02500.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02502.jpg",
+                            "full": "photography/2025/Brighton/DSC02502.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02503.jpg",
+                            "full": "photography/2025/Brighton/DSC02503.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02504.jpg",
+                            "full": "photography/2025/Brighton/DSC02504.jpg"
+                        }
+                    ]
+                },
+                {
                     "name": "Lincoln",
                     "images": [
                         {
