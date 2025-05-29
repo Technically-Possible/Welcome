@@ -1,226 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography Gallery</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Keep global styles -->
-    <script defer src="photography.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="photography.js"></script>
 
-    <!-- ✅ Styles for This Page Only -->
-    <style>
-        /* ✅ Keep Desktop Layout Unchanged */
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
-            padding: 10px;
-        }
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-        /* ✅ Disable Load Animation for Gallery Page */
-        body {
-            animation: none !important;
-        }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: #FFA500;
+      font-family: monospace;
+    }
 
-        /* ✅ Ensure Images Maintain Aspect Ratio */
-        .photo-thumb {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: contain;
-            cursor: pointer;
-            border: 2px solid rgba(255, 173, 51, 0.5);
-            transition: transform 0.2s ease-in-out;
-            z-index: 10;
-            position: relative;
-            pointer-events: auto;
-        }
+    /* 🔶 Top and Bottom warning tape bar */
+    .pixel-banner {
+      width: 100%;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
 
-        .photo-thumb:hover {
-            transform: scale(1.05);
-        }
+    .pixel-stripe {
+      width: 100%;
+      height: 16px;
+      background-size: 32px 16px;
+      background-repeat: repeat-x;
+      background-image:
+        linear-gradient(
+          135deg,
+          #FFA500 0%,
+          #FFA500 12.5%,
+          black 12.5%,
+          black 25%,
+          #FFA500 25%,
+          #FFA500 37.5%,
+          black 37.5%,
+          black 50%,
+          #FFA500 50%,
+          #FFA500 62.5%,
+          black 62.5%,
+          black 75%,
+          #FFA500 75%,
+          #FFA500 87.5%,
+          black 87.5%,
+          black 100%
+        );
+      pointer-events: none;
+      image-rendering: pixelated;
+    }
 
-        /* ✅ Lightbox (Fullscreen View) */
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            z-index: 1000;
-        }
+    .pixel-stripe.top {
+      animation: scroll-left 3s linear infinite;
+    }
 
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border: 3px solid #ffad33;
-        }
+    .pixel-stripe.bottom {
+      animation: scroll-right 3s linear infinite;
+    }
 
-        /* ✅ Show Lightbox When Active */
-        .lightbox.active {
-            visibility: visible;
-            opacity: 1;
-        }
+    @keyframes scroll-left {
+      from { background-position: 0 0; }
+      to { background-position: -32px 0; }
+    }
 
-        /* ✅ Lightbox Close Button */
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-        }
+    @keyframes scroll-right {
+      from { background-position: 0 0; }
+      to { background-position: 32px 0; }
+    }
 
-        /* ✅ Fix Scanlines Only for Text */
-        h1, h2, p {
-            position: relative;
-            display: inline-block;
-        }
+    .pixel-text {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 12px;
+      color: #FFA500;
+      background: black;
+      padding: 6px 12px;
+      text-decoration: none;
+      text-shadow: 0 0 2px #FFAD33;
+      z-index: 10;
+      position: relative;
+      pointer-events: auto;
+    }
 
-        h1::before, h2::before, p::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--stripes);
-            background-size: 100% 20px;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.55;
-        }
+    .pixel-text::before {
+      content: none !important;
+      display: none !important;
+      pointer-events: none !important;
+    }
 
-        /* ✅ Lightbox Navigation Arrows */
-        .lightbox-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 40px;
-            color: white;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            cursor: pointer;
-            user-select: none;
-            transition: background 0.3s ease;
-        }
+    .gallery-header {
+      padding: 20px;
+      text-align: center;
+    }
 
-        .lightbox-arrow:hover {
-            background: rgba(255, 173, 51, 0.8);
-        }
+    .gallery-header h1 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 28px;
+      color: #FFA500;
+      text-shadow: 0 0 2px #FFAD33;
+    }
 
-        .left-arrow {
-            left: 20px;
-        }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
+      padding: 10px;
+    }
 
-        .right-arrow {
-            right: 20px;
-        }
+    body {
+      animation: none !important;
+    }
 
-        /* ✅ Fix for Large Screens (Keep Desktop Layout Unchanged) */
-        @media (min-width: 1024px) {
-            .image-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ✅ Full width images */
-                max-width: 1400px;
-            }
-        }
+    .photo-thumb {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      cursor: pointer;
+      border: 2px solid rgba(255, 173, 51, 0.5);
+      transition: transform 0.2s ease-in-out;
+      z-index: 10;
+      position: relative;
+      pointer-events: auto;
+    }
 
-        /* ✅ Final Mobile Fix */
-        @media (max-width: 768px) {
-            /* ✅ Prevent the title from getting pushed off-screen */
-            body {
-                display: block; /* Remove flex that was causing issues */
-                width: 100%;
-                overflow-x: hidden; /* Stop horizontal scrolling issues */
-                padding: 10px;
-            }
+    .photo-thumb:hover {
+      transform: scale(1.05);
+    }
 
-            /* ✅ Ensure Title and Sections Are Centered */
-            .gallery-header {
-                text-align: center;
-                width: 100%;
-                margin-bottom: 20px;
-            }
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      z-index: 1000;
+    }
 
-            .gallery-header h1 {
-                font-size: 28px;
-                text-align: center;
-                width: 100%;
-                margin-bottom: 15px;
-            }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 3px solid #ffad33;
+    }
 
-            /* ✅ Fix Year & Event Titles */
-            .year-section h1 {
-                margin-top: 10px;
-                font-size: 24px;
-                text-align: center;
-            }
+    .lightbox.active {
+      visibility: visible;
+      opacity: 1;
+    }
 
-            .event-section h3 {
-                font-size: 20px;
-                text-align: center;
-                margin-bottom: 10px;
-            }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
 
-            /* ✅ Center Year Sections */
-            .year-section {
-                width: 100%;
-                text-align: center;
-                margin-top: 10px;
-            }
+    h1, h2, p {
+      position: relative;
+      display: inline-block;
+    }
 
-            .event-section {
-                width: 100%;
-                text-align: center;
-                margin-bottom: 20px;
-            }
+    h1:not(.pixel-text)::before,
+    h2:not(.pixel-text)::before,
+    p:not(.pixel-text)::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--stripes);
+      background-size: 100% 20px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.55;
+    }
 
-            /* ✅ Arrange images in a neat grid (2 per row on mobile) */
-            .image-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 5px;
-                justify-content: center;
-                max-width: 90%;
-                margin: 0 auto;
-            }
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
 
-            /* ✅ Ensure images scale correctly */
-            .photo-thumb {
-                max-width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
+    .lightbox-arrow:hover {
+      background: rgba(255, 173, 51, 0.8);
+    }
 
-            /* ✅ Fix Header Spacing */
-            header {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-            }
-        }
-    </style>
+    .left-arrow {
+      left: 20px;
+    }
+
+    .right-arrow {
+      right: 20px;
+    }
+
+    @media (min-width: 1024px) {
+      .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 1400px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        display: block;
+        width: 100%;
+        overflow-x: hidden;
+        padding: 10px;
+      }
+
+      .gallery-header {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .gallery-header h1 {
+        font-size: 28px;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .year-section h1 {
+        margin-top: 10px;
+        font-size: 24px;
+        text-align: center;
+      }
+
+      .event-section h3 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .year-section,
+      .event-section {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        justify-content: center;
+        max-width: 90%;
+        margin: 0 auto;
+      }
+
+      .photo-thumb {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      header {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <header class="gallery-header">
-        <h1>Photography Gallery</h1>
-    </header>
+  <header class="gallery-header">
+    <!-- ✅ Top warning banner with two animated stripes -->
+    <div class="pixel-banner">
+      <div class="pixel-stripe top"></div>
+      <a href="https://www.redbubble.com/people/TechyPossible/explore?asc=u&page=1&sortOrder=recent" class="pixel-text">BUY PRINTS OF MY PHOTOS</a>
+      <div class="pixel-stripe bottom"></div>
+    </div>
+    <h1>Photography Gallery</h1>
+  </header>
 
-    <main>
-        <div id="gallery">
-            <p>Loading images...</p>
-        </div>
-    </main>
+  <main>
+    <div id="gallery">
+      <p>Loading images...</p>
+    </div>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Jennifer Freeman Colquhoun | Photography</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Jennifer Freeman Colquhoun | Photography</p>
+  </footer>
 
 </body>
 </html>
