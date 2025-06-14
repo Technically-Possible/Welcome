@@ -488,6 +488,50 @@
                         {
                             "thumb": "thumbnails/2025/London/DSC02256-2.jpg",
                             "full": "photography/2025/London/DSC02256-2.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02512.jpg",
+                            "full": "photography/2025/London/DSC02512.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02515.jpg",
+                            "full": "photography/2025/London/DSC02515.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02516.png",
+                            "full": "photography/2025/London/DSC02516.png"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02517.jpg",
+                            "full": "photography/2025/London/DSC02517.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02519.jpg",
+                            "full": "photography/2025/London/DSC02519.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02530.jpg",
+                            "full": "photography/2025/London/DSC02530.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02533.jpg",
+                            "full": "photography/2025/London/DSC02533.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02535.jpg",
+                            "full": "photography/2025/London/DSC02535.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02543.jpg",
+                            "full": "photography/2025/London/DSC02543.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02562.jpg",
+                            "full": "photography/2025/London/DSC02562.jpg"
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02567.jpg",
+                            "full": "photography/2025/London/DSC02567.jpg"
                         }
                     ]
                 },
@@ -537,6 +581,15 @@
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02229.jpg",
                             "full": "photography/2025/Mansfield/DSC02229.jpg"
+                        }
+                    ]
+                },
+                {
+                    "name": "Nottingham",
+                    "images": [
+                        {
+                            "thumb": "thumbnails/2025/Nottingham/DSC02509.jpg",
+                            "full": "photography/2025/Nottingham/DSC02509.jpg"
                         }
                     ]
                 }
