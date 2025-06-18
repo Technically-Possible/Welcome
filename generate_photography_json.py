@@ -20,10 +20,15 @@ def create_thumbnail(source_path, thumb_path):
         os.makedirs(os.path.dirname(thumb_path))
 
     with Image.open(source_path) as img:
-        width_percent = THUMB_MAX_WIDTH / float(img.size[0])
-        new_height = int(float(img.size[1]) * width_percent)
+        if img.width > THUMB_MAX_WIDTH:
+            width_percent = THUMB_MAX_WIDTH / float(img.width)
+            new_height = int(float(img.height) * width_percent)
+            new_width = THUMB_MAX_WIDTH
+        else:
+            new_width = img.width
+            new_height = img.height
 
-        img = img.resize((THUMB_MAX_WIDTH, new_height), Image.LANCZOS)
+        img = img.resize((new_width, new_height), Image.LANCZOS)
         img.save(thumb_path, "JPEG", quality=JPEG_QUALITY)
 
 
