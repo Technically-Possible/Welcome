@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISAC Environmental Warn Sensor - Project Isaac</title>
+  <link rel="icon" type="image/x-icon" href="Pictures/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Body Adjustments */
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: rgb(var(--color-tertiary));
+        background-image: radial-gradient(circle at center, rgba(37, 22, 0, 0.6), rgba(25, 15, 0, 0.8) 50%, rgb(var(--color-tertiary)) 100%);
+    }
+
+    /* Adjust body::before and body::after to maintain global effects */
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: var(--stripes);
+        background-size: 100% 20px;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.55;
+    }
+
+    /* This body::after is now redundant if you apply it globally in styles.css */
+    /* Remove this block if you want the global static effect from styles.css */
+    /*
+    body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        box-shadow: 0 0 20vh 0 inset #000;
+        z-index: 5;
+        pointer-events: none;
+    }
+    */
+
+    /* Title Bar Header */
+    .title-bar {
+      background-color: rgba(25, 15, 0, 0.9);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid #ffad33;
+      position: relative;
+      z-index: 10;
+    }
+
+    .title-bar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--stripes);
+      background-size: 100% 20px;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.55;
+    }
+
+    .title-bar h1 {
+      font-family: 'dos', sans-serif;
+      font-size: 3em;
+      color: #ffad33;
+      text-shadow: 0 0 5px rgba(255, 173, 51, 0.7);
+      margin: 0;
+    }
+
+    .title-bar .go-home-button {
+      padding: 10px 20px;
+      border: 4px solid #b5811c;
+      color: #b5811c;
+      font-size: 1.2em;
+      cursor: pointer;
+      background: transparent;
+      font-family: 'dos', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title-bar .go-home-button:hover {
+      background-color: #b5811c;
+      color: black;
+    }
+
+    /* Main Container for Tabbed Content */
+    main {
+      flex-grow: 1;
+      padding: 0;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Tab Navigation */
+    .tab-nav {
+      display: flex;
+      margin-bottom: 10px;
+      border-bottom: 4px solid #b5811c;
+      position: relative;
+      z-index: 2;
+      background-color: black;
+      padding-left: 20px;
+      padding-right: 20px;
+      box-sizing: border-box;
+    }
+
+    .tab-button {
+      flex-grow: 1;
+      padding: 15px 20px;
+      font-family: 'dos', sans-serif;
+      font-size: 1.2em;
+      color: #b5811c;
+      background-color: rgba(25, 15, 0, 0.8);
+      border: 2px solid #b5811c;
+      border-bottom: none;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .tab-button:not(:last-child) {
+      border-right: none;
+    }
+
+    .tab-button.active {
+      background-color: #ffad33;
+      color: black;
+      border-color: #ffad33;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tab-button:hover:not(.active) {
+      background-color: rgba(255, 173, 51, 0.2);
+      color: #ffad33;
+    }
+
+    /* Tab Content Areas */
+    .tab-content {
+      background-color: rgba(25, 15, 0, 0.9);
+      padding: 20px; /* Internal padding for content */
+      border: 4px solid #b5811c;
+      box-shadow: 0 0 15px rgba(255, 173, 51, 0.5);
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      overflow-y: auto;
+      box-sizing: border-box;
+      flex-grow: 1;
+      min-height: 400px; /* Ensure a minimum visible height for content */
+      /* NEW: Fade-in animation for tab content */
+      animation: tabFadeIn 0.5s ease-out; /* Add this line */
+    }
+
+    /* NEW: Keyframes for tab content fade-in */
+    @keyframes tabFadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    .tab-content::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--stripes);
+      background-size: 100% 20px;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.55;
+    }
+
+    .tab-content h2, .tab-content h3 {
+      color: #ffad33;
+      font-family: 'dos', sans-serif;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .tab-content p, .tab-content ul, .tab-content td {
+      color: #b5811c;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    /* Project Details Tab Specific Styles (REVERTED to single column, but content centered/constrained) */
+    .project-details-tab h2,
+    .project-details-tab p,
+    .project-details-tab ul,
+    .project-details-tab .isac-grid,
+    .project-details-tab .sensor-table,
+    .project-details-tab .registration-form {
+        max-width: 2000px; /* Constrain width for readability within full-width tab */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* Specific adjustment for isac-grid, tables, form to not have extra top margin if they follow general text */
+    .project-details-tab .isac-grid,
+    .project-details-tab .sensor-table,
+    .project-details-tab .registration-form {
+        margin-top: 20px; /* Restore appropriate top margin */
+        margin-bottom: 20px; /* Restore appropriate bottom margin */
+    }
+    /* Text image embed remains the same, but its max-width is relative to its parent (now 1000px max) */
+
+
+    /* Development Timeline Tab Specific Styles (Alternating layout, as intended) */
+    .timeline-entry {
+        display: flex;
+        align-items: center; /* Vertically align image and text */
+        gap: 30px; /* Space between visual and description */
+        margin-bottom: 40px; /* Space between entries */
+        padding-bottom: 30px;
+        border-bottom: 2px dashed rgba(255, 173, 51, 0.5); /* Dashed separator */
+        max-width: 1500px; /* Constrain max-width for each entry to keep readability */
+        margin-left: auto;
+        margin-right: auto; /* Center entries within the full-width tab */
+    }
+
+    .timeline-entry:last-child {
+        border-bottom: none;
+    }
+
+    .timeline-entry-visual { /* Container for the image wrapper */
+        flex: 0 0 35%; /* Fixed width for the image column part */
+        max-width: 35%; /* Ensure it doesn't grow beyond this */
+        display: flex;
+        justify-content: center; /* Center image horizontally within its column */
+        align-items: center; /* Center image vertically */
+    }
+
+    .timeline-entry-description { /* Container for the text content */
+        flex: 1; /* Takes up remaining space */
+        min-width: 0; /* Allow shrinking in flexbox */
+    }
+
+    /* Alternating layout for even entries */
+    .timeline-entry:nth-child(even) .timeline-entry-visual {
+        order: 2; /* Move image to the right */
+    }
+    .timeline-entry:nth-child(even) .timeline-entry-description {
+        order: 1; /* Move text to the left */
+    }
+
+    .timeline-entry-image-wrapper { /* Image aspect ratio container */
+        position: relative;
+        width: 100%; /* Fill parent's width (timeline-entry-visual) */
+        padding-bottom: 56.25%; /* 16:9 aspect ratio for common landscape */
+        background-color: black;
+        border: 3px solid #ffad33;
+        box-sizing: border;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .timeline-entry-image-wrapper.portrait {
+        padding-bottom: 120%; /* Taller aspect ratio for portrait images */
+    }
+
+    .timeline-entry-image { /* The actual image */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .timeline-entry-image.rotate-90 {
+        transform: translate(-50%, -50%) rotate(90deg);
+        width: auto;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform-origin: center center;
+    }
+
+    .timeline-entry-text h4 {
+        color: #ffad33;
+        font-family: 'dos', sans-serif;
+        font-size: 1.3em;
+        margin-top: 0; /* Remove top margin */
+        margin-bottom: 10px;
+        text-align: left; /* Align with text column */
+    }
+
+
+    /* Registration Form (common for Project Details tab) */
+    .registration-form {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: rgba(25, 15, 0, 0.9);
+      border: 4px solid #b5811c;
+      box-shadow: 0 0 15px rgba(255, 173, 51, 0.5); /* Changed from 10px to 15px for consistent glow */
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      max-width: 800px; /* Adjust as desired */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .registration-form label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ffad33;
+      text-align: left;
+    }
+
+    .registration-form input[type="text"],
+    .registration-form input[type="email"],
+    .registration-form textarea {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #b5811c;
+      background-color: #191000;
+      color: #b5811c;
+      font-family: 'dos', sans-serif;
+      font-size: 16px;
+    }
+
+    .registration-form input[type="text"]:focus,
+    .registration-form input[type="email"]:focus,
+    .registration-form textarea:focus {
+      outline: none;
+      border-color: #ffad33;
+      box-shadow: 0 0 5px rgba(255, 173, 51, 0.7);
+    }
+
+    .registration-form button {
+      padding: 12px 25px;
+      border: 4px solid #b5811c;
+      color: #b5811c;
+      font-size: 18px;
+      cursor: pointer;
+      background: transparent;
+      font-family: 'dos', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .registration-form button:hover {
+      background-color: #b5811c;
+      color: black;
+    }
+
+    .sensor-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      max-width: 900px; /* Adjust as desired */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sensor-table th, .sensor-table td {
+      border: 2px solid #b5811c;
+      padding: 8px;
+      text-align: left;
+      color: #b5811c;
+    }
+
+    .sensor-table th {
+      background-color: rgba(255, 173, 51, 0.2);
+      color: #ffad33;
+      font-family: 'dos', sans-serif;
+    }
+
+    /* Lightbox Styles (remains unchanged) */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      border: 5px solid #ffad33;
+      object-fit: contain;
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .close-lightbox:hover,
+    .close-lightbox:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    #form-message {
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: #ffad33;
+    }
+
+    /* Styles for images embedded within the text content */
+    .text-image-embed {
+        margin: 25px auto;
+        max-width: 100%; /* Allows it to take full width of info-column-content */
+        display: block;
+        border: 3px solid #ffad33;
+        background-color: black;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(255, 173, 51, 0.3);
+        box-sizing: border-box;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .embedded-content-image {
+        max-width: 100%; /* Ensures embedded image scales properly within its container */
+        height: auto;
+        display: block;
+        margin: 0 auto 10px auto;
+        object-fit: contain;
+    }
+
+    .image-caption {
+        font-size: 0.9em;
+        color: #b5811c;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+
+    /* Custom layout for multiple images/videos within a timeline entry */
+    .media-gallery {
+        display: flex;
+        flex-wrap: wrap; /* Allows items to wrap to the next line */
+        gap: 10px; /* Space between media items */
+        width: 100%; /* Take full width of its parent (.timeline-entry-visual) */
+        justify-content: center; /* Center items horizontally within the gallery */
+        align-items: flex-start; /* Align items to the start of the cross axis */
+        padding: 5px; /* Slight padding inside the gallery container */
+        background-color: rgba(0, 0, 0, 0.3); /* Slightly darker background for the gallery */
+        border: 1px solid rgba(255, 173, 51, 0.4); /* Subtle border for the gallery */
+        box-sizing: border-box;
+    }
+
+    .media-item {
+        flex: 1 1 calc(50% - 5px); /* On desktop, try to fit two items per row (50% minus half the gap) */
+        max-width: calc(50% - 5px); /* Ensures max 2 items per row */
+        min-width: 120px; /* Minimum width before stacking */
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 56.25%; /* Default 16:9 aspect ratio, adjust as needed for mixed media */
+        background-color: black;
+        border: 2px solid #ffad33; /* Border for individual media items */
+    }
+
+    /* NEW: Specific styles for media-items containing videos (removes padding) */
+    .media-item.no-padding-video {
+        padding-bottom: 0; /* Remove the aspect ratio padding */
+        height: auto; /* Allow height to be determined by video's natural aspect ratio */
+        display: block; /* Change to block to allow video to dictate height */
+    }
+
+    /* Ensure the video itself fills its new, tighter container */
+    .media-item.no-padding-video .timeline-entry-video {
+        position: static; /* Let the video dictate its own flow within the container */
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+        object-fit: contain; /* Keep video within bounds if necessary */
+        border: none; /* Remove border from video if applied directly to video tag */
+    }
+
+    /* Override aspect ratio for portrait specific items within the gallery (if needed) */
+    .media-item .timeline-entry-image.rotate-90,
+    .media-item .timeline-entry-video.portrait-video {
+        /* Ensure these are positioned absolutely within their .media-item container */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; /* Fill the media-item's width */
+        height: 100%; /* Fill the media-item's height */
+        object-fit: contain; /* Ensure content fits */
+        transform: none; /* Reset rotation from the original image/video rules */
+        /* If you need to rotate a specific video/image that's already correctly oriented
+           in the file, you might use a class like 'rotate-90-display' on the
+           <video> or <img> tag, and then use CSS:
+           transform: translate(-50%, -50%) rotate(90deg);
+           width: auto; height: 100%; top: 50%; left: 50%; transform-origin: center center;
+           This is complex and ideally, source files are pre-rotated.
+        */
+    }
+
+    /* Adjustments for videos within the timeline entry (general video styles) */
+    .timeline-entry-video {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+    }
+
+    /* Media queries for responsiveness for the new gallery */
+    @media (max-width: 768px) {
+      .title-bar h1 {
+        font-size: 2em;
+      }
+      .title-bar .go-home-button {
+        font-size: 1em;
+        padding: 8px 15px;
+      }
+      main {
+          padding: 10px;
+          max-height: none; /* Remove fixed height on mobile for natural scrolling */
+      }
+      .tab-nav {
+          padding-left: 10px;
+          padding-right: 10px;
+      }
+      .tab-content {
+          padding: 15px;
+          max-width: none;
+          margin: 0;
+          border-width: 2px;
+      }
+      .tab-button {
+          font-size: 1em;
+          padding: 10px 15px;
+      }
+      /* Project Details Tab - Single column on mobile */
+      .two-column-text-content { /* This rule is now removed from HTML for desktop, only applies if structure exists */
+          columns: 1; /* Single column on mobile */
+          column-gap: 0;
+          padding: 0; /* Remove internal padding */
+      }
+      .project-details-tab h2,
+      .project-details-tab p,
+      .project-details-tab ul,
+      .project-details-tab .isac-grid,
+      .project-details-tab .sensor-table,
+      .project-details-tab .registration-form {
+          max-width: 100%; /* Ensure content spans full width of tab on mobile */
+          margin-left: 0;
+          margin-right: 0;
+      }
+
+      /* Development Timeline Tab - Stack vertically on mobile */
+      .timeline-entry {
+          flex-direction: column; /* Stack image and text vertically */
+          gap: 15px; /* Space between image and text */
+          align-items: center; /* Center items in column */
+      }
+      .timeline-entry-visual,
+      .timeline-entry-description {
+          flex: auto; /* Allow them to take natural width */
+          width: 100%; /* Full width on mobile */
+          max-width: none;
+      }
+      .timeline-entry-visual {
+          order: 1; /* Image first */
+      }
+      .timeline-entry-description {
+          order: 2; /* Text second */
+      }
+      .timeline-entry-image-wrapper {
+          width: 90%; /* Control image wrapper width on mobile */
+          padding-bottom: 60%;
+      }
+      .timeline-entry-image-wrapper.portrait {
+          padding-bottom: 120%;
+          width: 70%;
+      }
+      /* Mobile adjustments for the new gallery */
+      .media-item {
+          flex: 1 1 100%; /* Stack items on small screens */
+          max-width: 100%;
+          padding-bottom: 60%; /* Adjust aspect ratio for better mobile viewing if needed */
+      }
+      .media-item.no-padding-video {
+          padding-bottom: 0; /* Ensure videos stay tight on mobile too */
+          height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="title-bar">
+    <h1>Project ISAC</h1>
+    <a href="index.html" class="go-home-button">Go Home</a>
+  </header>
+
+  <main>
+    <div class="tab-nav">
+      <button class="tab-button active" data-tab="project-details">Project Details</button>
+      <button class="tab-button" data-tab="dev-timeline">Development Timeline</button>
+      <button class="tab-button" data-tab="register-interest">Register Interest</button> </div>
+
+    <div id="project-details" class="tab-content project-details-tab">
+      <h2>ISAC Environmental Warn Sensor – Real-Life Concept Inspired by The Division <span class="emoji">:glitch:</span></h2>
+
+      <p>Hey everyone! I’ve been building a real-world version of the ISAC Environmental Warn Sensor, inspired by the iconic SHD tech from Tom Clancy’s The Division.</p>
+      <p>This solo project brings the in-game concept to life using real sensors and long-range wireless communication via LoRa. That means the device can send environmental hazard data – like toxic gas levels, extreme temperatures, or poor air quality – over several kilometers, all without needing Wi-Fi or cellular service.</p>
+      <p>Perfect for remote or emergency scenarios where infrastructure is down.</p>
+      
+      <div class="isac-grid">
+        <h3>Long-Range Communication</h3>
+        <p>Utilizes LoRa (Low Power, Long Range) for communication over several kilometers without Wi-Fi or cellular.</p>
+        <h3>Real-Time Alerts</h3>
+        <p>Provides immediate alerts from isolated or off-grid locations for environmental hazards.</p>
+        <h3>Comprehensive Monitoring</h3>
+        <p>Monitors air quality, gas levels, temperature, humidity, UV, and particulate matter.</p>
+        <div class="text-image-embed">
+            <img src="Pictures/dev/interface3.png" alt="ISAC Sensor Interface Example" class="embedded-content-image">
+            <p class="image-caption">Example of the ISAC sensor interface and data display.</p>
+        </div>
+        <h3>SHD Tech Inspired</h3>
+        <p>A real-life rendition of the iconic SHD tech from Tom Clancy’s The Division.</p>
+      </div>
+
+      <p><center>ISAC Environmental Sensor Beacon – Project Summary</center></p>
+      <h3>🔧 Hardware Overview</h3>
+      <ul>
+        <li><strong>Core MCU:</strong> Adafruit Feather HUZZAH32 (ESP32), CircuitPython and Arduino compatible</li>
+        <li><strong>Stacked FeatherWings:</strong>
+          <ul>
+            <li>Adafruit Ultimate GPS FeatherWing (with RTC)</li>
+            <li>Adafruit microSD FeatherWing (data logging)</li>
+          </ul>
+        </li>
+        <li><strong>Sensors (via TCA9548A multiplexer):</strong>
+          <ul>
+            <li>SCD41 – CO₂, Temperature, Humidity (I2C, daisy-chained on channel 5)</li>
+            <li>PMSA003I – Particulate Matter (PM1.0, 2.5, 10) (I2C, on channel 5)</li>
+            <li>AS7341 – UV/Light Sensor (I2C, channel 4)</li>
+            <li>LSM6DSOX – Accelerometer + Gyroscope (I2C, channel 7)</li>
+          </ul>
+        </li>
+        <li><strong>Output / Feedback:</strong>
+          <ul>
+            <li>NeoPixel RGBW LED ring (not yet connected due to soldering constraints)</li>
+            <li>STEMMA speaker module (planned, using plug-and-play JST connections)</li>
+          </ul>
+        </li>
+        <li><strong>Power:</strong>
+          <ul>
+            <li>Runs on a 3.7V 2200mAh LiPo battery</li>
+            <li>Charging handled by onboard Feather circuitry</li>
+            <li>Future: Add a compact power switch between LiPo and Feather (plug-and-play type)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>🌐 Features & Goals</h3>
+      <ul>
+        <li><strong>🔬 Sensor Readout:</strong> Real-time monitoring of air quality, CO₂ levels, temperature, humidity, UV exposure, and motion.</li>
+        <li><strong>📡 BLE Communication:</strong> Data streamed to a mobile app via BLE (Bluetooth Low Energy).</li>
+        <li><strong>📍 GPS Location Sync:</strong> Built-in GPS FeatherWing for live positioning.</li>
+        <li><strong>🛰 LoRa Expansion:</strong> Planned LoRa mesh support to allow ISAC units to communicate and relay messages when offline.</li>
+        <li><strong>💾 Data Logging:</strong> SD card storage for environmental and GPS data.</li>
+        <li><strong>🌈 LED Visuals:</strong> NeoPixel ring for visual alerts (e.g. air quality color, UV exposure intensity).</li>
+        <li><strong>🔊 Audio Feedback:</strong> WAV/MP3 playback triggered by sensor events (e.g. voice alerts for poor air).</li>
+      </ul>
+
+      <h3>🛠 Development Notes</h3>
+      <ul>
+        <li>Majority of sensors connected via STEMMA QT or JST plug-and-play, minimizing soldering.</li>
+        <li>TCA9548A used to route multiple I2C sensors with overlapping addresses.</li>
+        <li>Software is actively being developed in both CircuitPython and Arduino C++, with current success in Arduino for complete sensor integration.</li>
+        <li>All sensor data is formatted in human-readable output with status markers: e.g., (Good), (Moderate), (Unhealthy).</li>
+      </ul>
+
+      <h3>📦 Physical Specs</h3>
+      <ul>
+        <li>Enclosure target dimensions: 45mm (W) x 130mm (L) x 32mm (D)</li>
+        <li>Designed to fit comfortably on the user's shoulder with external antennas (LoRa, GPS)</li>
+      </ul>
+
+      <h3>🔄 Current Status</h3>
+      <ul>
+        <li>✅ All sensors fully wired and integrated</li>
+        <li>✅ Working Arduino firmware for CO₂, PM, UV, motion, and IMU</li>
+        <li>✅ GPS FeatherWing recognized and tested (via UART2 remapping)</li>
+        <li>🧪 NeoPixel integration pending due to solder access</li>
+        <li>🛠 BLE and LoRa functionality planned for Phase 2</li>
+        <li>🎯 Project approaching hardware-final state, focus now on mobile app + software integration</li>
+      </ul>
+
+      <h3>🔧 Sensors & What They Detect</h3>
+      <table class="sensor-table">
+        <thead>
+          <tr>
+            <th>Sensor/Module Name</th>
+            <th>What It Detects</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>BME680</td><td>Temperature, Humidity, Air Pressure, VOCs (air quality)</td></tr>
+          <tr><td>MQ-135</td><td>CO₂, Ammonia (NH₃), Benzene, Smoke, VOCs</td></tr>
+          <tr><td>MQ-2</td><td>LPG, Smoke, Methane, Hydrogen</td></tr>
+          <tr><td>MQ-7</td><td>Carbon Monoxide (CO)</td></tr>
+          <tr><td>CCS811 / SGP30</td><td>eCO₂, Total VOCs (TVOCs)</td></tr>
+          <tr><td>DS18B20</td><td>Precise Temperature</td></tr>
+          <tr><td>BH1750</td><td>Light Intensity (lux)</td></tr>
+          <tr><td>Microphone / Sound Sensor</td><td>Ambient Noise Level</td></tr>
+          <tr><td>PIR Motion Sensor</td><td>Motion / Presence</td></tr>
+          <tr><td>NEO-6M GPS</td><td>Location (not a sensor, but adds geo-data)</td></tr>
+          <tr><td>LoRa Module (e.g., SX1278)</td><td>Wireless Data Transmission (not a sensor, for communication)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div id="dev-timeline" class="tab-content" style="display:none;">
+        <h3>Development Timeline - Visual Journey</h3>
+        <p>Explore the evolution of Project ISAC through various stages of its development. Each image marks a significant step, accompanied by details on the progress made and challenges overcome.</p>
+
+        <div class="timeline-entry">
+            <div class="timeline-entry-visual">
+                <div class="media-gallery">
+                    <div class="media-item no-padding-video">
+                        <video controls muted loop class="timeline-entry-video">
+                            <source src="Pictures/dev/rainbow.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="media-item no-padding-video">
+                        <video controls muted loop class="timeline-entry-video">
+                            <source src="Pictures/dev/Rouge.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="media-item no-padding-video">
+                        <video controls muted loop class="timeline-entry-video">
+                            <source src="Pictures/dev/DeviceWithoutAntenna.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/19.jpg" alt="Final Device View - Angle 1" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/18.jpg" alt="Final Device View - Angle 2" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/17.jpg" alt="Final Device View - Angle 3" class="timeline-entry-image">
+                    </div>
+                     <div class="media-item">
+                        <img src="Pictures/dev/13.jpg" alt="Final Device View - Angle 4" class="timeline-entry-image">
+                    </div>
+                     <div class="media-item">
+                        <img src="Pictures/dev/8.jpg" alt="Final Device View - Angle 5" class="timeline-entry-image">
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-entry-description">
+                <h4>Finalised Device</h4>
+                <p>A comprehensive view of the fully assembled ISAC Environmental Sensor Beacon. This marks the culmination of the hardware development phase, with all components integrated and the device ready for extensive software and mobile app integration. Its compact and field-ready design is clearly visible.</p>
+                <p>This section showcases various angles and operational demonstrations of the device, highlighting its compact design and the subtle lighting effects from the NeoPixel ring (as seen in the 'Rainbow' video).</p>
+            </div>
+        </div>
+
+        <div class="timeline-entry">
+            <div class="timeline-entry-visual">
+                <div class="media-gallery">
+                    <div class="media-item">
+                        <img src="Pictures/dev/firstreadings.png" alt="First Sensor Readings" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/interface1.png" alt="Interface Screenshot 1" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/interface2.png" alt="Interface Screenshot 2" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/interface3.png" alt="Interface Screenshot 3" class="timeline-entry-image">
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-entry-description">
+                <h4>Sensor Output + Interface</h4>
+                <p>After getting everything fitted, I wanted to focus my efforts on the interface. My original idea was that it would sync with a mobile phone app that would then be able to give you push notifications. However, with the deadline looming, I wasn't able to achieve this goal as of yet. I'm still trying to get that working and I'm not the best at programming Android apps, so I may have to find someone else who can help. If you can help with that, please reach out to me because I would love to get assistance with that. Anyway, you can see here: the first image will be the first time I actually got reading data out of the device, and I was ecstatic! Then you'll see a couple of images of the interface and how it evolved through time.</p>
+            </div>
+        </div>
+
+        <div class="timeline-entry">
+            <div class="timeline-entry-visual portrait">
+                <div class="media-gallery">
+                    <div class="media-item">
+                        <img src="Pictures/dev/15.jpg" alt="Iteration 1" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/14.jpg" alt="Iteration 2" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/13.jpg" alt="Iteration 3" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/12.jpg" alt="Iteration 4" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/11.jpg" alt="Iteration 5" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/10.jpg" alt="Iteration 6" class="timeline-entry-image rotate-90">
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-entry-description">
+                <h4>Iterations, Iterations, Iterations</h4>
+                <p>After many more iterations, I finally found the layout that I wanted for my device, and I put all the components in and test fitted everything. It was at this point I realised that I would not be able to control the ring lights via the method that I wanted to, which was without soldering. So the images in this section that are lit up are actually lit up by my phone's light with some Capton tape over it to give that orange glow. I wanted to see how it would look when it was lit up with all the objects and sensors within it.</p>
+            </div>
+        </div>
+
+        <div class="timeline-entry">
+            <div class="timeline-entry-visual">
+                 <div class="media-gallery">
+                    <div class="media-item">
+                        <img src="Pictures/dev/2.jpg" alt="Module Fit Test 1" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/4.jpg" alt="Module Fit Test 2" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/5.jpg" alt="Module Fit Test 3" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/6.jpg" alt="Module Fit Test 4" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/slicer4.png" alt="Slicer Screenshot 4" class="timeline-entry-image">
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-entry-description">
+                <h4>Module Fit Testing</h4>
+                <p>After messing around with the components inside the main body, I realised that if I wanted to improve battery life, I would need to make more room. The only way I could think of doing that, and keeping everything within your universe and canon to the game, was to look to the games for inspiration. I looked through the different variations of ISACs and found the Banshee ISAC, which is actually the one I use in-game. It has an extra module on the top, which was perfect because this extra module could be used to perfectly fit two sensors, removing them from the main body and moving them into the top of the device, giving a lot more room for battery within the device itself. This was the particulate sensor and the CO2 temperature combo sensor. This involved painstakingly recreating the module so that it could be attached to the main device, and then working on the 3D model itself within the slicer software to cut out the section for that device.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-entry">
+            <div class="timeline-entry-visual">
+                <div class="media-gallery">
+                    <div class="media-item">
+                        <img src="Pictures/dev/1.jpg" alt="Prototype Evolution 1" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/slicer1.png" alt="Slicer Screenshot 1" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/slicer2.png" alt="Slicer Screenshot 2" class="timeline-entry-image">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/slicer3.png" alt="Slicer Screenshot 3" class="timeline-entry-image">
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-entry-description">
+                <h4>Prototype Evolution</h4>
+                <p>Here is a pseudo-history of the evolution of the device. As you can see, I used several different filament colours as none of these were supposed to be the final devices. These were all just me test fitting different components and making sure that everything fit and looked how I wanted it to, and that I could actually print it. The problem with me and 3D modelling is I always do stuff the hard way. So the majority of the way I built this device wasn't actually modelling. I modelled the original shell and then I used negative parts to cut out everything I needed, as seen in the images in this post. A lot of this construction was trial and error, getting a calliper, measuring the parts, and making a rough negative version of it and then putting it inside the device, printing that out and then fitting it IRL. Once that part was complete, it either got added to the body, therefore welded together and printed as one piece, or it was printed in 2 pieces and glued together.</p>
+            </div>
+        </div>
+
+        <div class="timeline-entry">
+            <div class="timeline-entry-visual portrait">
+                 <div class="media-gallery">
+                    <div class="media-item">
+                        <img src="Pictures/dev/1.9.jpg" alt="Prototype 1" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/1.8.jpg" alt="Prototype 2" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/1.7.jpg" alt="Prototype 3" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/1.6.jpg" alt="Prototype 4" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/1.5.jpg" alt="Prototype 5" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/16.jpg" alt="Prototype 6" class="timeline-entry-image rotate-90">
+                    </div>
+                    <div class="media-item">
+                        <img src="Pictures/dev/7.jpg" alt="Prototype 7" class="timeline-entry-image rotate-90">
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-entry-description">
+                <h4>Prototypes of The Different Versions Of Isac & Slicer Screenshots</h4>
+                <p>After many prototypes of getting size and depth and colour correct, this is my first printed prototype that has the colour I want and the layout almost perfect. Or at least I thought at this point in time! I was still trying to make this the default ISAC. If you have played the Division games before, there are several different ISACs that have different abilities. The final one I ended up going with is the Banshee ISAC, which has a module on the top and a more pronounced button, which you will see in the final design.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-entry">
+            <div class="timeline-entry-visual portrait">
+                 <div class="media-gallery">
+                    <div class="media-item">
+                        <img src="Pictures/dev/isac_concept.jpg" alt="Prototype 1" class="timeline-entry-image rotate-90">
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-entry-description">
+                <h4>The origins of the idea.</h4>
+                <p> The origins of this idea were, when I was playing the vision with my now maid of honour and best friend I constantly joked that I could make a better Isaac. And then when I started thinking about it more in depth, I realised that it wouldn't actually be that difficult. And so began this process of trying to find any sort of reference in the game to blueprints, to layout, getting as much information together as I could to figure out what a functional Isaac would be. This involved hours of research hundreds of hours in gameplay, using the device, learning its law, its history, listening to all the audio logs in game about its development The device that is not the game itself and working through that process figuring out exactly what I wanted Isaac to be able to do irl </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="register-interest" class="tab-content" style="display:none;">
+        <div class="registration-form">
+            <h2>Want to hear more about Project ISAC?</h2>
+            <p>Register your interest below to receive updates on development, features, and release information!</p>
+            <form id="interest-form-new-tab" action="https://public.herotofu.com/v1/70ba36f0-5b3d-11f0-98a2-6758cdf5c89b" method="post" accept-charset="UTF-8">
+                <label for="name_new_tab">Name:</label>
+                <input type="text" id="name_new_tab" name="Name" required>
+
+                <label for="email_new_tab">Email:</label>
+                <input type="email" id="email_new_tab" name="Email" required>
+
+                <label for="message_new_tab">Your Message (Optional):</label>
+                <textarea id="message_new_tab" name="Message" rows="5"></textarea>
+
+                <button type="submit">Register Interest</button>
+                
+                <div style="text-indent:-99999px; white-space:nowrap; overflow:hidden; position:absolute;" aria-hidden="true">
+                    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <p id="form-message-new-tab" style="display:none;"></p>
+            </form>
+        </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Jennifer Freeman Colquhoun | Original Site Design by <a href=https://github.com/techiemoore>techiemoore</a></p>
+  </footer>
+
+  <div id="isac-lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  </div>
+
+  <script>
+    // VS Code Outline: Tab Functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabId = button.dataset.tab;
+
+            // Deactivate all buttons and hide all content
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.style.display = 'none');
+
+            // Activate the clicked button and show its content
+            button.classList.add('active');
+            document.getElementById(tabId).style.display = 'block';
+
+            // Special handling for content display when tab is activated
+            const activeTabContent = document.getElementById(tabId);
+            if (activeTabContent) {
+                activeTabContent.scrollTop = 0; // Scroll to top when tab is activated
+            }
+        });
+    });
+
+    // VS Code Outline: Lightbox Functionality
+    const allClickableImages = document.querySelectorAll('.timeline-entry-image, .embedded-content-image, .timeline-entry-video');
+    const lightbox = document.getElementById('isac-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeLightbox = document.querySelector('.close-lightbox');
+
+    allClickableImages.forEach(mediaElement => {
+      mediaElement.addEventListener('click', () => {
+        const isVideo = mediaElement.tagName.toLowerCase() === 'video';
+        lightbox.classList.add('active');
+
+        if (isVideo) {
+          // For videos, point lightboxImg src to the first source, or a poster image if available
+          // For proper video in lightbox, you'd typically load a dedicated video player there
+          // For now, it will just show the poster frame or nothing if no poster
+          lightboxImg.src = mediaElement.querySelector('source').src;
+          // You might want to hide the lightboxImg and instead dynamically create a <video> element
+          // within the lightbox for proper video playback. This is a more advanced feature.
+          // For simple display, using poster frame is common.
+        } else {
+          lightboxImg.src = mediaElement.src;
+        }
+
+        // Reset rotation and size for lightbox display
+        lightboxImg.style.transform = 'none'; // Remove any rotation
+        lightboxImg.style.maxWidth = '90%'; // Allow it to scale up
+        lightboxImg.style.maxHeight = '90%'; // Allow it to scale up
+      });
+    });
+
+    closeLightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+      }
+    });
+
+    // VS Code Outline: Initial Tab Activation (Ensure 'project-details' is active on load)
+    document.addEventListener('DOMContentLoaded', () => {
+        requestAnimationFrame(() => {
+            const firstTabButton = document.querySelector('.tab-button[data-tab="project-details"]');
+            if (firstTabButton) {
+                firstTabButton.click(); // Simulate click on the default active tab
+            }
+        });
+    });
+  </script>
+  
+</body>
+</html>

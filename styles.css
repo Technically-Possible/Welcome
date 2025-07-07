@@ -7,8 +7,8 @@
 }
 
 :root {
-  --color-primary: 255 173 51;       /* Amber */
-  --color-tertiary: 25 15 0;         /* Deep amber, almost black */
+  --color-primary: 255 173 51;      /* Amber */
+  --color-tertiary: 25 15 0;        /* Deep amber, almost black */
   --stripes: repeating-linear-gradient(to bottom, #191000 0%, #191000 2px, transparent 2px, transparent 4px);
 }
 
@@ -23,7 +23,6 @@ body::before {
   inset: 0;
   pointer-events: none;
   opacity: 0.55; /* Adjust the opacity as needed */
-  
 }
 main {
   flex-grow: 1; /* Grow to fill remaining space */
@@ -65,8 +64,6 @@ body {
   justify-content: center;
   margin: 0px;
   animation: loadAnimation 10s linear forwards;
-  
-  
 }
 
 /* Keyframes for the loading effect */
@@ -94,10 +91,6 @@ padding: 20px;
 .emoji {
   filter: grayscale(100%) contrast(150%) sepia(1) hue-rotate(15deg) saturate(2500%) brightness(100%);
 }
-
-
-
-
 
 .profile-table {
 border-collapse: collapse;
@@ -138,14 +131,17 @@ flex: 1;
 align-items: center;
 }
 
+/* REMOVE OR COMMENT OUT THIS BLOCK, as it will be replaced by .buttons-row */
+/*
 .button-container {
-display: flex;
-justify-content: center;
-margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
+*/
 
 .galleryButton {
-margin-top: 10px;
+margin-top: 10px; /* You can adjust or remove this if spacing is managed by .buttons-row gap */
 padding: 10px;
 border: 4px solid #b5811c;
 color: #b5811c;
@@ -153,13 +149,20 @@ font-size: 16px;
 cursor: pointer;
 background: transparent;
 font-family: 'dos';
-display: flex;
-justify-content: center;
-align-items: center;
+/* display: flex; /* This is no longer needed here as flex is on the parent */
+/* justify-content: center; /* This is no longer needed here */
+/* align-items: center; /* This is no longer needed here */
 position: relative;
 z-index: 10;
-
+white-space: nowrap; /* Prevents text from wrapping inside the button */
 }
+
+/* Hover effect for buttons - adjust to your desired amber */
+.galleryButton:hover {
+    background-color: rgba(var(--color-primary), 0.2); /* A light amber background */
+    color: #b5811c; /* Keep text color */
+}
+
 
 .gallery-container {
 display: flex;
@@ -182,6 +185,23 @@ padding: 10px;
 margin-top: 10px;
 }
 
+/* NEW STYLES FOR THE DIVIDER AND BUTTONS LAYOUT */
+
+.divider-line {
+    border-top: 2px dotted #b5811c; /* Using your existing amber color variable */
+    margin: 30px auto 20px auto; /* More space top, less space bottom, centered */
+    width: 90%; /* Adjust width as needed */
+}
+
+.buttons-row {
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 20px; /* Adds space between the buttons (adjust as needed) */
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line on smaller screens */
+    margin-bottom: 20px; /* Add some space below the buttons */
+}
+
+
 @media only screen and (max-width: 768px) {
 header {
   padding: 10px;
@@ -193,6 +213,18 @@ header {
   padding: 20px;
   padding-bottom: 30px;
   max-width: 200px;
+}
+
+/* On smaller screens, you might want buttons to stack or reduce gap */
+.buttons-row {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    align-items: center; /* Center them when stacked */
+    gap: 10px; /* Reduce gap when stacked */
+}
+
+.divider-line {
+    width: 95%; /* Adjust width for smaller screens if desired */
+    margin: 20px auto; /* Adjust margin for smaller screens */
 }
 }
 /* Style for the loading throbber */
@@ -207,7 +239,7 @@ header {
 }
 
 .spinner {
-  border: 4px solid rgba(255, 255, 255, 0.3); 
+  border: 4px solid rgba(255, 255, 255, 0.3);
   border-top: 4px solid rgba(255, 173, 51, 1);
   border-radius: 50%;
   width: 50px;
@@ -226,4 +258,88 @@ header {
   font-size: 16px;
   font-family: Arial, sans-serif;
   color: #fff;
+}
+/* Custom layout for multiple images/videos within a timeline entry */
+.media-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 10px; /* Space between media items */
+    width: 100%; /* Take full width of its parent (.timeline-entry-visual) */
+    justify-content: center; /* Center items horizontally within the gallery */
+    align-items: flex-start; /* Align items to the start of the cross axis */
+    padding: 5px; /* Slight padding inside the gallery container */
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly darker background for the gallery */
+    border: 1px solid rgba(255, 173, 51, 0.4); /* Subtle border for the gallery */
+    box-sizing: border-box;
+}
+
+.media-item {
+    flex: 1 1 calc(50% - 5px); /* On desktop, try to fit two items per row (50% minus half the gap) */
+    max-width: calc(50% - 5px); /* Ensures max 2 items per row */
+    min-width: 120px; /* Minimum width before stacking */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Important for videos/images within the item */
+    position: relative; /* For the video/image to absolute position inside */
+    padding-bottom: 56.25%; /* Default 16:9 aspect ratio, adjust as needed for mixed media */
+    background-color: black;
+    border: 2px solid #ffad33; /* Border for individual media items */
+}
+
+/* Override aspect ratio for portrait specific items within the gallery */
+.media-item .timeline-entry-image.rotate-90,
+.media-item .timeline-entry-video.portrait-video {
+    /* Ensure these are positioned absolutely within their .media-item container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Fill the media-item's width */
+    height: 100%; /* Fill the media-item's height */
+    object-fit: contain; /* Ensure content fits */
+    transform: none; /* Reset rotation from the original image/video rules */
+    /* Instead of rotate-90 on the image/video, you might prefer to rotate the .media-item itself
+       or ensure the video source is already rotated, as browser support for video transforms varies.
+       For a mix of landscape/portrait, a simpler approach is to set padding-bottom on .media-item
+       and adjust `object-fit` and `object-position` for individual media.
+       If you truly need to rotate a specific video/image, you could re-introduce the rotate-90
+       class to the actual <video> or <img> tag and test thoroughly.
+    */
+}
+
+/* If you have specific portrait videos that need rotation in the gallery */
+.media-item .timeline-entry-video.rotate-90-in-gallery {
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: auto;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    transform-origin: center center;
+    /* This might be needed if the source video isn't already rotated */
+}
+
+/* Adjustments for videos within the timeline entry */
+.timeline-entry-video {
+    /* Inherit basic sizing from media-item */
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+/* Ensure original timeline-entry-image-wrapper still works for single images,
+   or if this specific layout is only for *this* timeline entry.
+   If only for this one, apply a unique class to the specific .timeline-entry
+   and scope these new styles to that class.
+*/
+
+
+/* Media queries for responsiveness for the new gallery */
+@media (max-width: 768px) {
+    .media-item {
+        flex: 1 1 100%; /* Stack items on small screens */
+        max-width: 100%;
+        padding-bottom: 60%; /* Adjust aspect ratio for better mobile viewing if needed */
+    }
 }
