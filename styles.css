@@ -51,6 +51,9 @@ footer {
 html {
   background-color: rgb(var(--color-tertiary));
 }
+body.no-animation {
+  animation: none !important;
+}
 
 body {
   display: flex;

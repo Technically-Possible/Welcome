@@ -5,75 +5,183 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Technically-Jen</title>
   <link rel="icon" type="image/x-icon" href="Pictures/favicon.ico">
+
+  <!-- Inline script to detect visit early -->
+  <script>
+    (function() {
+      const lastVisit = localStorage.getItem("lastVisitDate");
+      const today = new Date().toISOString().split('T')[0];
+      if (lastVisit === today) {
+        document.documentElement.classList.add('visited-today');
+      } else {
+        localStorage.setItem("lastVisitDate", today);
+      }
+    })();
+  </script>
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header>
-    <div class="profile-container">
-   <div class="profile">
-     <img src="Pictures/profile2.jpg" alt="Profile Picture">
-     <div class="bio">
-    <table class="profile-table">
-      <tr>
-     <td>Name:</td>
-     <td>Jennifer</td>
-      </tr>
-      <tr>
-     <td>Handle:</td>
-     <td>Technically Possible</td>
-      </tr>
-      <tr>
-     <td>Gender:</td>
-     <td>Female Cyborg</td>
-      </tr>
-      <tr>
-     <td>Location:</td>
-     <td>Nottinghamshire , UK</td>
-      </tr>
-      <tr>
-     <td>Professional Interests:</td>
-     <td>CyberSecurity, Development, LLM, Automation</td>
-      </tr>
-      <tr>
-     <td>Personal Interests:</td>
-     <td>VRChat World & Avatar Creator, Star Trek, Cyberdecks, retrofuturism, fallout, sci-fi</td>
-      </tr>
-      <tr>
-     <td>Instagram:</td>
-     <td><span class="emoji">📷</span>thedomainatrix</td>
-      </tr>
-      <tr>
-     <td>Website:</td>
-     <td><span class="emoji">🌐</span>Technically-Possible</td>
-      </tr>
-      <tr>
-     <td>Discord:</td>
-     <td><span class="emoji">🌐</span>thedomainatrix</td>
-      </tr>
-    </table>
-     </div>
-   </div>
-    </div>
-    <div class="gallery-container">
-   <div class="gallery" id="gallery">
-     </div>
-    </div>
-    <p><center>Below is a more detailed website with my blog posts and up-to-date thoughts</center></p>
 
-    <div class="divider-line"></div>  <div class="buttons-row">
-   <a href="https://technicallypossible.co.uk">
-   <button class="galleryButton">Go To Main Website</button>
-   </a>
-   
-   <a href="gallery.html">
-     <button class="galleryButton">Go To Photography Gallery</button>
-   </a>
-     
-   <a href="SHD.html">
-     <button class="galleryButton">ISAC Project Details</button>
-   </a>
+    <!-- Buttons moved to the top -->
+        <<div class="buttons-row">
+      <a href="https://technicallypossible.co.uk">
+        <button class="galleryButton">Go To Main Website</button>
+      </a>
+    
+      <a href="/gallery/">
+        <button class="galleryButton">Go To Photography Gallery</button>
+      </a>
+    
+      <a href="/SHD/">
+        <button class="galleryButton">ISAC Project Details</button>
+      </a>
     </div>
+<div class="divider-line"></div>
+
+    <div class="profile-container">
+      <div class="profile">
+        <img src="Pictures/profile2.jpg" alt="Profile Picture">
+        <div class="bio">
+          <table class="profile-table">
+            <tr>
+              <td>Name:</td>
+              <td>Jennifer</td>
+            </tr>
+            <tr>
+              <td>Handle:</td>
+              <td>Technically Possible</td>
+            </tr>
+            <tr>
+              <td>Gender:</td>
+              <td>Female Cyborg</td>
+            </tr>
+            <tr>
+              <td>Location:</td>
+              <td>Nottinghamshire , UK</td>
+            </tr>
+            <tr>
+              <td>Professional Interests:</td>
+              <td>CyberSecurity, Development, LLM, Automation</td>
+            </tr>
+            <tr>
+              <td>Personal Interests:</td>
+              <td>VRChat World & Avatar Creator, Star Trek, Cyberdecks, retrofuturism, fallout, sci-fi</td>
+            </tr>
+            <tr>
+              <td>Instagram:</td>
+              <td><span class="emoji">📷</span>thedomainatrix</td>
+            </tr>
+            <tr>
+              <td>Website:</td>
+              <td><span class="emoji">🌐</span>Technically-Possible</td>
+            </tr>
+            <tr>
+              <td>Discord:</td>
+              <td><span class="emoji">🌐</span>thedomainatrix</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-container">
+      <div class="gallery" id="gallery">
+      </div>
+    </div>
+
+
+
+    <div class="divider-line"></div>
+
+
+<div class="contact-section">
+  <button id="contact-toggle" class="galleryButton">Contact Me</button>
+  <div id="contact-form-wrapper" class="contact-form-wrapper">
+    <form id="contact-form" action="https://public.herotofu.com/v1/70ba36f0-5b3d-11f0-98a2-6758cdf5c89b" method="post" accept-charset="UTF-8">
+      <label for="contact-name">Name:</label>
+      <input type="text" id="contact-name" name="Name"class="galleryButton" required>
+
+      <label for="contact-email">Email:</label>
+      <input type="email" id="contact-email" name="Email" class="galleryButton"required>
+
+      <label for="contact-message">Message:</label>
+      <textarea id="contact-message" name="Message" class="galleryButton"rows="4"></textarea>
+
+      <button type="submit" class="galleryButton">Send</button>
+    </form>
+    <div class="divider-line"></div>
+  </div>
+</div>
+
+<style>
+  .contact-section {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .contact-form-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  .contact-form-wrapper.open {
+    max-height: 600px; /* Adjust based on expected form height */
+  }
+
+  #contact-form {
+    background-color: rgba(25, 15, 0, 0.9);
+    border: 2px solid #b5811c;
+    padding: 20px;
+    display: inline-block;
+    text-align: left;
+    max-width: 500px;
+    margin-top: 10px;
+  }
+
+  #contact-form label {
+    color: #ffad33;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #contact-form input,
+  #contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    background-color: #191000;
+    color: #b5811c;
+    border: 1px solid #b5811c;
+  }
+
+  #contact-form button {
+    border: 2px solid #b5811c;
+    background: transparent;
+    color: #b5811c;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+
+  #contact-form button:hover {
+    background-color: #b5811c;
+    color: black;
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('contact-toggle');
+  const formWrapper = document.getElementById('contact-form-wrapper');
+
+  toggleBtn.addEventListener('click', () => {
+    formWrapper.classList.toggle('open');
+  });
+</script>
+
   </header>
 
   <footer>

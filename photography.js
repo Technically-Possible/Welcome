@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let currentIndex = 0; // Track the current image index
 
     try {
-        const response = await fetch("photography.json"); // Fetch JSON data
+        const response = await fetch("/photography.json");  // Absolute path
         const data = await response.json();
         
         gallery.innerHTML = ""; // Clear loading text
@@ -37,11 +37,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const imgFullPath = imageObj.full;
 
                     // ✅ Correctly store the index of this specific image
-                    const imgIndex = allImages.length;
-                    allImages.push(imgFullPath); // Store full-size image path
+                   const imgIndex = allImages.length;
+                    allImages.push("/" + imgFullPath);  // Prefix with / to make it absolute
 
+                    
                     const imgElement = document.createElement("img");
-                    imgElement.src = imgThumbPath; // Load thumbnail first
+                    imgElement.src = "/" + imgThumbPath;  // Prefix with / to make it absolute
                     imgElement.dataset.full = imgFullPath; // Store full-size path
                     imgElement.alt = "Gallery Image";
                     imgElement.classList.add("photo-thumb");
