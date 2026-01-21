@@ -1,316 +1,416 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photography Gallery</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photography Gallery</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script defer src="../photography.js"></script>
 
-  <!-- Fix relative paths since this is now in /gallery/ -->
-  <link rel="stylesheet" href="../styles.css" />
-  <script defer src="../photography.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        color: #ffa500;
+        font-family: monospace;
+      }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      background-color: black;
-      color: #FFA500;
-      font-family: monospace;
-    }
+      /* 🔶 Top and Bottom warning tape bar */
+      .pixel-banner {
+        width: 100%;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: relative;
+        z-index: 5;
+      }
 
-    /* 🔶 Top and Bottom warning tape bar */
-    .pixel-banner {
-      width: 100%;
-      background-color: black;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .pixel-stripe {
-      width: 100%;
-      height: 16px;
-      background-size: 32px 16px;
-      background-repeat: repeat-x;
-      background-image:
-        linear-gradient(
+      .pixel-stripe {
+        width: 100%;
+        height: 16px;
+        background-size: 32px 16px;
+        background-repeat: repeat-x;
+        background-image: linear-gradient(
           135deg,
-          #FFA500 0%,
-          #FFA500 12.5%,
+          #ffa500 0%,
+          #ffa500 12.5%,
           black 12.5%,
           black 25%,
-          #FFA500 25%,
-          #FFA500 37.5%,
+          #ffa500 25%,
+          #ffa500 37.5%,
           black 37.5%,
           black 50%,
-          #FFA500 50%,
-          #FFA500 62.5%,
+          #ffa500 50%,
+          #ffa500 62.5%,
           black 62.5%,
           black 75%,
-          #FFA500 75%,
-          #FFA500 87.5%,
+          #ffa500 75%,
+          #ffa500 87.5%,
           black 87.5%,
           black 100%
         );
-      pointer-events: none;
-      image-rendering: pixelated;
-    }
-
-    .pixel-stripe.top {
-      animation: scroll-left 3s linear infinite;
-    }
-
-    .pixel-stripe.bottom {
-      animation: scroll-right 3s linear infinite;
-    }
-
-    @keyframes scroll-left {
-      from { background-position: 0 0; }
-      to { background-position: -32px 0; }
-    }
-
-    @keyframes scroll-right {
-      from { background-position: 0 0; }
-      to { background-position: 32px 0; }
-    }
-
-    .pixel-text {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 12px;
-      color: #FFA500;
-      background: black;
-      padding: 6px 12px;
-      text-decoration: none;
-      text-shadow: 0 0 2px #FFAD33;
-      z-index: 10;
-      position: relative;
-      pointer-events: auto;
-    }
-
-    .pixel-text::before {
-      content: none !important;
-      display: none !important;
-      pointer-events: none !important;
-    }
-
-    .gallery-header {
-      padding: 20px;
-      text-align: center;
-    }
-
-    .gallery-header h1 {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 28px;
-      color: #FFA500;
-      text-shadow: 0 0 2px #FFAD33;
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px;
-      padding: 10px;
-    }
-
-    body {
-      animation: none !important;
-    }
-
-    .photo-thumb {
-      width: 100%;
-      height: auto;
-      max-height: 300px;
-      object-fit: contain;
-      cursor: pointer;
-      border: 2px solid rgba(255, 173, 51, 0.5);
-      transition: transform 0.2s ease-in-out;
-      z-index: 10;
-      position: relative;
-      pointer-events: auto;
-    }
-
-    .photo-thumb:hover {
-      transform: scale(1.05);
-    }
-
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-      z-index: 1000;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border: 3px solid #ffad33;
-    }
-
-    .lightbox.active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 30px;
-      color: white;
-      cursor: pointer;
-    }
-
-    h1, h2, p {
-      position: relative;
-      display: inline-block;
-    }
-
-    h1:not(.pixel-text)::before,
-    h2:not(.pixel-text)::before,
-    p:not(.pixel-text)::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--stripes);
-      background-size: 100% 20px;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.55;
-    }
-
-    .lightbox-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 40px;
-      color: white;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 10px 20px;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-
-    .lightbox-arrow:hover {
-      background: rgba(255, 173, 51, 0.8);
-    }
-
-    .left-arrow {
-      left: 20px;
-    }
-
-    .right-arrow {
-      right: 20px;
-    }
-
-    @media (min-width: 1024px) {
-      .image-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        max-width: 1400px;
+        pointer-events: none;
+        image-rendering: pixelated;
       }
-    }
 
-    @media (max-width: 768px) {
-      body {
-        display: block;
-        width: 100%;
-        overflow-x: hidden;
-        padding: 10px;
+      .pixel-stripe.top {
+        animation: scroll-left 3s linear infinite;
+      }
+
+      .pixel-stripe.bottom {
+        animation: scroll-right 3s linear infinite;
+      }
+
+      @keyframes scroll-left {
+        from { background-position: 0 0; }
+        to { background-position: -32px 0; }
+      }
+
+      @keyframes scroll-right {
+        from { background-position: 0 0; }
+        to { background-position: 32px 0; }
+      }
+
+      .pixel-text {
+        font-family: "Press Start 2P", monospace;
+        font-size: 12px;
+        color: #ffa500;
+        background: black;
+        padding: 6px 12px;
+        text-decoration: none;
+        text-shadow: 0 0 2px #ffad33;
+        z-index: 10;
+        position: relative;
+        pointer-events: auto;
+      }
+
+      .pixel-text::before {
+        content: none !important;
+        display: none !important;
+        pointer-events: none !important;
       }
 
       .gallery-header {
+        padding: 20px;
         text-align: center;
-        width: 100%;
-        margin-bottom: 20px;
+        position: relative;
+        z-index: 5;
       }
 
-      .gallery-header h1 {
-        font-size: 28px;
-        text-align: center;
-        width: 100%;
-        margin-bottom: 15px;
+      /* --- Desktop layout --- */
+      .gallery-layout {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 10px 14px 30px;
+        box-sizing: border-box;
       }
 
-      .year-section h1 {
-        margin-top: 10px;
-        font-size: 24px;
-        text-align: center;
+      #filter-sidebar {
+        width: 260px;
+        min-width: 220px;
+        position: sticky;
+        top: 10px;
+        max-height: calc(100vh - 20px);
+        overflow: auto;
+        border: 2px solid rgba(255, 173, 51, 0.5);
+        padding: 12px;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.7);
+        text-align: left;
+        z-index: 6;
       }
 
-      .event-section h3 {
-        font-size: 20px;
-        text-align: center;
-        margin-bottom: 10px;
+      .sidebar-title {
+        font-family: "Press Start 2P", monospace;
+        font-size: 18px;
+        margin: 8px 0 12px;
+        color: #ffa500;
+        text-shadow: 0 0 2px #ffad33;
       }
 
-      .year-section,
-      .event-section {
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
-        margin-bottom: 20px;
+      .gallery-content {
+        flex: 1;
+        min-width: 0;
+        z-index: 5;
+        position: relative;
       }
 
       .image-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
-        justify-content: center;
-        max-width: 90%;
-        margin: 0 auto;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 10px;
+        padding: 10px;
       }
 
       .photo-thumb {
-        max-width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-
-      header {
         width: 100%;
-        text-align: center;
-        padding: 10px 0;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+        cursor: pointer;
+        border: 2px solid rgba(255, 173, 51, 0.5);
+        transition: transform 0.2s ease-in-out;
+        z-index: 10;
+        position: relative;
+        pointer-events: auto;
       }
-    }
-  </style>
-</head>
 
-<body>
+      .photo-thumb:hover {
+        transform: scale(1.05);
+      }
 
-  <header class="gallery-header">
-    <!-- ✅ Top warning banner with two animated stripes -->
-    <div class="pixel-banner">
-      <div class="pixel-stripe top"></div>
-      <a href="https://www.redbubble.com/people/TechyPossible/explore?asc=u&page=1&sortOrder=recent" class="pixel-text">BUY PRINTS OF MY PHOTOS</a>
-      <div class="pixel-stripe bottom"></div>
-    </div>
-    <h1>Photography Gallery</h1>
-  </header>
+      /* Lightbox */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        z-index: 1000;
+      }
 
-  <main>
-    <div id="gallery">
-      <p>Loading images...</p>
-    </div>
-  </main>
+      .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border: 3px solid #ffad33;
+      }
 
-  <footer>
-    <p>&copy; 2026 Jennifer Freeman Colquhoun | Photography</p>
-  </footer>
+      .lightbox.active {
+        visibility: visible;
+        opacity: 1;
+      }
 
-</body>
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .lightbox-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 40px;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px 20px;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.3s ease;
+      }
+
+      .lightbox-arrow:hover {
+        background: rgba(255, 173, 51, 0.8);
+      }
+
+      .left-arrow { left: 20px; }
+      .right-arrow { right: 20px; }
+
+      /* Scanline overlays never block clicks */
+      body::before, body::after,
+      html::before, html::after,
+      .pixel-banner::before, .pixel-banner::after,
+      .gallery-header::before, .gallery-header::after,
+      .scanlines, .scanlines::before, .scanlines::after,
+      .crt, .crt::before, .crt::after,
+      .overlay, .overlay::before, .overlay::after {
+        pointer-events: none !important;
+      }
+
+      /* Desktop sidebar under banner */
+      .header-filters {
+        display: flex;
+        justify-content: flex-start;
+        padding: 12px 14px 0;
+        box-sizing: border-box;
+      }
+
+      /* ---------------- MOBILE TASKBAR ---------------- */
+      .mobile-taskbar {
+        display: none;
+        position: fixed;   /* ✅ stick to top always */
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        padding: 8px 10px;
+        gap: 6px;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        border-bottom: 2px solid rgba(255, 173, 51, 0.5);
+        background: rgba(0, 0, 0, 0.92);
+      }
+
+      .mobile-taskbar select,
+      .mobile-taskbar button,
+      .mobile-taskbar .taskbar-buy {
+        font-family: "Press Start 2P", monospace;
+        font-size: 10px;
+        color: #ffa500;
+        background: black;
+        border: 2px solid rgba(255, 173, 51, 0.5);
+        padding: 8px 8px;
+        text-decoration: none;
+      }
+
+      .mobile-taskbar select { min-width: 92px; }
+      .taskbar-buy { white-space: nowrap; }
+
+      .mTagsWrap { position: relative; }
+      #mTagsBtn { cursor: pointer; }
+
+      .mTagsPanel {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        width: 260px;
+        max-height: 260px;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.96);
+        border: 2px solid rgba(255, 173, 51, 0.6);
+        padding: 8px;
+        box-sizing: border-box;
+      }
+
+      .mTagRow {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 10px;
+        padding: 6px 4px;
+        cursor: pointer;
+      }
+      .mTagRow input { transform: scale(1.1); }
+
+      /* ============================================================
+         ✅ MOBILE MODE (trigger earlier so phones & small tablets use it)
+         ============================================================ */
+      @media (max-width: 980px) {
+        /* ✅ show top taskbar, hide banner + desktop sidebar */
+        .mobile-taskbar { display: flex; }
+
+        .pixel-banner { display: none !important; } /* ✅ removes scrolling tape on mobile */
+        .header-filters,
+        #filter-sidebar,
+        .desktop-only {
+          display: none !important;
+        }
+
+        /* ✅ make room for fixed taskbar */
+        body { padding-top: 72px; } /* adjust if taskbar wraps to 2 rows */
+        .gallery-header { padding: 0; }
+
+        /* ✅ full width gallery, centered */
+        .gallery-layout {
+          display: block;
+          padding: 10px;
+        }
+
+        .gallery-content {
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        /* ✅ grid fills screen and stays centered */
+        .image-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+          padding: 6px;
+          justify-items: center;
+        }
+
+        .photo-thumb {
+          max-height: 220px;
+        }
+      }
+
+      /* A bit more space on very small phones */
+      @media (max-width: 420px) {
+        body { padding-top: 88px; } /* more room if toolbar wraps */
+        .image-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="gallery-header">
+      <!-- Desktop banner (hidden on mobile by CSS above) -->
+      <div class="pixel-banner">
+        <div class="pixel-stripe top"></div>
+        <a
+          href="https://www.redbubble.com/people/TechyPossible/explore?asc=u&page=1&sortOrder=recent"
+          class="pixel-text"
+        >
+          BUY PRINTS OF MY PHOTOS
+        </a>
+        <div class="pixel-stripe bottom"></div>
+      </div>
+
+      <!-- ✅ MOBILE TASKBAR -->
+      <div class="mobile-taskbar" id="mobile-taskbar" aria-label="Mobile filters">
+        <a
+          class="taskbar-buy"
+          href="https://www.redbubble.com/people/TechyPossible/explore?asc=u&page=1&sortOrder=recent"
+        >
+          Buy Prints
+        </a>
+
+        <select id="mYearSelect" aria-label="Year"></select>
+        <select id="mCitySelect" aria-label="City"></select>
+
+        <div class="mTagsWrap">
+          <button id="mTagsBtn" type="button">Tags ▾</button>
+          <div id="mTagsPanel" class="mTagsPanel" hidden></div>
+        </div>
+
+        <button id="mClearBtn" type="button">Clear</button>
+      </div>
+
+      <!-- Desktop sidebar under banner -->
+      <div class="header-filters desktop-only">
+        <aside id="filter-sidebar" aria-label="Gallery filters">
+          <h1 class="sidebar-title">Photography Gallery</h1>
+          <div id="filters"></div>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <div class="gallery-layout">
+        <div class="gallery-content">
+          <div id="gallery">
+            <p>Loading images...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Jennifer Freeman Colquhoun | Photography</p>
+    </footer>
+  </body>
 </html>

@@ -8,11 +8,23 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2024/Bedford/DSC00942.jpg",
-                            "full": "photography/2024/Bedford/DSC00942.jpg"
+                            "full": "photography/2024/Bedford/DSC00942.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "portrait",
+                                "black and white"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Bedford/DSC00948.jpg",
-                            "full": "photography/2024/Bedford/DSC00948.jpg"
+                            "full": "photography/2024/Bedford/DSC00948.jpg",
+                            "orientation": "portrait",
+                            "tags": [
+                                "people",
+                                "portrait",
+                                "black and white"
+                            ]
                         }
                     ]
                 },
@@ -21,63 +33,153 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00375.jpg",
-                            "full": "photography/2024/Liverpool/DSC00375.jpg"
+                            "full": "photography/2024/Liverpool/DSC00375.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "landscape",
+                                "nature",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00392.jpg",
-                            "full": "photography/2024/Liverpool/DSC00392.jpg"
+                            "full": "photography/2024/Liverpool/DSC00392.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "landscape",
+                                "cityscape",
+                                "castle"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00416.jpg",
-                            "full": "photography/2024/Liverpool/DSC00416.jpg"
+                            "full": "photography/2024/Liverpool/DSC00416.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "landscape",
+                                "night",
+                                "castle"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00429.jpg",
-                            "full": "photography/2024/Liverpool/DSC00429.jpg"
+                            "full": "photography/2024/Liverpool/DSC00429.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "people",
+                                "cat"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00458.jpg",
-                            "full": "photography/2024/Liverpool/DSC00458.jpg"
+                            "full": "photography/2024/Liverpool/DSC00458.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "people",
+                                "cat"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00469.jpg",
-                            "full": "photography/2024/Liverpool/DSC00469.jpg"
+                            "full": "photography/2024/Liverpool/DSC00469.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "river",
+                                "cityscape",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00521.jpg",
-                            "full": "photography/2024/Liverpool/DSC00521.jpg"
+                            "full": "photography/2024/Liverpool/DSC00521.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "night",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00522.jpg",
-                            "full": "photography/2024/Liverpool/DSC00522.jpg"
+                            "full": "photography/2024/Liverpool/DSC00522.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "portrait",
+                                "sunset"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00533.jpg",
-                            "full": "photography/2024/Liverpool/DSC00533.jpg"
+                            "full": "photography/2024/Liverpool/DSC00533.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "sunset",
+                                "night"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00558.jpg",
-                            "full": "photography/2024/Liverpool/DSC00558.jpg"
-                        },
-                        {
-                            "thumb": "thumbnails/2024/Liverpool/DSC00616.jpg",
-                            "full": "photography/2024/Liverpool/DSC00616.jpg"
-                        },
-                        {
-                            "thumb": "thumbnails/2024/Liverpool/DSC00617.jpg",
-                            "full": "photography/2024/Liverpool/DSC00617.jpg"
+                            "full": "photography/2024/Liverpool/DSC00558.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "sunset",
+                                "night",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00619.jpg",
-                            "full": "photography/2024/Liverpool/DSC00619.jpg"
+                            "full": "photography/2024/Liverpool/DSC00619.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "night",
+                                "flowers"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00658.jpg",
-                            "full": "photography/2024/Liverpool/DSC00658.jpg"
+                            "full": "photography/2024/Liverpool/DSC00658.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "forest",
+                                "nature",
+                                "landscape"
+                            ]
+                        },
+                        {
+                            "thumb": "thumbnails/2024/Liverpool/DSC00616.jpg",
+                            "full": "photography/2024/Liverpool/DSC00616.jpg",
+                            "orientation": "portrait",
+                            "tags": [
+                                "night",
+                                "portrait",
+                                "people"
+                            ]
+                        },
+                        {
+                            "thumb": "thumbnails/2024/Liverpool/DSC00617.jpg",
+                            "full": "photography/2024/Liverpool/DSC00617.jpg",
+                            "orientation": "portrait",
+                            "tags": [
+                                "people",
+                                "portrait",
+                                "night"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Liverpool/DSC00689.jpg",
-                            "full": "photography/2024/Liverpool/DSC00689.jpg"
+                            "full": "photography/2024/Liverpool/DSC00689.jpg",
+                            "orientation": "portrait",
+                            "tags": [
+                                "architecture",
+                                "black and white",
+                                "cityscape"
+                            ]
                         }
                     ]
                 },
@@ -86,87 +188,213 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2024/Nottingham/ConHammer.jpg",
-                            "full": "photography/2024/Nottingham/ConHammer.jpg"
+                            "full": "photography/2024/Nottingham/ConHammer.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "archaeology",
+                                "museum",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/ConHammer.png",
-                            "full": "photography/2024/Nottingham/ConHammer.png"
+                            "full": "photography/2024/Nottingham/ConHammer.png",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "archaeology",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/DSC00859.jpg",
-                            "full": "photography/2024/Nottingham/DSC00859.jpg"
+                            "full": "photography/2024/Nottingham/DSC00859.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "abstract",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/DSC00924.jpg",
-                            "full": "photography/2024/Nottingham/DSC00924.jpg"
-                        },
-                        {
-                            "thumb": "thumbnails/2024/Nottingham/DSC00926.jpg",
-                            "full": "photography/2024/Nottingham/DSC00926.jpg"
+                            "full": "photography/2024/Nottingham/DSC00924.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/DSC00929.jpg",
-                            "full": "photography/2024/Nottingham/DSC00929.jpg"
+                            "full": "photography/2024/Nottingham/DSC00929.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "people",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/DSC00933.jpg",
-                            "full": "photography/2024/Nottingham/DSC00933.jpg"
+                            "full": "photography/2024/Nottingham/DSC00933.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "night",
+                                "minimalism"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/Daisys.jpg",
-                            "full": "photography/2024/Nottingham/Daisys.jpg"
+                            "full": "photography/2024/Nottingham/Daisys.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "flowers",
+                                "garden",
+                                "black and white"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/Daisys.png",
-                            "full": "photography/2024/Nottingham/Daisys.png"
+                            "full": "photography/2024/Nottingham/Daisys.png",
+                            "orientation": "landscape",
+                            "tags": [
+                                "flowers",
+                                "garden",
+                                "black and white"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/Lipton.jpg",
-                            "full": "photography/2024/Nottingham/Lipton.jpg"
+                            "full": "photography/2024/Nottingham/Lipton.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/Lipton.png",
-                            "full": "photography/2024/Nottingham/Lipton.png"
+                            "full": "photography/2024/Nottingham/Lipton.png",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/Manor-Street.jpg",
-                            "full": "photography/2024/Nottingham/Manor-Street.jpg"
+                            "full": "photography/2024/Nottingham/Manor-Street.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "architecture",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/Manor-Street.png",
-                            "full": "photography/2024/Nottingham/Manor-Street.png"
-                        },
-                        {
-                            "thumb": "thumbnails/2024/Nottingham/Mysterycat.jpg",
-                            "full": "photography/2024/Nottingham/Mysterycat.jpg"
-                        },
-                        {
-                            "thumb": "thumbnails/2024/Nottingham/Mysterycat.png",
-                            "full": "photography/2024/Nottingham/Mysterycat.png"
+                            "full": "photography/2024/Nottingham/Manor-Street.png",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "architecture",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/Mysterycat2.jpg",
-                            "full": "photography/2024/Nottingham/Mysterycat2.jpg"
+                            "full": "photography/2024/Nottingham/Mysterycat2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "cat",
+                                "dog",
+                                "bird"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/Mysterycat2.png",
-                            "full": "photography/2024/Nottingham/Mysterycat2.png"
+                            "full": "photography/2024/Nottingham/Mysterycat2.png",
+                            "orientation": "landscape",
+                            "tags": [
+                                "cat",
+                                "dog",
+                                "bird"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/Trees.jpg",
-                            "full": "photography/2024/Nottingham/Trees.jpg"
+                            "full": "photography/2024/Nottingham/Trees.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "forest",
+                                "nature",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/Trees.png",
-                            "full": "photography/2024/Nottingham/Trees.png"
+                            "full": "photography/2024/Nottingham/Trees.png",
+                            "orientation": "landscape",
+                            "tags": [
+                                "forest",
+                                "nature",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/silly.jpg",
-                            "full": "photography/2024/Nottingham/silly.jpg"
+                            "full": "photography/2024/Nottingham/silly.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "street",
+                                "macro"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2024/Nottingham/silly.png",
-                            "full": "photography/2024/Nottingham/silly.png"
+                            "full": "photography/2024/Nottingham/silly.png",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "museum",
+                                "macro"
+                            ]
+                        },
+                        {
+                            "thumb": "thumbnails/2024/Nottingham/DSC00926.jpg",
+                            "full": "photography/2024/Nottingham/DSC00926.jpg",
+                            "orientation": "portrait",
+                            "tags": [
+                                "people",
+                                "portrait",
+                                "abstract"
+                            ]
+                        },
+                        {
+                            "thumb": "thumbnails/2024/Nottingham/Mysterycat.jpg",
+                            "full": "photography/2024/Nottingham/Mysterycat.jpg",
+                            "orientation": "portrait",
+                            "tags": [
+                                "cat",
+                                "garden",
+                                "portrait"
+                            ]
+                        },
+                        {
+                            "thumb": "thumbnails/2024/Nottingham/Mysterycat.png",
+                            "full": "photography/2024/Nottingham/Mysterycat.png",
+                            "orientation": "portrait",
+                            "tags": [
+                                "cat",
+                                "garden",
+                                "portrait"
+                            ]
                         }
                     ]
                 }
@@ -180,135 +408,333 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02319.jpg",
-                            "full": "photography/2025/Brighton/DSC02319.jpg"
+                            "full": "photography/2025/Brighton/DSC02319.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "landscape",
+                                "abstract",
+                                "nature"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02325.jpg",
-                            "full": "photography/2025/Brighton/DSC02325.jpg"
+                            "full": "photography/2025/Brighton/DSC02325.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "cat",
+                                "statue",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02342.jpg",
-                            "full": "photography/2025/Brighton/DSC02342.jpg"
+                            "full": "photography/2025/Brighton/DSC02342.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "museum",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02343.jpg",
-                            "full": "photography/2025/Brighton/DSC02343.jpg"
+                            "full": "photography/2025/Brighton/DSC02343.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "bird",
+                                "portrait",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02353.jpg",
-                            "full": "photography/2025/Brighton/DSC02353.jpg"
-                        },
-                        {
-                            "thumb": "thumbnails/2025/Brighton/DSC02357.jpg",
-                            "full": "photography/2025/Brighton/DSC02357.jpg"
+                            "full": "photography/2025/Brighton/DSC02353.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "beach",
+                                "people",
+                                "ruins"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02361.jpg",
-                            "full": "photography/2025/Brighton/DSC02361.jpg"
+                            "full": "photography/2025/Brighton/DSC02361.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "bird",
+                                "black and white",
+                                "statue"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02366.jpg",
-                            "full": "photography/2025/Brighton/DSC02366.jpg"
+                            "full": "photography/2025/Brighton/DSC02366.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "bird",
+                                "statue",
+                                "castle"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02371.jpg",
-                            "full": "photography/2025/Brighton/DSC02371.jpg"
+                            "full": "photography/2025/Brighton/DSC02371.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "abstract",
+                                "macro"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02372.jpg",
-                            "full": "photography/2025/Brighton/DSC02372.jpg"
+                            "full": "photography/2025/Brighton/DSC02372.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "beach",
+                                "people",
+                                "seascape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02374.jpg",
-                            "full": "photography/2025/Brighton/DSC02374.jpg"
+                            "full": "photography/2025/Brighton/DSC02374.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "statue",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02378.jpg",
-                            "full": "photography/2025/Brighton/DSC02378.jpg"
+                            "full": "photography/2025/Brighton/DSC02378.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "castle",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02381.jpg",
-                            "full": "photography/2025/Brighton/DSC02381.jpg"
+                            "full": "photography/2025/Brighton/DSC02381.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "statue",
+                                "people",
+                                "archaeology"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02384.jpg",
-                            "full": "photography/2025/Brighton/DSC02384.jpg"
+                            "full": "photography/2025/Brighton/DSC02384.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "people",
+                                "archaeology"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02398.jpg",
-                            "full": "photography/2025/Brighton/DSC02398.jpg"
+                            "full": "photography/2025/Brighton/DSC02398.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "abstract",
+                                "ruins"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02399.jpg",
-                            "full": "photography/2025/Brighton/DSC02399.jpg"
+                            "full": "photography/2025/Brighton/DSC02399.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "archaeology",
+                                "museum",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02400.jpg",
-                            "full": "photography/2025/Brighton/DSC02400.jpg"
+                            "full": "photography/2025/Brighton/DSC02400.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02412.jpg",
-                            "full": "photography/2025/Brighton/DSC02412.jpg"
+                            "full": "photography/2025/Brighton/DSC02412.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "interior"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02422.jpg",
-                            "full": "photography/2025/Brighton/DSC02422.jpg"
+                            "full": "photography/2025/Brighton/DSC02422.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "dog",
+                                "night",
+                                "bird"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02427.jpg",
-                            "full": "photography/2025/Brighton/DSC02427.jpg"
+                            "full": "photography/2025/Brighton/DSC02427.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "bird",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02433.jpg",
-                            "full": "photography/2025/Brighton/DSC02433.jpg"
+                            "full": "photography/2025/Brighton/DSC02433.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "seascape",
+                                "beach",
+                                "ruins"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02461.jpg",
-                            "full": "photography/2025/Brighton/DSC02461.jpg"
+                            "full": "photography/2025/Brighton/DSC02461.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "macro",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02480.jpg",
-                            "full": "photography/2025/Brighton/DSC02480.jpg"
+                            "full": "photography/2025/Brighton/DSC02480.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "bird",
+                                "portrait",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02481.jpg",
-                            "full": "photography/2025/Brighton/DSC02481.jpg"
+                            "full": "photography/2025/Brighton/DSC02481.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "beach",
+                                "seascape",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02487.jpg",
-                            "full": "photography/2025/Brighton/DSC02487.jpg"
+                            "full": "photography/2025/Brighton/DSC02487.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "cityscape",
+                                "seascape",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02490.jpg",
-                            "full": "photography/2025/Brighton/DSC02490.jpg"
+                            "full": "photography/2025/Brighton/DSC02490.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "beach",
+                                "seascape",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02493.jpg",
-                            "full": "photography/2025/Brighton/DSC02493.jpg"
+                            "full": "photography/2025/Brighton/DSC02493.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "seascape",
+                                "night",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02495.jpg",
-                            "full": "photography/2025/Brighton/DSC02495.jpg"
+                            "full": "photography/2025/Brighton/DSC02495.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "seascape",
+                                "lake",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02496.jpg",
-                            "full": "photography/2025/Brighton/DSC02496.jpg"
-                        },
-                        {
-                            "thumb": "thumbnails/2025/Brighton/DSC02500.jpg",
-                            "full": "photography/2025/Brighton/DSC02500.jpg"
+                            "full": "photography/2025/Brighton/DSC02496.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "beach",
+                                "people",
+                                "seascape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02502.jpg",
-                            "full": "photography/2025/Brighton/DSC02502.jpg"
+                            "full": "photography/2025/Brighton/DSC02502.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02503.jpg",
-                            "full": "photography/2025/Brighton/DSC02503.jpg"
+                            "full": "photography/2025/Brighton/DSC02503.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "garden",
+                                "statue",
+                                "nature"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Brighton/DSC02504.jpg",
-                            "full": "photography/2025/Brighton/DSC02504.jpg"
+                            "full": "photography/2025/Brighton/DSC02504.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "street",
+                                "abstract"
+                            ]
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02357.jpg",
+                            "full": "photography/2025/Brighton/DSC02357.jpg",
+                            "orientation": "portrait",
+                            "tags": [
+                                "architecture",
+                                "statue",
+                                "castle"
+                            ]
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Brighton/DSC02500.jpg",
+                            "full": "photography/2025/Brighton/DSC02500.jpg",
+                            "orientation": "portrait",
+                            "tags": [
+                                "street",
+                                "cityscape",
+                                "architecture"
+                            ]
                         }
                     ]
                 },
@@ -317,43 +743,103 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2025/Lincoln/DSC02264.jpg",
-                            "full": "photography/2025/Lincoln/DSC02264.jpg"
+                            "full": "photography/2025/Lincoln/DSC02264.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "people",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Lincoln/DSC02267.jpg",
-                            "full": "photography/2025/Lincoln/DSC02267.jpg"
+                            "full": "photography/2025/Lincoln/DSC02267.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "architecture",
+                                "minimalism"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Lincoln/DSC02274.jpg",
-                            "full": "photography/2025/Lincoln/DSC02274.jpg"
+                            "full": "photography/2025/Lincoln/DSC02274.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "portrait",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Lincoln/DSC02283.jpg",
-                            "full": "photography/2025/Lincoln/DSC02283.jpg"
+                            "full": "photography/2025/Lincoln/DSC02283.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Lincoln/DSC02290.jpg",
-                            "full": "photography/2025/Lincoln/DSC02290.jpg"
+                            "full": "photography/2025/Lincoln/DSC02290.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Lincoln/DSC02293.jpg",
-                            "full": "photography/2025/Lincoln/DSC02293.jpg"
+                            "full": "photography/2025/Lincoln/DSC02293.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Lincoln/DSC02294.jpg",
-                            "full": "photography/2025/Lincoln/DSC02294.jpg"
+                            "full": "photography/2025/Lincoln/DSC02294.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "landscape",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Lincoln/DSC02296.jpg",
-                            "full": "photography/2025/Lincoln/DSC02296.jpg"
+                            "full": "photography/2025/Lincoln/DSC02296.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "castle",
+                                "museum",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Lincoln/DSC02298.jpg",
-                            "full": "photography/2025/Lincoln/DSC02298.jpg"
+                            "full": "photography/2025/Lincoln/DSC02298.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "macro",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Lincoln/DSC02310.jpg",
-                            "full": "photography/2025/Lincoln/DSC02310.jpg"
+                            "full": "photography/2025/Lincoln/DSC02310.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "landscape",
+                                "castle",
+                                "abstract"
+                            ]
                         }
                     ]
                 },
@@ -362,107 +848,263 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01877.jpg",
-                            "full": "photography/2025/Liverpool/DSC01877.jpg"
+                            "full": "photography/2025/Liverpool/DSC01877.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "cityscape",
+                                "river"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01878.jpg",
-                            "full": "photography/2025/Liverpool/DSC01878.jpg"
+                            "full": "photography/2025/Liverpool/DSC01878.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "cityscape",
+                                "river"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01915.jpg",
-                            "full": "photography/2025/Liverpool/DSC01915.jpg"
+                            "full": "photography/2025/Liverpool/DSC01915.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "street",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01935.jpg",
-                            "full": "photography/2025/Liverpool/DSC01935.jpg"
+                            "full": "photography/2025/Liverpool/DSC01935.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "cityscape",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01940.jpg",
-                            "full": "photography/2025/Liverpool/DSC01940.jpg"
+                            "full": "photography/2025/Liverpool/DSC01940.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01947.jpg",
-                            "full": "photography/2025/Liverpool/DSC01947.jpg"
+                            "full": "photography/2025/Liverpool/DSC01947.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "street",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01961-2.jpg",
-                            "full": "photography/2025/Liverpool/DSC01961-2.jpg"
+                            "full": "photography/2025/Liverpool/DSC01961-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "people",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01961.jpg",
-                            "full": "photography/2025/Liverpool/DSC01961.jpg"
+                            "full": "photography/2025/Liverpool/DSC01961.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "people",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01963.jpg",
-                            "full": "photography/2025/Liverpool/DSC01963.jpg"
+                            "full": "photography/2025/Liverpool/DSC01963.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "bird",
+                                "macro"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01968.jpg",
-                            "full": "photography/2025/Liverpool/DSC01968.jpg"
+                            "full": "photography/2025/Liverpool/DSC01968.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "landscape",
+                                "lake"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01969.jpg",
-                            "full": "photography/2025/Liverpool/DSC01969.jpg"
+                            "full": "photography/2025/Liverpool/DSC01969.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "flowers",
+                                "street",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01970.jpg",
-                            "full": "photography/2025/Liverpool/DSC01970.jpg"
+                            "full": "photography/2025/Liverpool/DSC01970.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01976.jpg",
-                            "full": "photography/2025/Liverpool/DSC01976.jpg"
+                            "full": "photography/2025/Liverpool/DSC01976.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "cityscape",
+                                "street",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01983.jpg",
-                            "full": "photography/2025/Liverpool/DSC01983.jpg"
+                            "full": "photography/2025/Liverpool/DSC01983.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "statue",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC01996.jpg",
-                            "full": "photography/2025/Liverpool/DSC01996.jpg"
+                            "full": "photography/2025/Liverpool/DSC01996.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "night"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02008.jpg",
-                            "full": "photography/2025/Liverpool/DSC02008.jpg"
+                            "full": "photography/2025/Liverpool/DSC02008.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "museum",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02010.jpg",
-                            "full": "photography/2025/Liverpool/DSC02010.jpg"
+                            "full": "photography/2025/Liverpool/DSC02010.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "museum",
+                                "castle"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02013.jpg",
-                            "full": "photography/2025/Liverpool/DSC02013.jpg"
+                            "full": "photography/2025/Liverpool/DSC02013.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "black and white",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02030.jpg",
-                            "full": "photography/2025/Liverpool/DSC02030.jpg"
+                            "full": "photography/2025/Liverpool/DSC02030.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "portrait",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02070.jpg",
-                            "full": "photography/2025/Liverpool/DSC02070.jpg"
+                            "full": "photography/2025/Liverpool/DSC02070.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "people",
+                                "statue"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02120.jpg",
-                            "full": "photography/2025/Liverpool/DSC02120.jpg"
+                            "full": "photography/2025/Liverpool/DSC02120.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "black and white",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02121.jpg",
-                            "full": "photography/2025/Liverpool/DSC02121.jpg"
+                            "full": "photography/2025/Liverpool/DSC02121.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "interior",
+                                "night"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02128.jpg",
-                            "full": "photography/2025/Liverpool/DSC02128.jpg"
+                            "full": "photography/2025/Liverpool/DSC02128.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "night",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02129.jpg",
-                            "full": "photography/2025/Liverpool/DSC02129.jpg"
+                            "full": "photography/2025/Liverpool/DSC02129.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "dog",
+                                "statue"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02133.jpg",
-                            "full": "photography/2025/Liverpool/DSC02133.jpg"
+                            "full": "photography/2025/Liverpool/DSC02133.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "wildlife",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Liverpool/DSC02135.jpg",
-                            "full": "photography/2025/Liverpool/DSC02135.jpg"
+                            "full": "photography/2025/Liverpool/DSC02135.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "night",
+                                "people"
+                            ]
                         }
                     ]
                 },
@@ -471,67 +1113,163 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2025/London/DSC02245.jpg",
-                            "full": "photography/2025/London/DSC02245.jpg"
+                            "full": "photography/2025/London/DSC02245.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "abstract",
+                                "macro",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02252.jpg",
-                            "full": "photography/2025/London/DSC02252.jpg"
+                            "full": "photography/2025/London/DSC02252.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "museum",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02253-2.jpg",
-                            "full": "photography/2025/London/DSC02253-2.jpg"
+                            "full": "photography/2025/London/DSC02253-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "flowers",
+                                "garden"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02254-2.jpg",
-                            "full": "photography/2025/London/DSC02254-2.jpg"
+                            "full": "photography/2025/London/DSC02254-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "architecture",
+                                "interior"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02256-2.jpg",
-                            "full": "photography/2025/London/DSC02256-2.jpg"
+                            "full": "photography/2025/London/DSC02256-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "museum",
+                                "ruins"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02512.jpg",
-                            "full": "photography/2025/London/DSC02512.jpg"
+                            "full": "photography/2025/London/DSC02512.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "people",
+                                "macro"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02515.jpg",
-                            "full": "photography/2025/London/DSC02515.jpg"
+                            "full": "photography/2025/London/DSC02515.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "black and white",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02516.png",
-                            "full": "photography/2025/London/DSC02516.png"
+                            "full": "photography/2025/London/DSC02516.png",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "black and white",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02517.jpg",
-                            "full": "photography/2025/London/DSC02517.jpg"
+                            "full": "photography/2025/London/DSC02517.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "interior",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02519.jpg",
-                            "full": "photography/2025/London/DSC02519.jpg"
+                            "full": "photography/2025/London/DSC02519.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "landscape",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02530.jpg",
-                            "full": "photography/2025/London/DSC02530.jpg"
+                            "full": "photography/2025/London/DSC02530.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "statue",
+                                "museum",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02533.jpg",
-                            "full": "photography/2025/London/DSC02533.jpg"
-                        },
-                        {
-                            "thumb": "thumbnails/2025/London/DSC02535.jpg",
-                            "full": "photography/2025/London/DSC02535.jpg"
+                            "full": "photography/2025/London/DSC02533.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "street",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02543.jpg",
-                            "full": "photography/2025/London/DSC02543.jpg"
+                            "full": "photography/2025/London/DSC02543.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "landscape",
+                                "cityscape",
+                                "river"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02562.jpg",
-                            "full": "photography/2025/London/DSC02562.jpg"
+                            "full": "photography/2025/London/DSC02562.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "church",
+                                "landscape",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/London/DSC02567.jpg",
-                            "full": "photography/2025/London/DSC02567.jpg"
+                            "full": "photography/2025/London/DSC02567.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "landscape",
+                                "sunrise",
+                                "abstract"
+                            ]
+                        },
+                        {
+                            "thumb": "thumbnails/2025/London/DSC02535.jpg",
+                            "full": "photography/2025/London/DSC02535.jpg",
+                            "orientation": "portrait",
+                            "tags": [
+                                "museum",
+                                "architecture",
+                                "castle"
+                            ]
                         }
                     ]
                 },
@@ -540,147 +1278,363 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2025/Mansfield/1767446607201_1767446601005_DSC02863.jpg",
-                            "full": "photography/2025/Mansfield/1767446607201_1767446601005_DSC02863.jpg"
+                            "full": "photography/2025/Mansfield/1767446607201_1767446601005_DSC02863.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "bird",
+                                "statue",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/1767446608978_1767446601300_DSC02857.jpg",
-                            "full": "photography/2025/Mansfield/1767446608978_1767446601300_DSC02857.jpg"
+                            "full": "photography/2025/Mansfield/1767446608978_1767446601300_DSC02857.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "cityscape",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/1767446610789_1767446601672_DSC02852-2.jpg",
-                            "full": "photography/2025/Mansfield/1767446610789_1767446601672_DSC02852-2.jpg"
+                            "full": "photography/2025/Mansfield/1767446610789_1767446601672_DSC02852-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "black and white",
+                                "people",
+                                "night"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02139.jpg",
-                            "full": "photography/2025/Mansfield/DSC02139.jpg"
+                            "full": "photography/2025/Mansfield/DSC02139.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "architecture",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02142.jpg",
-                            "full": "photography/2025/Mansfield/DSC02142.jpg"
+                            "full": "photography/2025/Mansfield/DSC02142.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "statue",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02160.jpg",
-                            "full": "photography/2025/Mansfield/DSC02160.jpg"
+                            "full": "photography/2025/Mansfield/DSC02160.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "abstract",
+                                "macro",
+                                "night"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02161.jpg",
-                            "full": "photography/2025/Mansfield/DSC02161.jpg"
+                            "full": "photography/2025/Mansfield/DSC02161.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "landscape",
+                                "forest"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02163.jpg",
-                            "full": "photography/2025/Mansfield/DSC02163.jpg"
+                            "full": "photography/2025/Mansfield/DSC02163.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "garden",
+                                "landscape",
+                                "nature"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02206.jpg",
-                            "full": "photography/2025/Mansfield/DSC02206.jpg"
+                            "full": "photography/2025/Mansfield/DSC02206.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "abstract",
+                                "nature",
+                                "sunrise"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02214.jpg",
-                            "full": "photography/2025/Mansfield/DSC02214.jpg"
+                            "full": "photography/2025/Mansfield/DSC02214.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "garden",
+                                "landscape",
+                                "forest"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02217.jpg",
-                            "full": "photography/2025/Mansfield/DSC02217.jpg"
+                            "full": "photography/2025/Mansfield/DSC02217.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "street",
+                                "forest"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02224.jpg",
-                            "full": "photography/2025/Mansfield/DSC02224.jpg"
+                            "full": "photography/2025/Mansfield/DSC02224.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "museum",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02225.jpg",
-                            "full": "photography/2025/Mansfield/DSC02225.jpg"
+                            "full": "photography/2025/Mansfield/DSC02225.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "statue",
+                                "castle"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02229.jpg",
-                            "full": "photography/2025/Mansfield/DSC02229.jpg"
+                            "full": "photography/2025/Mansfield/DSC02229.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "abstract",
+                                "minimalism",
+                                "nature"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02843-1.33x-desqueezed.jpg",
-                            "full": "photography/2025/Mansfield/DSC02843-1.33x-desqueezed.jpg"
+                            "full": "photography/2025/Mansfield/DSC02843-1.33x-desqueezed.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "garden",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02847-1.33x-desqueezed.jpg",
-                            "full": "photography/2025/Mansfield/DSC02847-1.33x-desqueezed.jpg"
+                            "full": "photography/2025/Mansfield/DSC02847-1.33x-desqueezed.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "landscape",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02849-1.33x-desqueezed.jpg",
-                            "full": "photography/2025/Mansfield/DSC02849-1.33x-desqueezed.jpg"
+                            "full": "photography/2025/Mansfield/DSC02849-1.33x-desqueezed.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "forest",
+                                "street",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02850-1.33x-desqueezed-2.jpg",
-                            "full": "photography/2025/Mansfield/DSC02850-1.33x-desqueezed-2.jpg"
+                            "full": "photography/2025/Mansfield/DSC02850-1.33x-desqueezed-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "landscape",
+                                "black and white",
+                                "garden"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02850-1.33x-desqueezed.jpg",
-                            "full": "photography/2025/Mansfield/DSC02850-1.33x-desqueezed.jpg"
+                            "full": "photography/2025/Mansfield/DSC02850-1.33x-desqueezed.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "landscape",
+                                "garden",
+                                "night"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02850-1.jpg",
-                            "full": "photography/2025/Mansfield/DSC02850-1.jpg"
+                            "full": "photography/2025/Mansfield/DSC02850-1.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "landscape",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/DSC02850-2.jpg",
-                            "full": "photography/2025/Mansfield/DSC02850-2.jpg"
+                            "full": "photography/2025/Mansfield/DSC02850-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "landscape",
+                                "garden",
+                                "castle"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_000989.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_000989.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_000989.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "people",
+                                "archaeology"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_000991.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_000991.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_000991.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "portrait",
+                                "garden",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_000995.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_000995.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_000995.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "garden",
+                                "flowers",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_000999.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_000999.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_000999.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "black and white",
+                                "people",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_001005.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001005.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001005.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "garden",
+                                "forest",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_001009-2.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001009-2.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001009-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "statue",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_001017.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001017.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001017.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "garden",
+                                "people",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_001023.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001023.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001023.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "archaeology",
+                                "statue",
+                                "garden"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_001025.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001025.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001025.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "portrait",
+                                "garden"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_001027-2.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001027-2.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001027-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "portrait",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_001027.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001027.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001027.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "portrait",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/SONY ILCE-6000 6000x3376_001039.jpg",
-                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001039.jpg"
+                            "full": "photography/2025/Mansfield/SONY ILCE-6000 6000x3376_001039.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "black and white",
+                                "abstract",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/WhatsApp Image 2025-12-16 at 1.20.37 PM.jpg",
-                            "full": "photography/2025/Mansfield/WhatsApp Image 2025-12-16 at 1.20.37 PM.jpg"
+                            "full": "photography/2025/Mansfield/WhatsApp Image 2025-12-16 at 1.20.37 PM.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "interior",
+                                "night"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/WhatsApp Image 2025-12-16 at 1.21.03 PM.jpg",
-                            "full": "photography/2025/Mansfield/WhatsApp Image 2025-12-16 at 1.21.03 PM.jpg"
+                            "full": "photography/2025/Mansfield/WhatsApp Image 2025-12-16 at 1.21.03 PM.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "abstract",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Mansfield/download.jpg",
-                            "full": "photography/2025/Mansfield/download.jpg"
+                            "full": "photography/2025/Mansfield/download.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "landscape",
+                                "forest"
+                            ]
                         }
                     ]
                 },
@@ -689,87 +1643,213 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2025/Newcastle/DSC02783.jpg",
-                            "full": "photography/2025/Newcastle/DSC02783.jpg"
+                            "full": "photography/2025/Newcastle/DSC02783.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "abstract",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/DSC02784.jpg",
-                            "full": "photography/2025/Newcastle/DSC02784.jpg"
+                            "full": "photography/2025/Newcastle/DSC02784.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "portrait",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/DSC02786-2.jpg",
-                            "full": "photography/2025/Newcastle/DSC02786-2.jpg"
+                            "full": "photography/2025/Newcastle/DSC02786-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "statue"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/DSC02795.jpg",
-                            "full": "photography/2025/Newcastle/DSC02795.jpg"
+                            "full": "photography/2025/Newcastle/DSC02795.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "bird",
+                                "dog"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/DSC02804.jpg",
-                            "full": "photography/2025/Newcastle/DSC02804.jpg"
+                            "full": "photography/2025/Newcastle/DSC02804.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "landscape",
+                                "interior"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/DSC02807.jpg",
-                            "full": "photography/2025/Newcastle/DSC02807.jpg"
+                            "full": "photography/2025/Newcastle/DSC02807.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "interior",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/DSC02809.jpg",
-                            "full": "photography/2025/Newcastle/DSC02809.jpg"
+                            "full": "photography/2025/Newcastle/DSC02809.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "ruins",
+                                "black and white",
+                                "interior"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/IMG-20250821-WA0030.jpg",
-                            "full": "photography/2025/Newcastle/IMG-20250821-WA0030.jpg"
+                            "full": "photography/2025/Newcastle/IMG-20250821-WA0030.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/IMG-20250821-WA0032.jpg",
-                            "full": "photography/2025/Newcastle/IMG-20250821-WA0032.jpg"
+                            "full": "photography/2025/Newcastle/IMG-20250821-WA0032.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "cityscape",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/IMG-20250821-WA0035.jpg",
-                            "full": "photography/2025/Newcastle/IMG-20250821-WA0035.jpg"
+                            "full": "photography/2025/Newcastle/IMG-20250821-WA0035.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "interior",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250819_141615986~2.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250819_141615986~2.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250819_141615986~2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "portrait",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250819_151045948~3.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250819_151045948~3.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250819_151045948~3.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "castle",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250819_152636186~2.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250819_152636186~2.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250819_152636186~2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "ruins",
+                                "cityscape",
+                                "castle"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250820_125101844~2.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250820_125101844~2.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250820_125101844~2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "people",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250820_194217151.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250820_194217151.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250820_194217151.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "people",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250820_200733839.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250820_200733839.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250820_200733839.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "abstract",
+                                "interior"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250820_202441853.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250820_202441853.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250820_202441853.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "people",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250821_105353547.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250821_105353547.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250821_105353547.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250821_130257278.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250821_130257278.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250821_130257278.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "museum",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250821_130329704.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250821_130329704.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250821_130329704.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "architecture",
+                                "interior"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Newcastle/PXL_20250821_130335999.jpg",
-                            "full": "photography/2025/Newcastle/PXL_20250821_130335999.jpg"
+                            "full": "photography/2025/Newcastle/PXL_20250821_130335999.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "interior",
+                                "museum",
+                                "architecture"
+                            ]
                         }
                     ]
                 },
@@ -778,95 +1858,233 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02509.jpg",
-                            "full": "photography/2025/Nottingham/DSC02509.jpg"
+                            "full": "photography/2025/Nottingham/DSC02509.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "river",
+                                "cityscape",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02684.jpg",
-                            "full": "photography/2025/Nottingham/DSC02684.jpg"
+                            "full": "photography/2025/Nottingham/DSC02684.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02686.jpg",
-                            "full": "photography/2025/Nottingham/DSC02686.jpg"
+                            "full": "photography/2025/Nottingham/DSC02686.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "bird",
+                                "macro"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02690.jpg",
-                            "full": "photography/2025/Nottingham/DSC02690.jpg"
-                        },
-                        {
-                            "thumb": "thumbnails/2025/Nottingham/DSC02696.jpg",
-                            "full": "photography/2025/Nottingham/DSC02696.jpg"
+                            "full": "photography/2025/Nottingham/DSC02690.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "abstract",
+                                "flowers"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02701.jpg",
-                            "full": "photography/2025/Nottingham/DSC02701.jpg"
+                            "full": "photography/2025/Nottingham/DSC02701.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "abstract",
+                                "macro",
+                                "black and white"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02709.jpg",
-                            "full": "photography/2025/Nottingham/DSC02709.jpg"
+                            "full": "photography/2025/Nottingham/DSC02709.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "macro",
+                                "abstract",
+                                "black and white"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02710.jpg",
-                            "full": "photography/2025/Nottingham/DSC02710.jpg"
+                            "full": "photography/2025/Nottingham/DSC02710.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "abstract",
+                                "people",
+                                "interior"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02728.jpg",
-                            "full": "photography/2025/Nottingham/DSC02728.jpg"
+                            "full": "photography/2025/Nottingham/DSC02728.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "architecture"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02736.jpg",
-                            "full": "photography/2025/Nottingham/DSC02736.jpg"
+                            "full": "photography/2025/Nottingham/DSC02736.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "church",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02738.jpg",
-                            "full": "photography/2025/Nottingham/DSC02738.jpg"
+                            "full": "photography/2025/Nottingham/DSC02738.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02740.jpg",
-                            "full": "photography/2025/Nottingham/DSC02740.jpg"
+                            "full": "photography/2025/Nottingham/DSC02740.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "abstract",
+                                "bird"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02743-2.jpg",
-                            "full": "photography/2025/Nottingham/DSC02743-2.jpg"
+                            "full": "photography/2025/Nottingham/DSC02743-2.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "interior"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02743.jpg",
-                            "full": "photography/2025/Nottingham/DSC02743.jpg"
+                            "full": "photography/2025/Nottingham/DSC02743.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "interior"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02746.jpg",
-                            "full": "photography/2025/Nottingham/DSC02746.jpg"
+                            "full": "photography/2025/Nottingham/DSC02746.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "night"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02747.jpg",
-                            "full": "photography/2025/Nottingham/DSC02747.jpg"
+                            "full": "photography/2025/Nottingham/DSC02747.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "museum",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02748.jpg",
-                            "full": "photography/2025/Nottingham/DSC02748.jpg"
+                            "full": "photography/2025/Nottingham/DSC02748.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02812.jpg",
-                            "full": "photography/2025/Nottingham/DSC02812.jpg"
+                            "full": "photography/2025/Nottingham/DSC02812.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02814.jpg",
-                            "full": "photography/2025/Nottingham/DSC02814.jpg"
+                            "full": "photography/2025/Nottingham/DSC02814.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "museum",
+                                "castle"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02817.jpg",
-                            "full": "photography/2025/Nottingham/DSC02817.jpg"
+                            "full": "photography/2025/Nottingham/DSC02817.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "sunrise",
+                                "sunset",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02819.jpg",
-                            "full": "photography/2025/Nottingham/DSC02819.jpg"
+                            "full": "photography/2025/Nottingham/DSC02819.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "street",
+                                "landscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02823.jpg",
-                            "full": "photography/2025/Nottingham/DSC02823.jpg"
+                            "full": "photography/2025/Nottingham/DSC02823.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "sunset",
+                                "sunrise",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Nottingham/DSC02828.jpg",
-                            "full": "photography/2025/Nottingham/DSC02828.jpg"
+                            "full": "photography/2025/Nottingham/DSC02828.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "night",
+                                "street",
+                                "sunset"
+                            ]
+                        },
+                        {
+                            "thumb": "thumbnails/2025/Nottingham/DSC02696.jpg",
+                            "full": "photography/2025/Nottingham/DSC02696.jpg",
+                            "orientation": "portrait",
+                            "tags": [
+                                "abstract",
+                                "landscape",
+                                "portrait"
+                            ]
                         }
                     ]
                 },
@@ -875,75 +2093,183 @@
                     "images": [
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02589.jpg",
-                            "full": "photography/2025/Sheffield/DSC02589.jpg"
+                            "full": "photography/2025/Sheffield/DSC02589.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "cityscape",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02599.jpg",
-                            "full": "photography/2025/Sheffield/DSC02599.jpg"
+                            "full": "photography/2025/Sheffield/DSC02599.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "statue",
+                                "architecture",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02602.jpg",
-                            "full": "photography/2025/Sheffield/DSC02602.jpg"
+                            "full": "photography/2025/Sheffield/DSC02602.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "interior",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02603.jpg",
-                            "full": "photography/2025/Sheffield/DSC02603.jpg"
+                            "full": "photography/2025/Sheffield/DSC02603.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "night",
+                                "people"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02606.jpg",
-                            "full": "photography/2025/Sheffield/DSC02606.jpg"
+                            "full": "photography/2025/Sheffield/DSC02606.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "forest",
+                                "minimalism",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02607.jpg",
-                            "full": "photography/2025/Sheffield/DSC02607.jpg"
+                            "full": "photography/2025/Sheffield/DSC02607.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "cityscape",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02612.jpg",
-                            "full": "photography/2025/Sheffield/DSC02612.jpg"
+                            "full": "photography/2025/Sheffield/DSC02612.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "garden",
+                                "street",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02615.jpg",
-                            "full": "photography/2025/Sheffield/DSC02615.jpg"
+                            "full": "photography/2025/Sheffield/DSC02615.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "garden",
+                                "museum",
+                                "interior"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02618.jpg",
-                            "full": "photography/2025/Sheffield/DSC02618.jpg"
+                            "full": "photography/2025/Sheffield/DSC02618.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "museum",
+                                "street",
+                                "abstract"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02619.jpg",
-                            "full": "photography/2025/Sheffield/DSC02619.jpg"
+                            "full": "photography/2025/Sheffield/DSC02619.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "cityscape",
+                                "abstract",
+                                "macro"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02621.jpg",
-                            "full": "photography/2025/Sheffield/DSC02621.jpg"
+                            "full": "photography/2025/Sheffield/DSC02621.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "abstract",
+                                "cityscape"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02623.jpg",
-                            "full": "photography/2025/Sheffield/DSC02623.jpg"
+                            "full": "photography/2025/Sheffield/DSC02623.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "statue",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02637.jpg",
-                            "full": "photography/2025/Sheffield/DSC02637.jpg"
+                            "full": "photography/2025/Sheffield/DSC02637.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "people",
+                                "portrait",
+                                "street"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02643.jpg",
-                            "full": "photography/2025/Sheffield/DSC02643.jpg"
+                            "full": "photography/2025/Sheffield/DSC02643.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "bird",
+                                "wildlife",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02646.jpg",
-                            "full": "photography/2025/Sheffield/DSC02646.jpg"
+                            "full": "photography/2025/Sheffield/DSC02646.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "street",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02647.jpg",
-                            "full": "photography/2025/Sheffield/DSC02647.jpg"
+                            "full": "photography/2025/Sheffield/DSC02647.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "people",
+                                "museum"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/DSC02649.jpg",
-                            "full": "photography/2025/Sheffield/DSC02649.jpg"
+                            "full": "photography/2025/Sheffield/DSC02649.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "street",
+                                "black and white",
+                                "portrait"
+                            ]
                         },
                         {
                             "thumb": "thumbnails/2025/Sheffield/PXL_20250712_160434187.jpg",
-                            "full": "photography/2025/Sheffield/PXL_20250712_160434187.jpg"
+                            "full": "photography/2025/Sheffield/PXL_20250712_160434187.jpg",
+                            "orientation": "landscape",
+                            "tags": [
+                                "architecture",
+                                "museum",
+                                "interior"
+                            ]
                         }
                     ]
                 }
