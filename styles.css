@@ -54,7 +54,69 @@ html {
 body.no-animation {
   animation: none !important;
 }
+/* --- GLOBAL NAVIGATION BAR --- */
+.global-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(25, 15, 0, 0.95);
+  border-bottom: 3px solid #ffad33;
+  padding: 15px 20px;
+  /* Use your custom font here if it's in the shared CSS */
+  font-family: 'Borda', monospace, sans-serif; 
+  position: relative;
+  z-index: 10000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
 
+.nav-brand {
+  color: #ffad33;
+  font-weight: 800;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px rgba(255, 173, 51, 0.7);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link {
+  color: #b5811c;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 15px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: black;
+  background-color: #ffad33;
+  border-color: #ffad33;
+  box-shadow: 0 0 8px rgba(255, 173, 51, 0.6);
+}
+
+/* Mobile Nav Adjustments */
+@media (max-width: 768px) {
+  .global-nav {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 10px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .nav-link {
+    font-size: 0.9em;
+    padding: 8px 10px;
+  }
+}
 body {
   display: flex;
   min-height: 100vh;
