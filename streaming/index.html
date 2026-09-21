@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SubSecondStreaming | Technically-Jen</title>
+  <link rel="icon" type="image/x-icon" href="../Pictures/favicon.ico" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <link rel="preload" href="../fonts/Borda Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../fonts/Borda Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../fonts/Borda ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+
+  <style>
+    /* --- SHD THEME FONTS --- */
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Light.ttf') format('truetype'); font-weight: 300; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda DemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda ExtraBold.ttf') format('truetype'); font-weight: 800; font-display: swap; }
+
+    /* --- BASE STYLING --- */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background-color: #190f00;
+      background-image: radial-gradient(circle at center, rgba(37, 22, 0, 0.6), rgba(25, 15, 0, 0.8) 50%, #000000 100%);
+      color: #b5811c;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    /* KILLS THE TOP-TO-BOTTOM ANIMATION INHERITED FROM STYLES.CSS */
+    body, body::before, body::after, .content-wrapper, main, .scanlines {
+      animation: none !important;
+    }
+
+    /* RESTRICT BORDA TO DISPLAY ELEMENTS ONLY */
+    h1, h2, h3, h4, .nav-brand, .lens-btn, .tool-category-header {
+      font-family: 'Borda', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    /* --- CONSISTENT NAV STYLES --- */
+    .nav-brand {
+      font-family: 'Borda', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-link {
+      color: #b5811c;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      .nav-link {
+        font-size: 1rem;
+      }
+    }
+
+    .nav-link:hover {
+      color: black;
+      background: #ffad33;
+    }
+
+    .nav-active {
+      color: black !important;
+      background: #ffad33;
+      box-shadow: 0 0 8px rgba(255, 173, 51, 0.6);
+    }
+
+    /* Scanline Background Overlay */
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 2px, 3px 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    /* --- COMPONENTS --- */
+    .shd-card {
+      background-color: rgba(25, 15, 0, 0.85);
+      border: 2px solid #b5811c;
+      box-shadow: 0 0 15px rgba(255, 173, 51, 0.15);
+      padding: 1.5rem;
+      width: 100%;
+    }
+
+    .tech-pill {
+      background: rgba(255, 173, 51, 0.1);
+      border: 1px solid #ffad33;
+      color: #ffad33;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      text-transform: uppercase;
+      display: inline-block;
+      white-space: nowrap;
+      margin-bottom: 4px;
+      font-family: system-ui, sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .shd-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .shd-list li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: #ffad33;
+      font-weight: bold;
+    }
+
+    .sales-highlight {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    /* --- PORTFOLIO TOGGLE LOGIC --- */
+    .view-content { display: none; width: 100%; }
+    .view-content.active { display: block; }
+
+    .lens-btn {
+      background: rgba(25, 15, 0, 0.9);
+      border: 2px solid #b5811c;
+      color: #b5811c;
+      padding: 12px 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      flex: 1;
+      text-align: center;
+    }
+
+    .lens-btn:hover { background: rgba(255, 173, 51, 0.2); }
+
+    .lens-btn.active {
+      background: #ffad33;
+      color: black;
+      border-color: #ffad33;
+      box-shadow: 0 0 10px rgba(255, 173, 51, 0.5);
+    }
+
+    /* --- FEATURE GRID TILES --- */
+    .tool-box {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(181, 129, 28, 0.5);
+      border-top: 3px solid #ffad33;
+      padding: 16px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .tool-box:hover {
+      border-top-color: #ffffff;
+      background: rgba(255, 173, 51, 0.05);
+      box-shadow: 0 0 15px rgba(255, 173, 51, 0.2);
+    }
+
+    /* --- SIGNAL PATH DIAGRAM --- */
+    .diagram-node {
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid #b5811c;
+      padding: 14px 12px;
+      flex: 1;
+      text-align: center;
+      min-width: 140px;
+    }
+
+    .diagram-node.hot {
+      border-color: #fb7185;
+      box-shadow: 0 0 15px rgba(251, 113, 133, 0.2);
+    }
+
+    .diagram-arrow {
+      color: #fb7185;
+      font-weight: 900;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .lens-btn { padding: 12px 8px; font-size: 0.85rem; width: 100%; }
+      .shd-list li { font-size: 1rem; }
+      .diagram-arrow { transform: rotate(90deg); }
+    }
+  </style>
+
+  <link rel="stylesheet" href="../tailwind.css">
+</head>
+
+<body class="selection:bg-[#ffad33] selection:text-black text-base md:text-lg">
+  <div class="scanlines"></div>
+
+  <div class="content-wrapper flex flex-col min-h-screen">
+    <nav class="w-full flex flex-col md:flex-row justify-between items-center bg-black/95 border-b-2 border-[#ffad33] p-4 shadow-lg gap-4 relative z-[100]">
+      <a
+        href="/"
+        class="text-[#ffad33] font-black uppercase text-xl text-center md:text-left tracking-widest nav-brand"
+        style="text-shadow: 0 0 5px rgba(255, 173, 51, 0.7);"
+      >
+        Technically-Jen
+      </a>
+
+      <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+        <a href="/" class="nav-link nav-brand">Home</a>
+        <a href="/portfolio/" class="nav-link nav-brand">Portfolio</a>
+        <a href="/SHD/" class="nav-link nav-brand">ISAC</a>
+        <a href="/streaming/" class="nav-link nav-brand nav-active">SubSecondStreaming</a>
+        <a href="/gallery/" class="nav-link nav-brand">Photography</a>
+        <a
+          href="https://technicallypossible.co.uk"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-link nav-brand"
+        >
+          Blog
+        </a>
+      </div>
+    </nav>
+
+    <main class="w-full max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12 flex-grow flex flex-col items-center">
+      <header class="w-full mb-10 md:mb-14 text-center border-b border-[#b5811c]/30 pb-8">
+        <h1 class="text-4xl md:text-6xl font-black text-[#ffad33] uppercase tracking-widest mb-4 text-shadow">SubSecondStreaming</h1>
+        <p class="text-[#b5811c] text-base md:text-xl font-medium max-w-4xl mx-auto mb-8 leading-relaxed">
+          A private, sub-second-latency streaming network, built from scratch and run like a CDN.
+        </p>
+
+        <div class="flex flex-col md:flex-row justify-center gap-3 md:gap-4 w-full max-w-2xl mx-auto">
+          <button class="lens-btn active" data-target="view-pitch">The Pitch</button>
+          <button class="lens-btn" data-target="view-engineering">The Engineering</button>
+        </div>
+      </header>
+
+      <div id="view-pitch" class="view-content active">
+        <div class="mb-10 border-l-4 border-[#ffad33] pl-6 bg-black/40 p-6 rounded-r-lg w-full">
+          <h2 class="text-2xl font-black text-white uppercase italic mb-3">No Third-Party Relay in the Middle</h2>
+          <p class="text-[#b5811c] font-medium text-base md:text-lg max-w-5xl leading-relaxed tracking-wide mb-4">
+            VRChat's built-in video players can stream from anywhere on the internet, but "anywhere" usually means multiple seconds of delay, a shared public relay you don't control, and no say in quality, privacy, or reliability.
+          </p>
+          <p class="text-white font-bold text-base md:text-lg border-l-2 border-[#ffad33] pl-4 tracking-wide">
+            SubSecondStreaming is my answer to that: a private, purpose-built streaming network that gets an OBS broadcast into a VRChat world in under a second, worldwide. There's no third-party relay in the middle, and a viewer's stream key is never exposed to anyone watching. If someone on the other side of the planet has a worse time than everyone else, I can actually find out why, because I built, monitor, and tune this network myself.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 w-full">
+          <div class="shd-card">
+            <h3 class="text-xl font-black text-[#ffad33] uppercase mb-4 border-b border-[#b5811c]/30 pb-2">Streaming &amp; Playback</h3>
+            <ul class="shd-list text-[#b5811c]">
+              <li>Push a stream from OBS and get back a link that just works in ProTV, USharpVideo, or VideoTXL. No plugin, no special client, no per-viewer setup.</li>
+              <li><strong class="text-white">Sub-second glass-to-glass latency</strong> on PC and Quest: low-latency RTSP for desktop AVPro playback, low-latency HLS with 200ms parts for standalone headsets and browsers.</li>
+              <li><strong class="text-white">Paired HQ/LQ delivery.</strong> One stream goes in, two quality tiers come out, so viewers on a good connection get the crisp version and everyone else still gets something smooth.</li>
+            </ul>
+          </div>
+
+          <div class="shd-card">
+            <h3 class="text-xl font-black text-[#ffad33] uppercase mb-4 border-b border-[#b5811c]/30 pb-2">Security &amp; Control</h3>
+            <ul class="shd-list text-[#b5811c]">
+              <li><strong class="text-white">Every playback link is a disguise.</strong> Viewers get a friendly public slug (<code>/yourshow</code>), never the broadcast key. Share the link anywhere: the key that lets someone broadcast as you stays private, always.</li>
+              <li><strong class="text-white">Streamers manage themselves.</strong> A private self-service page shows live status, bitrate, viewer count, and connection history, and lets a streamer rotate their own key instantly. No admin required, no downtime.</li>
+              <li><strong class="text-white">An admin console, not a spreadsheet.</strong> Live service health, per-stream bitrate and reader counts, a color-coded security event feed, and live-tailed logs for every moving part, all in one dashboard.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="w-full mb-12">
+          <h2 class="text-2xl md:text-3xl font-black mb-6 text-white uppercase italic text-center">At A Glance</h2>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="tool-box">
+              <h4 class="text-[#ffad33] font-bold text-sm uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-bolt"></i>Sub-Second Latency</h4>
+              <p class="text-[11px] text-[#b5811c] flex-grow">RTSP (PC) + Low-Latency HLS (Quest/browser).</p>
+            </div>
+            <div class="tool-box">
+              <h4 class="text-[#ffad33] font-bold text-sm uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-globe"></i>Global Edge Routing</h4>
+              <p class="text-[11px] text-[#b5811c] flex-grow">GeoDNS automatically sends viewers to the nearest node.</p>
+            </div>
+            <div class="tool-box">
+              <h4 class="text-[#ffad33] font-bold text-sm uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-sliders"></i>HQ/LQ Tiers</h4>
+              <p class="text-[11px] text-[#b5811c] flex-grow">One broadcast, two quality options for viewers.</p>
+            </div>
+            <div class="tool-box">
+              <h4 class="text-[#ffad33] font-bold text-sm uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-lock"></i>Key-Safe Links</h4>
+              <p class="text-[11px] text-[#b5811c] flex-grow">Public slugs. The stream key is never exposed.</p>
+            </div>
+            <div class="tool-box">
+              <h4 class="text-[#ffad33] font-bold text-sm uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-rotate"></i>Self-Service Rotation</h4>
+              <p class="text-[11px] text-[#b5811c] flex-grow">Streamers manage their own security, instantly, no downtime.</p>
+            </div>
+            <div class="tool-box">
+              <h4 class="text-[#ffad33] font-bold text-sm uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-gauge-high"></i>Live Admin Dashboard</h4>
+              <p class="text-[11px] text-[#b5811c] flex-grow">Health, bitrate, viewers, security events, and logs on one screen.</p>
+            </div>
+            <div class="tool-box">
+              <h4 class="text-[#ffad33] font-bold text-sm uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-satellite-dish"></i>Real-Time Diagnostics</h4>
+              <p class="text-[11px] text-[#b5811c] flex-grow">Custom monitoring built to catch problems during live broadcasts.</p>
+            </div>
+            <div class="tool-box">
+              <h4 class="text-[#ffad33] font-bold text-sm uppercase mb-1 flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i>Proper Accounts</h4>
+              <p class="text-[11px] text-[#b5811c] flex-grow">Sessions, roles, CSRF protection, rate-limited login.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center border-t border-[#b5811c]/30 pt-10 mb-4 w-full">
+          <h2 class="text-2xl md:text-3xl font-black text-[#ffad33] uppercase tracking-widest italic mb-4">Why It Exists</h2>
+          <p class="text-[#b5811c] font-medium text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+            Off-the-shelf relay services are convenient, but you have no visibility into them. When something's slow, you can't see why and you can't fix it. SubSecondStreaming puts that control back in one place: one person running the infrastructure, able to look at a problem and answer <em>why</em> instead of shrugging at a status page.
+          </p>
+        </div>
+      </div>
+
+      <div id="view-engineering" class="view-content w-full">
+        <div class="mb-10 border-l-4 border-rose-500 pl-6 bg-black/40 p-6 rounded-r-lg w-full">
+          <h2 class="text-2xl md:text-3xl font-black text-white uppercase italic mb-3">How It's Built</h2>
+          <p class="text-rose-400 font-medium text-base md:text-lg max-w-5xl leading-relaxed tracking-wide">
+            This isn't a wrapper around someone else's service. I designed, built, and actively operate every layer end to end: the ingest and relay pipeline, the authentication and account system, the admin tooling, and the network topology it runs on.
+          </p>
+        </div>
+
+        <div class="shd-card border-rose-500 mb-10 md:mb-12">
+          <h3 class="text-xl font-black text-white uppercase mb-6 text-center tracking-wider">Signal Path</h3>
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="diagram-node">
+              <p class="text-white font-bold text-sm uppercase">OBS Broadcast</p>
+              <p class="text-[11px] text-[#b5811c] mt-1">Encoder push</p>
+            </div>
+            <span class="diagram-arrow">&rarr;</span>
+            <div class="diagram-node hot">
+              <p class="text-white font-bold text-sm uppercase">Private Ingest / Relay</p>
+              <p class="text-[11px] text-[#b5811c] mt-1">Origin server</p>
+            </div>
+            <span class="diagram-arrow">&rarr;</span>
+            <div class="diagram-node hot">
+              <p class="text-white font-bold text-sm uppercase">GeoDNS Edge Routing</p>
+              <p class="text-[11px] text-[#b5811c] mt-1">Multi-continent nodes</p>
+            </div>
+            <span class="diagram-arrow">&rarr;</span>
+            <div class="diagram-node">
+              <p class="text-white font-bold text-sm uppercase">VRChat Player</p>
+              <p class="text-[11px] text-[#b5811c] mt-1">RTSP / LL-HLS, same URL</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-6 w-full mb-10">
+          <div class="shd-card border-rose-500">
+            <span class="tech-pill !border-rose-500 !text-rose-400 !bg-rose-900/30 mb-3">Root-Cause Diagnosis</span>
+            <h3 class="text-xl font-black text-white uppercase mb-3">The Cross-Continent Bottleneck</h3>
+            <p class="text-base md:text-lg text-[#b5811c] leading-relaxed">
+              I once had to diagnose and fix a cross-continent performance bug. Viewers on one side of the Atlantic were getting unwatchable video while everyone else had a great experience, and the obvious suspects (server load, CPU, bad code) were all clean. I root-caused it by reading raw proxy and relay logs down to the packet level, cross-referencing client-side encoder logs against server timestamps across time zones, and running live traceroutes. The actual problem was <span class="sales-highlight">bandwidth saturation on the single origin server, which punished the highest-latency viewers first.</span>
+            </p>
+          </div>
+
+          <div class="shd-card border-rose-500">
+            <span class="tech-pill !border-rose-500 !text-rose-400 !bg-rose-900/30 mb-3">Network Topology</span>
+            <h3 class="text-xl font-black text-white uppercase mb-3">Building the Edge Network</h3>
+            <p class="text-base md:text-lg text-[#b5811c] leading-relaxed">
+              To fix it properly, I designed and deployed a geographically distributed edge network. Instead of patching around the symptom, I built a second relay node on another continent and wired it in with GeoDNS-based automatic routing, so every viewer's player, using the exact same unchanged URL, gets quietly steered to whichever server is actually closest to them. <span class="sales-highlight">I built and wired that edge network by hand, not bought off a shelf.</span>
+            </p>
+          </div>
+
+          <div class="shd-card border-rose-500">
+            <span class="tech-pill !border-rose-500 !text-rose-400 !bg-rose-900/30 mb-3">Control &amp; Observability</span>
+            <h3 class="text-xl font-black text-white uppercase mb-3">Operational Tooling</h3>
+            <p class="text-base md:text-lg text-[#b5811c] leading-relaxed">
+              I built the operational tooling to run it, too. A live control panel lets me stand up, monitor, and, if needed, instantly roll back the edge network, with health checks visible at a glance. Custom lightweight monitoring probes ride along during live broadcasts, sampling bitrate, viewer counts, and packet-level health every few seconds. So <span class="sales-highlight">the next time something goes wrong, I have hard data waiting instead of a guessing game.</span>
+            </p>
+          </div>
+
+          <div class="shd-card border-rose-500">
+            <span class="tech-pill !border-rose-500 !text-rose-400 !bg-rose-900/30 mb-3">Auth &amp; Access Control</span>
+            <h3 class="text-xl font-black text-white uppercase mb-3">Secure By Default</h3>
+            <p class="text-base md:text-lg text-[#b5811c] leading-relaxed">
+              Every account runs through a session-based auth system with role separation between admin and streamer, CSRF-protected mutations, and rate-limited login attempts. Stream keys are <span class="sales-highlight">never sent anywhere they don't strictly need to be,</span> and they never appear in a shareable link.
+            </p>
+          </div>
+
+          <div class="shd-card border-rose-500">
+            <span class="tech-pill !border-rose-500 !text-rose-400 !bg-rose-900/30 mb-3">Live Incident Response</span>
+            <h3 class="text-xl font-black text-white uppercase mb-3">Keeping The Lights On</h3>
+            <p class="text-base md:text-lg text-[#b5811c] leading-relaxed">
+              I've also handled a production incident live: a storage crisis on the origin server. I found and cleared the actual sources of unbounded growth instead of just buying more disk, <span class="sales-highlight">and kept the stream up the whole time.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="shd-card w-full max-w-3xl mx-auto mt-4 text-center border-4 border-rose-500">
+          <h2 class="text-2xl md:text-3xl font-black text-white uppercase mb-4 tracking-wider">Building Something Similar?</h2>
+          <p class="text-base md:text-lg text-[#b5811c] mb-6 font-medium">
+            SubSecondStreaming is private and purpose-built for its own network, but the engineering behind it (edge routing, secure ingest, live observability) is the kind of thing I build for a living.
+          </p>
+          <a
+            href="/#contact-toggle"
+            class="inline-block w-full border-4 border-[#b5811c] text-[#b5811c] font-bold py-4 text-xl uppercase hover:bg-[#ffad33] hover:border-[#ffad33] hover:text-black transition-all tracking-widest nav-brand"
+          >
+            Establish Secure Comms
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="w-full text-center py-10 border-t border-[#ffad33] bg-black mt-auto relative z-10">
+      <p class="text-xs md:text-sm text-[#b5811c] uppercase tracking-widest px-4 font-mono">
+        &copy; <span id="copyright-year">2026</span> Jennifer Colquhoun
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.lens-btn');
+    const views = document.querySelectorAll('.view-content');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        views.forEach(view => view.classList.remove('active'));
+
+        button.classList.add('active');
+        const targetId = button.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

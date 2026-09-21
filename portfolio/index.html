@@ -6,19 +6,29 @@
     <title>Operational Portfolio | Technically-Jen</title>
 
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preload" href="../fonts/Borda ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="../fonts/Borda Bold.ttf" as="font" type="font/ttf" crossorigin>
 
     <style>
       /* --- SHD THEME IMPORTS --- */
       @font-face {
         font-family: "Borda";
-        src: url("fonts/Borda_ExtraBold.ttf") format("truetype");
+        src: url("../fonts/Borda ExtraBold.ttf") format("truetype");
         font-weight: 400;
+        font-display: swap;
       }
       @font-face {
         font-family: "Borda";
-        src: url("fonts/Borda_Bold.ttf") format("truetype");
+        src: url("../fonts/Borda Bold.ttf") format("truetype");
         font-weight: 700;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Borda";
+        src: url("../fonts/Borda ExtraBold.ttf") format("truetype");
+        font-weight: 800;
+        font-display: swap;
       }
 
       html,
@@ -67,7 +77,7 @@
 
       /* --- CONSISTENT NAV --- */
       .nav-brand {
-        font-family: "fonts\Borda_ExtraBold.ttf", sans-serif;
+        font-family: "Borda", sans-serif;
         letter-spacing: 0.05em;
       }
 
@@ -235,13 +245,15 @@
       }
       main.enterprise-rd,
       main.enterprise-rd * {
-        font-family: "fonts\Borda_ExtraBold.ttf", sans-serif !important;
+        font-family: "Borda", sans-serif !important;
       }
     </style>
+
+    <link rel="stylesheet" href="../tailwind.css" />
   </head>
   <body class="selection:bg-[#ffad33] selection:text-black">
     <nav
-      class="w-full flex flex-col md:flex-row justify-between items-center bg-black/95 border-b-2 border-[#ffad33] p-4 shadow-lg gap-4 relative z-50"
+      class="w-full flex flex-col md:flex-row justify-between items-center bg-black/95 border-b-2 border-[#ffad33] p-4 shadow-lg gap-4 relative z-[100]"
     >
       <a
         href="/"
@@ -250,13 +262,13 @@
       >
         Technically-Jen
       </a>
-      <!-- JenTest -->
       <div class="flex flex-wrap justify-center gap-2 md:gap-4">
         <a href="/" class="nav-link nav-brand">Home</a>
         <a href="/portfolio/" class="nav-link nav-brand nav-active"
           >Portfolio</a
         >
         <a href="/SHD/" class="nav-link nav-brand">ISAC</a>
+        <a href="/streaming/" class="nav-link nav-brand">SubSecondStreaming</a>
         <a href="/gallery/" class="nav-link nav-brand">Photography</a>
         <a
           href="https://technicallypossible.co.uk"
@@ -962,7 +974,7 @@
       <p
         class="text-[10px] md:text-xs text-[#b5811c] uppercase tracking-widest px-4"
       >
-        2026 Jennifer Colquhoun | Engineering & Security Portfolio
+        <span id="copyright-year">2026</span> Jennifer Colquhoun | Engineering & Security Portfolio
       </p>
     </footer>
 
@@ -980,6 +992,8 @@
           document.getElementById(targetId).classList.add("active");
         });
       });
+
+      document.getElementById("copyright-year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>

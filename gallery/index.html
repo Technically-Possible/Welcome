@@ -11,6 +11,40 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+      /* --- CONSISTENT NAV (matches SHD/Portfolio/Streaming) --- */
+      @font-face { font-family: 'Borda'; src: url('../fonts/Borda.ttf') format('truetype'); font-weight: 400; }
+      @font-face { font-family: 'Borda'; src: url('../fonts/Borda Bold.ttf') format('truetype'); font-weight: 700; }
+      @font-face { font-family: 'Borda'; src: url('../fonts/Borda ExtraBold.ttf') format('truetype'); font-weight: 800; }
+
+      .global-nav {
+        font-family: 'Borda', sans-serif;
+        flex-wrap: wrap;
+      }
+
+      .nav-brand {
+        font-family: 'Borda', sans-serif;
+        font-size: 1.25rem;
+        white-space: nowrap;
+        letter-spacing: 0.05em;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-link {
+        font-family: 'Borda', sans-serif;
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+      }
+
+      @media (min-width: 768px) {
+        .nav-link {
+          font-size: 1rem;
+        }
+      }
+
       html,
       body {
         margin: 0;
@@ -405,10 +439,11 @@
   <a href="/" class="nav-brand">Technically-Jen</a>
   <div class="nav-links">
     <a href="/" class="nav-link">Home</a>
-    <a href="/portfolio/" class="nav-link">Professional Portfolio</a></a>
-    <a href="/SHD/" class="nav-link">Project ISAC</a>
-    <a href="/gallery/" class="nav-link">Photography Portfolio</a>
-    <a href="https://technicallypossible.co.uk" class="nav-link" target="_blank">Blog</a>
+    <a href="/portfolio/" class="nav-link">Portfolio</a>
+    <a href="/SHD/" class="nav-link">ISAC</a>
+    <a href="/streaming/" class="nav-link">SubSecondStreaming</a>
+    <a href="/gallery/" class="nav-link active">Photography</a>
+    <a href="https://technicallypossible.co.uk" class="nav-link" target="_blank" rel="noopener noreferrer">Blog</a>
   </div>
 </nav>
       <div class="gallery-layout">
@@ -421,7 +456,11 @@
     </main>
 
     <footer>
-      <p>&copy; 2026 Jennifer Freeman Colquhoun | Photography</p>
+      <p>&copy; <span id="copyright-year">2026</span> Jennifer Freeman Colquhoun | Photography</p>
     </footer>
+
+    <script>
+      document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>

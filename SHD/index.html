@@ -6,17 +6,20 @@
   <title>Project ISAC | Technically-Jen</title>
   <link rel="icon" type="image/x-icon" href="../Pictures/favicon.ico" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../styles.css" />
+
+  <link rel="preload" href="../fonts/Borda Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../fonts/Borda Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../fonts/Borda ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
 
   <style>
     /* --- SHD THEME FONTS --- */
-    @font-face { font-family: 'Borda'; src: url('../fonts/Borda.ttf') format('truetype'); font-weight: 400; }
-    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Light.ttf') format('truetype'); font-weight: 300; }
-    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Medium.ttf') format('truetype'); font-weight: 500; }
-    @font-face { font-family: 'Borda'; src: url('../fonts/Borda DemiBold.ttf') format('truetype'); font-weight: 600; }
-    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Bold.ttf') format('truetype'); font-weight: 700; }
-    @font-face { font-family: 'Borda'; src: url('../fonts/Borda ExtraBold.ttf') format('truetype'); font-weight: 800; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Light.ttf') format('truetype'); font-weight: 300; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda DemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda ExtraBold.ttf') format('truetype'); font-weight: 800; font-display: swap; }
 
     /* --- BASE STYLING --- */
     html, body {
@@ -231,13 +234,15 @@
       .sensor-table td, .sensor-table th { font-size: 0.95rem; }
     }
   </style>
+
+  <link rel="stylesheet" href="../tailwind.css">
 </head>
 
 <body class="selection:bg-[#ffad33] selection:text-black text-base md:text-lg">
   <div class="scanlines"></div>
 
   <div class="content-wrapper flex flex-col min-h-screen">
-    <nav class="w-full flex flex-col md:flex-row justify-between items-center bg-black/95 border-b-2 border-[#ffad33] p-4 shadow-lg gap-4">
+    <nav class="w-full flex flex-col md:flex-row justify-between items-center bg-black/95 border-b-2 border-[#ffad33] p-4 shadow-lg gap-4 relative z-[100]">
       <a
         href="/"
         class="text-[#ffad33] font-black uppercase text-xl text-center md:text-left tracking-widest nav-brand"
@@ -250,6 +255,7 @@
         <a href="/" class="nav-link nav-brand">Home</a>
         <a href="/portfolio/" class="nav-link nav-brand">Portfolio</a>
         <a href="/SHD/" class="nav-link nav-brand nav-active">ISAC</a>
+        <a href="/streaming/" class="nav-link nav-brand">SubSecondStreaming</a>
         <a href="/gallery/" class="nav-link nav-brand">Photography</a>
         <a
           href="https://technicallypossible.co.uk"
@@ -598,7 +604,7 @@
       <div class="mb-4 space-x-6">
       </div>
       <p class="text-xs md:text-sm text-[#b5811c] uppercase tracking-widest px-4 font-mono">
-        &copy; 2026 Jennifer Colquhoun 
+        &copy; <span id="copyright-year">2026</span> Jennifer Colquhoun
       </p>
     </footer>
   </div>
@@ -666,6 +672,8 @@
         lightbox.classList.remove('active');
       }
     });
+
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
