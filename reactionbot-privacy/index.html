@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy · Jenns Role ReactionBot</title>
+  <meta name="description" content="What Jenns Role ReactionBot stores, what it doesn't, and how to get it deleted.">
+  <link rel="icon" href="logo-256.png">
+  <style>
+    :root {
+      --bg: #FBF6EE;
+      --surface: #FFFFFF;
+      --text: #2A1A0C;
+      --muted: #6E5A45;
+      --accent: #B8621B;
+      --accent-soft: #F6E3C8;
+      --border: #E8D9C3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #140A04;
+        --surface: #1F1209;
+        --text: #F4E9DA;
+        --muted: #BFA88D;
+        --accent: #FFB347;
+        --accent-soft: #3A2412;
+        --border: #3A2716;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 17px/1.65 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+    header img {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      flex-shrink: 0;
+    }
+    h1 { font-size: 1.9rem; line-height: 1.2; margin: 0; }
+    .updated { color: var(--muted); margin: 4px 0 0; font-size: 0.95rem; }
+    h2 { font-size: 1.2rem; margin: 36px 0 8px; }
+    p, ul { margin: 0 0 14px; }
+    ul { padding-left: 1.3em; }
+    li { margin-bottom: 6px; }
+    a { color: var(--accent); }
+    .short {
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .short p:last-child { margin-bottom: 0; }
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="logo-256.png" alt="Jenns Role ReactionBot logo">
+      <div>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Jenns Role ReactionBot · Last updated September 24, 2026</p>
+      </div>
+    </header>
+
+    <div class="short">
+      <p><strong>The short version:</strong> the bot only remembers which messages are role messages and which emoji goes with which role. It doesn't save anything about you, what you say, or which roles you pick.</p>
+    </div>
+
+    <h2>What the bot saves</h2>
+    <p>When someone makes a role message with <code>/rr create</code>, the bot saves the setup so it keeps working after a restart:</p>
+    <ul>
+      <li>the ID of the role message and the channel it's in</li>
+      <li>the title of the role message</li>
+      <li>each emoji and the ID and name of the role it goes with</li>
+    </ul>
+    <p>That's everything. None of it is about individual people.</p>
+
+    <h2>What the bot doesn't save</h2>
+    <ul>
+      <li>It doesn't keep a list of who reacted or who has which role. When you click a reaction, the bot gives you the role and moves on.</li>
+      <li>It doesn't store your messages. It reads new messages only to spot ones that start with <code>/rr</code>, and ignores everything else.</li>
+      <li>It doesn't collect emails, IP addresses, or anything from outside Root.</li>
+      <li>It doesn't use analytics or tracking, and there are no ads.</li>
+    </ul>
+
+    <h2>What the bot uses while it's working</h2>
+    <p>To do its job, the bot briefly sees some info that Root sends it: your user ID when you react to a role message or run a command, and your roles when you use a command, to check whether you're allowed to. It uses that on the spot and doesn't save it.</p>
+
+    <h2>Where it's stored</h2>
+    <p>The role message setup is stored in the bot's own storage on Root's servers. It isn't sent anywhere else and it isn't shared with or sold to anyone. Root's own <a href="https://www.rootapp.com" rel="noopener">privacy policy</a> covers how Root handles your account and community data.</p>
+
+    <h2>Getting it deleted</h2>
+    <ul>
+      <li>Run <code>/rr remove</code>, or just delete the role message, and the bot deletes that role message's setup straight away.</li>
+      <li>If a community uninstalls the bot, it stops running there. If you want the leftover setup wiped too, get in touch and I'll delete it.</li>
+    </ul>
+
+    <h2>Kids</h2>
+    <p>The bot follows Root's age rules and doesn't knowingly collect anything about anyone, kids included.</p>
+
+    <h2>Changes</h2>
+    <p>If the bot ever starts saving something new, I'll update this page and the date at the top before that change goes out.</p>
+
+    <h2>Questions</h2>
+    <p>If you have a question or want something deleted, you can reach me through <a href="https://jenn.zip">jenn.zip</a>.</p>
+
+    <footer>
+      Made by Jenn, AKA Technically Possible · <a href="https://jenn.zip">jenn.zip</a>
+    </footer>
+  </main>
+</body>
+</html>
