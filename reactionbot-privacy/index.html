@@ -1,134 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy · Jenns Role ReactionBot</title>
-  <meta name="description" content="What Jenns Role ReactionBot stores, what it doesn't, and how to get it deleted.">
-  <link rel="icon" href="logo-256.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReactionBot Privacy | Technically-Jen</title>
+  <meta name="description" content="What Jenns Role ReactionBot stores, what it doesn't, and how to get it deleted." />
+  <link rel="icon" type="image/png" href="logo-256.png" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <link rel="preload" href="../fonts/Borda Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../fonts/Borda Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../fonts/Borda ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+
   <style>
-    :root {
-      --bg: #FBF6EE;
-      --surface: #FFFFFF;
-      --text: #2A1A0C;
-      --muted: #6E5A45;
-      --accent: #B8621B;
-      --accent-soft: #F6E3C8;
-      --border: #E8D9C3;
+    /* --- SHD THEME FONTS --- */
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Light.ttf') format('truetype'); font-weight: 300; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda DemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda ExtraBold.ttf') format('truetype'); font-weight: 800; font-display: swap; }
+
+    /* --- BASE STYLING --- */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #140A04;
-        --surface: #1F1209;
-        --text: #F4E9DA;
-        --muted: #BFA88D;
-        --accent: #FFB347;
-        --accent-soft: #3A2412;
-        --border: #3A2716;
+
+    body {
+      background-color: #190f00;
+      background-image: radial-gradient(circle at center, rgba(37, 22, 0, 0.6), rgba(25, 15, 0, 0.8) 50%, #000000 100%);
+      color: #b5811c;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    /* KILLS THE TOP-TO-BOTTOM ANIMATION INHERITED FROM STYLES.CSS */
+    body, body::before, body::after, .content-wrapper, main, .scanlines {
+      animation: none !important;
+    }
+
+    /* RESTRICT BORDA TO DISPLAY ELEMENTS ONLY */
+    h1, h2, h3, h4, .nav-brand {
+      font-family: 'Borda', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    /* --- CONSISTENT NAV STYLES --- */
+    .nav-link {
+      color: #b5811c;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      .nav-link {
+        font-size: 1rem;
       }
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font: 17px/1.65 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+
+    .nav-link:hover {
+      color: black;
+      background: #ffad33;
     }
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 48px 20px 64px;
+
+    /* Scanline Background Overlay */
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 2px, 3px 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
     }
-    header {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 32px;
+
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      flex-grow: 1;
+      width: 100%;
     }
-    header img {
-      width: 72px;
-      height: 72px;
-      border-radius: 16px;
-      flex-shrink: 0;
+
+    /* --- COMPONENTS --- */
+    .shd-card {
+      background-color: rgba(25, 15, 0, 0.85);
+      border: 2px solid #b5811c;
+      box-shadow: 0 0 15px rgba(255, 173, 51, 0.15);
+      padding: 1.5rem;
+      width: 100%;
     }
-    h1 { font-size: 1.9rem; line-height: 1.2; margin: 0; }
-    .updated { color: var(--muted); margin: 4px 0 0; font-size: 0.95rem; }
-    h2 { font-size: 1.2rem; margin: 36px 0 8px; }
-    p, ul { margin: 0 0 14px; }
-    ul { padding-left: 1.3em; }
-    li { margin-bottom: 6px; }
-    a { color: var(--accent); }
-    .short {
-      background: var(--accent-soft);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 20px;
+
+    .tech-pill {
+      background: rgba(255, 173, 51, 0.1);
+      border: 1px solid #ffad33;
+      color: #ffad33;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      text-transform: uppercase;
+      display: inline-block;
+      white-space: nowrap;
+      margin-bottom: 4px;
+      font-family: system-ui, sans-serif;
+      letter-spacing: 0.05em;
     }
-    .short p:last-child { margin-bottom: 0; }
-    footer {
-      margin-top: 48px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.95rem;
+
+    .shd-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .shd-list li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: #ffad33;
+      font-weight: bold;
+    }
+
+    .sales-highlight {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    /* --- PRIVACY PAGE --- */
+    .bot-logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: block;
+      box-shadow: 0 0 20px rgba(255, 173, 51, 0.35);
+    }
+
+    .privacy-section {
+      max-width: 56rem;
+      margin-bottom: 2rem;
+    }
+
+    .privacy-section p {
+      font-size: 1.1rem;
+      margin: 0 0 12px;
+    }
+
+    .privacy-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .privacy-section a {
+      color: #ffad33;
+      text-decoration: underline;
+    }
+
+    .privacy-section a:hover {
+      color: #ffffff;
+    }
+
+    code {
+      color: #ffad33;
+      background: rgba(255, 173, 51, 0.1);
+      border: 1px solid rgba(255, 173, 51, 0.35);
+      padding: 0 6px;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 768px) {
+      .shd-list li { font-size: 1rem; }
+      .privacy-section p { font-size: 1rem; }
     }
   </style>
+
+  <link rel="stylesheet" href="../tailwind.css">
 </head>
-<body>
-  <main>
-    <header>
-      <img src="logo-256.png" alt="Jenns Role ReactionBot logo">
-      <div>
-        <h1>Privacy Policy</h1>
-        <p class="updated">Jenns Role ReactionBot · Last updated September 24, 2026</p>
+
+<body class="selection:bg-[#ffad33] selection:text-black text-base md:text-lg">
+  <div class="scanlines"></div>
+
+  <div class="content-wrapper flex flex-col min-h-screen">
+    <nav class="w-full flex flex-col md:flex-row justify-between items-center bg-black/95 border-b-2 border-[#ffad33] p-4 shadow-lg gap-4 relative z-[100]">
+      <a
+        href="/"
+        class="text-[#ffad33] font-black uppercase text-xl text-center md:text-left tracking-widest nav-brand"
+        style="text-shadow: 0 0 5px rgba(255, 173, 51, 0.7);"
+      >
+        Technically-Jen
+      </a>
+
+      <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+        <a href="/" class="nav-link nav-brand">Home</a>
+        <a href="/portfolio/" class="nav-link nav-brand">Portfolio</a>
+        <a href="/SHD/" class="nav-link nav-brand">ISAC</a>
+        <a href="/streaming/" class="nav-link nav-brand">SubSecondStreaming</a>
+        <a href="/gallery/" class="nav-link nav-brand">Photography</a>
+        <a
+          href="https://technicallypossible.co.uk"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-link nav-brand"
+        >
+          Blog
+        </a>
       </div>
-    </header>
+    </nav>
 
-    <div class="short">
-      <p><strong>The short version:</strong> the bot only remembers which messages are role messages and which emoji goes with which role. It doesn't save anything about you, what you say, or which roles you pick.</p>
-    </div>
+    <main class="w-full max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12 flex-grow flex flex-col items-center">
+      <header class="w-full mb-10 md:mb-14 text-center border-b border-[#b5811c]/30 pb-8">
+        <img class="bot-logo" src="logo-256.png" alt="Jenns Role ReactionBot logo" />
+        <h1 class="text-4xl md:text-6xl font-black text-[#ffad33] uppercase tracking-widest mb-4 text-shadow">Privacy Policy</h1>
+        <p class="text-[#b5811c] text-base md:text-xl font-medium max-w-4xl mx-auto mb-4 leading-relaxed">
+          Jenns Role ReactionBot, a reaction role bot for Root communities.
+        </p>
+        <span class="tech-pill">Last updated September 24, 2026</span>
+      </header>
 
-    <h2>What the bot saves</h2>
-    <p>When someone makes a role message with <code>/rr create</code>, the bot saves the setup so it keeps working after a restart:</p>
-    <ul>
-      <li>the ID of the role message and the channel it's in</li>
-      <li>the title of the role message</li>
-      <li>each emoji and the ID and name of the role it goes with</li>
-    </ul>
-    <p>That's everything. None of it is about individual people.</p>
+      <div class="mb-10 border-l-4 border-[#ffad33] pl-6 bg-black/40 p-6 rounded-r-lg w-full privacy-section">
+        <h2 class="text-2xl font-black text-white uppercase italic mb-3">The Short Version</h2>
+        <p class="text-white font-bold border-l-2 border-[#ffad33] pl-4 tracking-wide">
+          The bot only remembers which messages are role messages and which emoji goes with which role. It doesn't save anything about you, what you say, or which roles you pick.
+        </p>
+      </div>
 
-    <h2>What the bot doesn't save</h2>
-    <ul>
-      <li>It doesn't keep a list of who reacted or who has which role. When you click a reaction, the bot gives you the role and moves on.</li>
-      <li>It doesn't store your messages. It reads new messages only to spot ones that start with <code>/rr</code>, and ignores everything else.</li>
-      <li>It doesn't collect emails, IP addresses, or anything from outside Root.</li>
-      <li>It doesn't use analytics or tracking, and there are no ads.</li>
-    </ul>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 w-full privacy-section">
+        <div class="shd-card">
+          <h3 class="text-xl font-black text-[#ffad33] uppercase mb-4 border-b border-[#b5811c]/30 pb-2"><i class="fa-solid fa-floppy-disk"></i> What It Saves</h3>
+          <p class="text-[#b5811c] mb-4">When someone makes a role message with <code>/rr create</code>, the bot saves the setup so it keeps working after a restart:</p>
+          <ul class="shd-list text-[#b5811c]">
+            <li>the ID of the role message and the channel it's in</li>
+            <li>the title of the role message</li>
+            <li>each emoji and the ID and name of the role it goes with</li>
+          </ul>
+          <p class="text-[#b5811c]">That's everything. <span class="sales-highlight">None of it is about individual people.</span></p>
+        </div>
 
-    <h2>What the bot uses while it's working</h2>
-    <p>To do its job, the bot briefly sees some info that Root sends it: your user ID when you react to a role message or run a command, and your roles when you use a command, to check whether you're allowed to. It uses that on the spot and doesn't save it.</p>
+        <div class="shd-card">
+          <h3 class="text-xl font-black text-[#ffad33] uppercase mb-4 border-b border-[#b5811c]/30 pb-2"><i class="fa-solid fa-ban"></i> What It Doesn't Save</h3>
+          <ul class="shd-list text-[#b5811c]">
+            <li>It doesn't keep a list of who reacted or who has which role. You click a reaction, you get the role, and the bot moves on.</li>
+            <li>It doesn't store your messages. It reads new messages only to spot ones that start with <code>/rr</code>, and ignores everything else.</li>
+            <li>It doesn't collect emails, IP addresses, or anything from outside Root.</li>
+            <li>It doesn't use analytics or tracking, and there are no ads.</li>
+          </ul>
+        </div>
+      </div>
 
-    <h2>Where it's stored</h2>
-    <p>The role message setup is stored in the bot's own storage on Root's servers. It isn't sent anywhere else and it isn't shared with or sold to anyone. Root's own <a href="https://www.rootapp.com" rel="noopener">privacy policy</a> covers how Root handles your account and community data.</p>
+      <div class="flex flex-col gap-6 w-full mb-10 privacy-section">
+        <div class="shd-card">
+          <span class="tech-pill mb-3">While It's Working</span>
+          <h3 class="text-xl font-black text-white uppercase mb-3">What It Sees For A Moment</h3>
+          <p class="text-[#b5811c]">
+            To do its job, the bot briefly sees some info that Root sends it: your user ID when you react to a role message or run a command, and your roles when you use a command, to check whether you're allowed to. <span class="sales-highlight">It uses that on the spot and doesn't save it.</span>
+          </p>
+        </div>
 
-    <h2>Getting it deleted</h2>
-    <ul>
-      <li>Run <code>/rr remove</code>, or just delete the role message, and the bot deletes that role message's setup straight away.</li>
-      <li>If a community uninstalls the bot, it stops running there. If you want the leftover setup wiped too, get in touch and I'll delete it.</li>
-    </ul>
+        <div class="shd-card">
+          <span class="tech-pill mb-3">Storage</span>
+          <h3 class="text-xl font-black text-white uppercase mb-3">Where It's Kept</h3>
+          <p class="text-[#b5811c]">
+            The role message setup is stored in the bot's own storage on Root's servers. It isn't sent anywhere else, and it isn't shared with or sold to anyone. Root's own <a href="https://www.rootapp.com" target="_blank" rel="noopener noreferrer">privacy policy</a> covers how Root handles your account and community data.
+          </p>
+        </div>
 
-    <h2>Kids</h2>
-    <p>The bot follows Root's age rules and doesn't knowingly collect anything about anyone, kids included.</p>
+        <div class="shd-card">
+          <span class="tech-pill mb-3">Deleting It</span>
+          <h3 class="text-xl font-black text-white uppercase mb-3">Getting It Removed</h3>
+          <ul class="shd-list text-[#b5811c]">
+            <li>Run <code>/rr remove</code>, or just delete the role message, and the bot deletes that role message's setup straight away.</li>
+            <li>If a community uninstalls the bot, it stops running there. If you want the leftover setup wiped too, get in touch and I'll delete it.</li>
+          </ul>
+        </div>
 
-    <h2>Changes</h2>
-    <p>If the bot ever starts saving something new, I'll update this page and the date at the top before that change goes out.</p>
+        <div class="shd-card">
+          <span class="tech-pill mb-3">Everything Else</span>
+          <h3 class="text-xl font-black text-white uppercase mb-3">Kids &amp; Changes</h3>
+          <p class="text-[#b5811c]">
+            The bot follows Root's age rules and doesn't knowingly collect anything about anyone, kids included.
+          </p>
+          <p class="text-[#b5811c]">
+            If the bot ever starts saving something new, I'll update this page and the date at the top before that change goes out.
+          </p>
+        </div>
+      </div>
 
-    <h2>Questions</h2>
-    <p>If you have a question or want something deleted, you can reach me through <a href="https://jenn.zip">jenn.zip</a>.</p>
+      <div class="text-center border-t border-[#b5811c]/30 pt-10 mb-4 w-full privacy-section">
+        <h2 class="text-2xl md:text-3xl font-black text-[#ffad33] uppercase tracking-widest italic mb-4">Questions?</h2>
+        <p class="text-[#b5811c] font-medium text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+          If you have a question or want something deleted, <a href="/#contact-toggle">get in touch</a> and I'll sort it out.
+        </p>
+      </div>
+    </main>
 
-    <footer>
-      Made by Jenn, AKA Technically Possible · <a href="https://jenn.zip">jenn.zip</a>
+    <footer class="w-full text-center py-10 border-t border-[#ffad33] bg-black mt-auto relative z-10">
+      <p class="text-xs md:text-sm text-[#b5811c] uppercase tracking-widest px-4 font-mono">
+        &copy; <span id="copyright-year">2026</span> Jennifer Colquhoun
+      </p>
     </footer>
-  </main>
+  </div>
+
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
