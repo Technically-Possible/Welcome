@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Calendar Privacy | Technically-Jen</title>
+  <meta name="description" content="What Jenns Event Calendar stores, who can see it, and how to get it deleted." />
+  <link rel="icon" type="image/png" href="logo-256.png" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <link rel="preload" href="../fonts/Borda Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../fonts/Borda Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="../fonts/Borda ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+
+  <style>
+    /* --- SHD THEME FONTS --- */
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Light.ttf') format('truetype'); font-weight: 300; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda DemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+    @font-face { font-family: 'Borda'; src: url('../fonts/Borda ExtraBold.ttf') format('truetype'); font-weight: 800; font-display: swap; }
+
+    /* --- BASE STYLING --- */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background-color: #190f00;
+      background-image: radial-gradient(circle at center, rgba(37, 22, 0, 0.6), rgba(25, 15, 0, 0.8) 50%, #000000 100%);
+      color: #b5811c;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    /* KILLS THE TOP-TO-BOTTOM ANIMATION INHERITED FROM STYLES.CSS */
+    body, body::before, body::after, .content-wrapper, main, .scanlines {
+      animation: none !important;
+    }
+
+    /* RESTRICT BORDA TO DISPLAY ELEMENTS ONLY */
+    h1, h2, h3, h4, .nav-brand {
+      font-family: 'Borda', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    /* --- CONSISTENT NAV STYLES --- */
+    .nav-link {
+      color: #b5811c;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      .nav-link {
+        font-size: 1rem;
+      }
+    }
+
+    .nav-link:hover {
+      color: black;
+      background: #ffad33;
+    }
+
+    /* Scanline Background Overlay */
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 2px, 3px 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    /* --- COMPONENTS --- */
+    .shd-card {
+      background-color: rgba(25, 15, 0, 0.85);
+      border: 2px solid #b5811c;
+      box-shadow: 0 0 15px rgba(255, 173, 51, 0.15);
+      padding: 1.5rem;
+      width: 100%;
+    }
+
+    .tech-pill {
+      background: rgba(255, 173, 51, 0.1);
+      border: 1px solid #ffad33;
+      color: #ffad33;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      text-transform: uppercase;
+      display: inline-block;
+      white-space: nowrap;
+      margin-bottom: 4px;
+      font-family: system-ui, sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .shd-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .shd-list li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: #ffad33;
+      font-weight: bold;
+    }
+
+    .sales-highlight {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    /* --- PRIVACY PAGE --- */
+    .bot-logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: block;
+      box-shadow: 0 0 20px rgba(255, 173, 51, 0.35);
+    }
+
+    .privacy-section {
+      max-width: 56rem;
+      margin-bottom: 2rem;
+    }
+
+    .privacy-section p {
+      font-size: 1.1rem;
+      margin: 0 0 12px;
+    }
+
+    .privacy-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .privacy-section a {
+      color: #ffad33;
+      text-decoration: underline;
+    }
+
+    .privacy-section a:hover {
+      color: #ffffff;
+    }
+
+    code {
+      color: #ffad33;
+      background: rgba(255, 173, 51, 0.1);
+      border: 1px solid rgba(255, 173, 51, 0.35);
+      padding: 0 6px;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 768px) {
+      .shd-list li { font-size: 1rem; }
+      .privacy-section p { font-size: 1rem; }
+    }
+  </style>
+
+  <link rel="stylesheet" href="../tailwind.css">
+</head>
+
+<body class="selection:bg-[#ffad33] selection:text-black text-base md:text-lg">
+  <div class="scanlines"></div>
+
+  <div class="content-wrapper flex flex-col min-h-screen">
+    <nav class="w-full flex flex-col md:flex-row justify-between items-center bg-black/95 border-b-2 border-[#ffad33] p-4 shadow-lg gap-4 relative z-[100]">
+      <a
+        href="/"
+        class="text-[#ffad33] font-black uppercase text-xl text-center md:text-left tracking-widest nav-brand"
+        style="text-shadow: 0 0 5px rgba(255, 173, 51, 0.7);"
+      >
+        Technically-Jen
+      </a>
+
+      <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+        <a href="/" class="nav-link nav-brand">Home</a>
+        <a href="/portfolio/" class="nav-link nav-brand">Portfolio</a>
+        <a href="/SHD/" class="nav-link nav-brand">ISAC</a>
+        <a href="/streaming/" class="nav-link nav-brand">SubSecondStreaming</a>
+        <a href="/gallery/" class="nav-link nav-brand">Photography</a>
+        <a
+          href="https://technicallypossible.co.uk"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-link nav-brand"
+        >
+          Blog
+        </a>
+      </div>
+    </nav>
+
+    <main class="w-full max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12 flex-grow flex flex-col items-center">
+      <header class="w-full mb-10 md:mb-14 text-center border-b border-[#b5811c]/30 pb-8">
+        <img class="bot-logo" src="logo-256.png" alt="Jenns Event Calendar logo" />
+        <h1 class="text-4xl md:text-6xl font-black text-[#ffad33] uppercase tracking-widest mb-4 text-shadow">Privacy Policy</h1>
+        <p class="text-[#b5811c] text-base md:text-xl font-medium max-w-4xl mx-auto mb-4 leading-relaxed">
+          Jenns Event Calendar, an events and RSVP app for Root communities.
+        </p>
+        <span class="tech-pill">Last updated September 24, 2026</span>
+      </header>
+
+      <div class="mb-10 border-l-4 border-[#ffad33] pl-6 bg-black/40 p-6 rounded-r-lg w-full privacy-section">
+        <h2 class="text-2xl font-black text-white uppercase italic mb-3">The Short Version</h2>
+        <p class="text-white font-bold border-l-2 border-[#ffad33] pl-4 tracking-wide">
+          The app saves the events your community makes and who said they're going. Your RSVPs are visible to the rest of the community, and they're deleted 90 days after the event. Nothing leaves Root, and nothing is sold or used for ads.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 w-full privacy-section">
+        <div class="shd-card">
+          <h3 class="text-xl font-black text-[#ffad33] uppercase mb-4 border-b border-[#b5811c]/30 pb-2"><i class="fa-solid fa-floppy-disk"></i> What It Saves</h3>
+          <ul class="shd-list text-[#b5811c]">
+            <li><span class="sales-highlight">Events:</span> the title, description, location, date and time, how it repeats, the attendee limit, reminder times, colour, the host's time zone (so repeats stay at the same local time), and the Root user ID of whoever made it.</li>
+            <li><span class="sales-highlight">RSVPs:</span> your Root user ID, which event and date it's for, your answer (going, maybe, can't go or waitlist) and when you gave it.</li>
+            <li><span class="sales-highlight">Announcement links:</span> which chat message belongs to which event, so reactions on it count as RSVPs.</li>
+          </ul>
+        </div>
+
+        <div class="shd-card">
+          <h3 class="text-xl font-black text-[#ffad33] uppercase mb-4 border-b border-[#b5811c]/30 pb-2"><i class="fa-solid fa-ban"></i> What It Doesn't Do</h3>
+          <ul class="shd-list text-[#b5811c]">
+            <li>It doesn't read or store your messages. It only looks at reactions on its own event announcements.</li>
+            <li>It doesn't collect emails, IP addresses, locations or anything from outside Root.</li>
+            <li>It doesn't use analytics or tracking, and there are no ads.</li>
+            <li>It doesn't share or sell anything to anyone.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-6 w-full mb-10 privacy-section">
+        <div class="shd-card">
+          <span class="tech-pill mb-3">Who Can See It</span>
+          <h3 class="text-xl font-black text-white uppercase mb-3">RSVPs Are Public To Your Community</h3>
+          <p class="text-[#b5811c]">
+            Like a sign-up sheet, the whole point is that people can see who's coming. Anyone in the community who can open the calendar can see each event's going, maybe, can't go and waitlist lists, with names and profile pictures. If an event is posted in a channel, that message lists the names of people going, maybe or on the waitlist, and updates when answers change.
+          </p>
+        </div>
+
+        <div class="shd-card">
+          <span class="tech-pill mb-3">While It's Working</span>
+          <h3 class="text-xl font-black text-white uppercase mb-3">What It Uses For A Moment</h3>
+          <ul class="shd-list text-[#b5811c]">
+            <li>Your community nickname, to write names into announcement messages. It's held in memory for up to 10 minutes and not saved.</li>
+            <li>Your roles, to check whether you're allowed to host events.</li>
+            <li>Names and profile pictures in the calendar come straight from Root on your device when you open it.</li>
+          </ul>
+        </div>
+
+        <div class="shd-card">
+          <span class="tech-pill mb-3">Notifications</span>
+          <h3 class="text-xl font-black text-white uppercase mb-3">Who Gets Pinged</h3>
+          <ul class="shd-list text-[#b5811c]">
+            <li>People who said going or maybe get reminders before an event, at the times the host picked.</li>
+            <li>If you're on a waitlist and a spot opens up, you get a notification that you're in.</li>
+            <li>Roles or members chosen by the community's admins get a notification when a new event is created.</li>
+          </ul>
+          <p class="text-[#b5811c]">Notifications are sent through Root, and you can control them in your Root settings.</p>
+        </div>
+
+        <div class="shd-card">
+          <span class="tech-pill mb-3">Storage</span>
+          <h3 class="text-xl font-black text-white uppercase mb-3">Where It's Kept</h3>
+          <p class="text-[#b5811c]">
+            Everything is stored in the app's own storage on Root's servers, separately for each community. It isn't sent anywhere else. Root's own <a href="https://www.rootapp.com" target="_blank" rel="noopener noreferrer">privacy policy</a> covers how Root handles your account, notifications and community data.
+          </p>
+        </div>
+
+        <div class="shd-card">
+          <span class="tech-pill mb-3">Deleting It</span>
+          <h3 class="text-xl font-black text-white uppercase mb-3">Getting It Removed</h3>
+          <ul class="shd-list text-[#b5811c]">
+            <li><span class="sales-highlight">Your RSVP:</span> click your answer again in the calendar, or take your reaction off the announcement, and it's deleted straight away.</li>
+            <li><span class="sales-highlight">Automatically:</span> RSVPs are deleted 90 days after the event they're for.</li>
+            <li><span class="sales-highlight">Events:</span> when a host deletes an event, its RSVPs go with it.</li>
+            <li><span class="sales-highlight">Everything:</span> if a community uninstalls the app, it stops running there. If you want the leftover data wiped, or anything else removed, get in touch and I'll delete it.</li>
+          </ul>
+        </div>
+
+        <div class="shd-card">
+          <span class="tech-pill mb-3">Everything Else</span>
+          <h3 class="text-xl font-black text-white uppercase mb-3">Kids &amp; Changes</h3>
+          <p class="text-[#b5811c]">
+            The app follows Root's age rules and doesn't knowingly collect anything extra about anyone, kids included.
+          </p>
+          <p class="text-[#b5811c]">
+            If the app ever starts saving something new, I'll update this page and the date at the top before that change goes out.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center border-t border-[#b5811c]/30 pt-10 mb-4 w-full privacy-section">
+        <h2 class="text-2xl md:text-3xl font-black text-[#ffad33] uppercase tracking-widest italic mb-4">Questions?</h2>
+        <p class="text-[#b5811c] font-medium text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+          If you have a question or want something deleted, <a href="/#contact-toggle">get in touch</a> and I'll sort it out.
+        </p>
+      </div>
+    </main>
+
+    <footer class="w-full text-center py-10 border-t border-[#ffad33] bg-black mt-auto relative z-10">
+      <p class="text-xs md:text-sm text-[#b5811c] uppercase tracking-widest px-4 font-mono">
+        &copy; <span id="copyright-year">2026</span> Jennifer Colquhoun
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
