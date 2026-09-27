@@ -2,343 +2,343 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Technically-Jen | Home</title>
-  <link rel="icon" type="image/x-icon" href="Pictures/favicon.ico">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Technically-Jenn | Home</title>
+ <link rel="icon" type="image/x-icon" href="Pictures/favicon.ico">
 
-  <link rel="preload" href="fonts/Borda.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="fonts/Borda Bold.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="fonts/Borda ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="Pictures/profile2.jpg" as="image">
+ <link rel="preload" href="fonts/Borda.ttf" as="font" type="font/ttf" crossorigin>
+ <link rel="preload" href="fonts/Borda Bold.ttf" as="font" type="font/ttf" crossorigin>
+ <link rel="preload" href="fonts/Borda ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+ <link rel="preload" href="Pictures/profile2.jpg" as="image">
 
-  <script>
-    (function() {
-      const lastVisit = localStorage.getItem("lastVisitDate");
-      const today = new Date().toISOString().split('T')[0];
-      if (lastVisit === today) {
-        document.documentElement.classList.add('visited-today');
-      } else {
-        localStorage.setItem("lastVisitDate", today);
-      }
-    })();
-  </script>
+ <script>
+ (function() {
+ const lastVisit = localStorage.getItem("lastVisitDate");
+ const today = new Date().toISOString().split('T')[0];
+ if (lastVisit === today) {
+ document.documentElement.classList.add('visited-today');
+ } else {
+ localStorage.setItem("lastVisitDate", today);
+ }
+ })();
+ </script>
 
-  <style>
-    @font-face { font-family: 'Borda'; src: url('fonts/Borda.ttf') format('truetype'); font-weight: 400; font-display: swap; }
-    @font-face { font-family: 'Borda'; src: url('fonts/Borda Light.ttf') format('truetype'); font-weight: 300; font-display: swap; }
-    @font-face { font-family: 'Borda'; src: url('fonts/Borda Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
-    @font-face { font-family: 'Borda'; src: url('fonts/Borda DemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
-    @font-face { font-family: 'Borda'; src: url('fonts/Borda Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
-    @font-face { font-family: 'Borda'; src: url('fonts/Borda ExtraBold.ttf') format('truetype'); font-weight: 800; font-display: swap; }
+ <style>
+ @font-face { font-family: 'Borda'; src: url('fonts/Borda.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+ @font-face { font-family: 'Borda'; src: url('fonts/Borda Light.ttf') format('truetype'); font-weight: 300; font-display: swap; }
+ @font-face { font-family: 'Borda'; src: url('fonts/Borda Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+ @font-face { font-family: 'Borda'; src: url('fonts/Borda DemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+ @font-face { font-family: 'Borda'; src: url('fonts/Borda Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+ @font-face { font-family: 'Borda'; src: url('fonts/Borda ExtraBold.ttf') format('truetype'); font-weight: 800; font-display: swap; }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-    }
+ html, body {
+ margin: 0;
+ padding: 0;
+ width: 100%;
+ height: 100%;
+ }
 
-    html {
-      transition: filter 0.6s ease;
-    }
+ html {
+ transition: filter 0.6s ease;
+ }
 
-    html.secret-hue {
-      filter: hue-rotate(180deg);
-    }
+ html.secret-hue {
+ filter: hue-rotate(180deg);
+ }
 
-    /* --- SECRET CORNER --- */
-    #secret-corner {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      width: 56px;
-      height: 56px;
-      z-index: 9999;
-      cursor: pointer;
-    }
+ /* --- SECRET CORNER --- */
+ #secret-corner {
+ position: fixed;
+ bottom: 10px;
+ right: 10px;
+ width: 56px;
+ height: 56px;
+ z-index: 9999;
+ cursor: pointer;
+ }
 
-    .secret-icon {
-      width: 100%;
-      height: 100%;
-      display: block;
-      opacity: 0;
-      filter: drop-shadow(0 0 10px rgba(0, 136, 255, 0.8));
-      transition: opacity 0.5s ease, transform 0.3s ease;
-    }
+ .secret-icon {
+ width: 100%;
+ height: 100%;
+ display: block;
+ opacity: 0;
+ filter: drop-shadow(0 0 10px rgba(0, 136, 255, 0.8));
+ transition: opacity 0.5s ease, transform 0.3s ease;
+ }
 
-    #secret-corner:hover .secret-icon,
-    #secret-corner.touched .secret-icon {
-      opacity: 1;
-      transform: scale(1.08);
-    }
+ #secret-corner:hover .secret-icon,
+ #secret-corner.touched .secret-icon {
+ opacity: 1;
+ transform: scale(1.08);
+ }
 
-    body {
-      background-color: #190f00;
-      background-image: radial-gradient(circle at center, rgba(37, 22, 0, 0.6), rgba(25, 15, 0, 0.8) 50%, #000000 100%);
-      color: #b5811c;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      line-height: 1.6;
-    }
+ body {
+ background-color: #190f00;
+ background-image: radial-gradient(circle at center, rgba(37, 22, 0, 0.6), rgba(25, 15, 0, 0.8) 50%, #000000 100%);
+ color: #b5811c;
+ font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+ overflow-x: hidden;
+ display: flex;
+ flex-direction: column;
+ line-height: 1.6;
+ }
 
-    .font-borda, h1, h2, h3, h4, .nav-brand, button {
-      font-family: 'Borda', sans-serif !important;
-      letter-spacing: 0.05em;
-    }
+ .font-borda, h1, h2, h3, h4, .nav-brand, button {
+ font-family: 'Borda', sans-serif !important;
+ letter-spacing: 0.05em;
+ }
 
-    .content-wrapper {
-      position: relative;
-      z-index: 1;
-    }
+ .content-wrapper {
+ position: relative;
+ z-index: 1;
+ }
 
-    /* --- FRESNEL LENS LIGHT --- */
-    .fresnel-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+ /* --- FRESNEL LENS LIGHT --- */
+ .fresnel-bg {
+ position: fixed;
+ inset: 0;
+ z-index: 0;
+ overflow: hidden;
+ pointer-events: none;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
 
-    #fresnel-canvas {
-      width: 130vmax;
-      height: 130vmax;
-      max-width: none;
-      opacity: 0.85;
-      animation: fresnelPulse 8s ease-in-out infinite;
-    }
+ #fresnel-canvas {
+ width: 130vmax;
+ height: 130vmax;
+ max-width: none;
+ opacity: 0.85;
+ animation: fresnelPulse 8s ease-in-out infinite;
+ }
 
-    @keyframes fresnelPulse {
-      0%, 100% { transform: scale(1); opacity: 0.78; }
-      50% { transform: scale(1.015); opacity: 0.95; }
-    }
+ @keyframes fresnelPulse {
+ 0%, 100% { transform: scale(1); opacity: 0.78; }
+ 50% { transform: scale(1.015); opacity: 0.95; }
+ }
 
-    @media (prefers-reduced-motion: reduce) {
-      #fresnel-canvas { animation: none; }
-    }
+ @media (prefers-reduced-motion: reduce) {
+ #fresnel-canvas { animation: none; }
+ }
 
-    /* --- CONSISTENT NAV STYLES --- */
-    .nav-link {
-      color: #b5811c;
-      font-size: 0.875rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 0.25rem 0.75rem;
-      transition: all 0.3s ease;
-    }
+ /* --- CONSISTENT NAV STYLES --- */
+ .nav-link {
+ color: #b5811c;
+ font-size: 0.875rem;
+ font-weight: 700;
+ text-transform: uppercase;
+ padding: 0.25rem 0.75rem;
+ transition: all 0.3s ease;
+ }
 
-    @media (min-width: 768px) {
-      .nav-link {
-        font-size: 1rem;
-      }
-    }
+ @media (min-width: 768px) {
+ .nav-link {
+ font-size: 1rem;
+ }
+ }
 
-    .nav-link:hover {
-      color: black;
-      background: #ffad33;
-    }
+ .nav-link:hover {
+ color: black;
+ background: #ffad33;
+ }
 
-    .nav-active {
-      color: black !important;
-      background: #ffad33;
-      box-shadow: 0 0 8px rgba(255, 173, 51, 0.6);
-    }
+ .nav-active {
+ color: black !important;
+ background: #ffad33;
+ box-shadow: 0 0 8px rgba(255, 173, 51, 0.6);
+ }
 
-    /* THE FIX: Scanlines are now set to ignore ALL mouse interactions */
-    .scanline-overlay, .scanline-moving {
-      pointer-events: none !important;
-      user-select: none !important;
-    }
+ /* THE FIX: Scanlines are now set to ignore ALL mouse interactions */
+ .scanline-overlay, .scanline-moving {
+ pointer-events: none !important;
+ user-select: none !important;
+ }
 
-    .scanline-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 10; /* High enough for effect, but we will boost content higher */
-      opacity: 1;
-      background:
-        linear-gradient(
-          to bottom,
-          transparent 50%,
-          rgba(0, 0, 0, 0.28) 51%
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255, 0, 0, 0.03),
-          rgba(0, 255, 0, 0.01),
-          rgba(0, 0, 255, 0.03)
-        );
-      background-size: 100% 4px, 3px 100%;
-    }
+ .scanline-overlay {
+ position: absolute;
+ inset: 0;
+ z-index: 10; /* High enough for effect, but we will boost content higher */
+ opacity: 1;
+ background:
+ linear-gradient(
+ to bottom,
+ transparent 50%,
+ rgba(0, 0, 0, 0.28) 51%
+ ),
+ linear-gradient(
+ 90deg,
+ rgba(255, 0, 0, 0.03),
+ rgba(0, 255, 0, 0.01),
+ rgba(0, 0, 255, 0.03)
+ );
+ background-size: 100% 4px, 3px 100%;
+ }
 
-    .scanline-moving {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: rgba(255, 173, 51, 0.10);
-      box-shadow: 0 0 8px rgba(255, 173, 51, 0.08);
-      z-index: 11;
-      animation: scanlineMove 6s linear infinite;
-    }
+ .scanline-moving {
+ position: absolute;
+ left: 0;
+ right: 0;
+ height: 2px;
+ background: rgba(255, 173, 51, 0.10);
+ box-shadow: 0 0 8px rgba(255, 173, 51, 0.08);
+ z-index: 11;
+ animation: scanlineMove 6s linear infinite;
+ }
 
-    @keyframes scanlineMove {
-      0% { top: 0; }
-      100% { top: 100%; }
-    }
+ @keyframes scanlineMove {
+ 0% { top: 0; }
+ 100% { top: 100%; }
+ }
 
-    .shd-card {
-      background-color: rgba(25, 15, 0, 0.85);
-      border: 2px solid #b5811c;
-      box-shadow: 0 0 15px rgba(255, 173, 51, 0.15);
-      position: relative;
-    }
+ .shd-card {
+ background-color: rgba(25, 15, 0, 0.85);
+ border: 2px solid #b5811c;
+ box-shadow: 0 0 15px rgba(255, 173, 51, 0.15);
+ position: relative;
+ }
 
-    /* Ensure table text and links are always physically on top of scanlines */
-    .interactive-content {
-      position: relative;
-      z-index: 20;
-    }
-  </style>
+ /* Ensure table text and links are always physically on top of scanlines */
+ .interactive-content {
+ position: relative;
+ z-index: 20;
+ }
+ </style>
 
-  <link rel="stylesheet" href="tailwind.css">
+ <link rel="stylesheet" href="tailwind.css">
 </head>
-  
+
 <body class="selection:bg-[#ffad33] selection:text-black text-base md:text-lg">
 
-  <div class="fresnel-bg" aria-hidden="true">
-    <canvas id="fresnel-canvas" width="64" height="64"></canvas>
-  </div>
+ <div class="fresnel-bg" aria-hidden="true">
+ <canvas id="fresnel-canvas" width="64" height="64"></canvas>
+ </div>
 
-  <div class="content-wrapper flex flex-col min-h-screen">
-    
-    <nav class="w-full flex flex-col md:flex-row justify-between items-center bg-black/95 border-b-2 border-[#ffad33] p-4 shadow-lg gap-4 relative z-[100]">
-      <a
-        href="/"
-        class="text-[#ffad33] font-black uppercase text-xl text-center md:text-left tracking-widest nav-brand"
-        style="text-shadow: 0 0 5px rgba(255, 173, 51, 0.7);"
-      >
-        Technically-Jen
-      </a>
-      <div class="flex flex-wrap justify-center gap-2 md:gap-4">
-        <a href="/" class="nav-link nav-brand nav-active">Home</a>
-        <a href="/portfolio/" class="nav-link nav-brand">Portfolio</a>
-        <a href="/SHD/" class="nav-link nav-brand">ISAC</a>
-        <a href="/streaming/" class="nav-link nav-brand">SubSecondStreaming</a>
-        <a href="/gallery/" class="nav-link nav-brand">Photography</a>
-        <a
-          href="https://technicallypossible.co.uk"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="nav-link nav-brand"
-        >
-          Blog
-        </a>
-      </div>
-    </nav>
+ <div class="content-wrapper flex flex-col min-h-screen">
 
-    <main class="w-full max-w-5xl mx-auto px-4 md:px-6 py-10 md:py-16 flex-grow flex flex-col items-center">
+ <nav class="w-full flex flex-col md:flex-row justify-between items-center bg-black/95 border-b-2 border-[#ffad33] p-4 shadow-lg gap-4 relative z-[100]">
+ <a
+ href="/"
+ class="text-[#ffad33] font-black uppercase text-xl text-center md:text-left tracking-widest nav-brand"
+ style="text-shadow: 0 0 5px rgba(255, 173, 51, 0.7);"
+ >
+ Technically-Jenn
+ </a>
+ <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+ <a href="/" class="nav-link nav-brand nav-active">Home</a>
+ <a href="/portfolio/" class="nav-link nav-brand">Portfolio</a>
+ <a href="/SHD/" class="nav-link nav-brand">ISAC</a>
+ <a href="/streaming/" class="nav-link nav-brand">SubSecondStreaming</a>
+ <a href="/gallery/" class="nav-link nav-brand">Photography</a>
+ <a
+ href="https://technicallypossible.co.uk"
+ target="_blank"
+ rel="noopener noreferrer"
+ class="nav-link nav-brand"
+ >
+ Blog
+ </a>
+ </div>
+ </nav>
 
-      <div class="shd-card w-full p-6 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start mb-12 overflow-hidden">
-        
-        <div class="scanline-overlay"></div>
-        <div class="scanline-moving"></div>
+ <main class="w-full max-w-5xl mx-auto px-4 md:px-6 py-10 md:py-16 flex-grow flex flex-col items-center">
 
-        <div class="interactive-content flex flex-col md:flex-row gap-8 items-center md:items-start w-full">
-          <div class="flex-shrink-0">
-            <div class="w-48 h-48 md:w-64 md:h-64 border-4 border-[#ffad33] shadow-[0_0_15px_rgba(255,173,51,0.5)] overflow-hidden bg-black relative">
-              <img src="Pictures/profile2.jpg" alt="Profile" class="w-full h-full object-cover">
-            </div>
-          </div>
+ <div class="shd-card w-full p-6 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start mb-12 overflow-hidden">
 
-          <div class="flex-grow w-full">
-            <h1 class="text-3xl md:text-4xl font-black text-[#ffad33] uppercase tracking-widest mb-6 font-borda border-b border-[#b5811c]/30 pb-4">Technically-Possible Profile</h1>
-            <table class="w-full text-left border-collapse text-[#b5811c]">
-              <tbody>
-                <tr class="border-b border-[#b5811c]/20 hover:bg-black/30 transition-colors">
-                  <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda w-1/3">Name:</th>
-                  <td class="py-3 pr-2">Jennifer</td>
-                </tr>
-                <tr class="border-b border-[#b5811c]/20 bg-black/20 hover:bg-black/40 transition-colors">
-                  <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda">Handle:</th>
-                  <td class="py-3 pr-2">Technically Possible</td>
-                </tr>
-                <tr class="border-b border-[#b5811c]/20 hover:bg-black/30 transition-colors">
-                  <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda">Designation:</th>
-                  <td class="py-3 pr-2">Female Cyborg</td>
-                </tr>
-                <tr class="border-b border-[#b5811c]/20 bg-black/20 hover:bg-black/40 transition-colors">
-                  <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda">Location:</th>
-                  <td class="py-3 pr-2">Nottinghamshire, UK</td>
-                </tr>
-                <tr class="border-b border-[#b5811c]/20 hover:bg-black/30 transition-colors">
-                  <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda align-top">Prof. Interests:</th>
-                  <td class="py-3 pr-2">CyberSecurity, Development, LLM, Automation</td>
-                </tr>
-                <tr class="border-b border-[#b5811c]/20 bg-black/20 hover:bg-black/40 transition-colors">
-                  <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda align-top">Pers. Interests:</th>
-                  <td class="py-3 pr-2">VRChat World &amp; Avatar Creator, Star Trek, Cyberdecks, Retrofuturism, Fallout, Sci-fi</td>
-                </tr>
-                <tr class="border-b border-[#b5811c]/20 hover:bg-black/30 transition-colors">
-                  <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda">Instagram:</th>
-                  <td class="py-3 pr-2 flex items-center gap-2"><span class="text-xl">📷</span> thedomainatrix</td>
-                </tr>
-                <tr class="border-b border-[#b5811c]/20 bg-black/20 hover:bg-black/40 transition-colors">
-                  <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda">Website:</th>
-                  <td class="py-3 pr-2 flex items-center gap-2"><span class="text-xl">🌐</span> Technically-Possible</td>
-                </tr>
+ <div class="scanline-overlay"></div>
+ <div class="scanline-moving"></div>
 
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+ <div class="interactive-content flex flex-col md:flex-row gap-8 items-center md:items-start w-full">
+ <div class="flex-shrink-0">
+ <div class="w-48 h-48 md:w-64 md:h-64 border-4 border-[#ffad33] shadow-[0_0_15px_rgba(255,173,51,0.5)] overflow-hidden bg-black relative">
+ <img src="Pictures/profile2.jpg" alt="Profile" class="w-full h-full object-cover">
+ </div>
+ </div>
 
-      <div class="w-full border-t border-dashed border-[#b5811c]/50 my-4 relative">
-        <div class="absolute left-1/2 -translate-x-1/2 -top-3 bg-[#190f00] px-4 text-[#ffad33] font-borda uppercase text-sm">End of File</div>
-      </div>
+ <div class="flex-grow w-full">
+ <h1 class="text-3xl md:text-4xl font-black text-[#ffad33] uppercase tracking-widest mb-6 font-borda border-b border-[#b5811c]/30 pb-4">Technically-Possible Profile</h1>
+ <table class="w-full text-left border-collapse text-[#b5811c]">
+ <tbody>
+ <tr class="border-b border-[#b5811c]/20 hover:bg-black/30 transition-colors">
+ <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda w-1/3">Name:</th>
+ <td class="py-3 pr-2">Jennifer</td>
+ </tr>
+ <tr class="border-b border-[#b5811c]/20 bg-black/20 hover:bg-black/40 transition-colors">
+ <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda">Handle:</th>
+ <td class="py-3 pr-2">Technically Possible</td>
+ </tr>
+ <tr class="border-b border-[#b5811c]/20 hover:bg-black/30 transition-colors">
+ <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda">Designation:</th>
+ <td class="py-3 pr-2">Female Cyborg</td>
+ </tr>
+ <tr class="border-b border-[#b5811c]/20 bg-black/20 hover:bg-black/40 transition-colors">
+ <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda">Location:</th>
+ <td class="py-3 pr-2">Nottinghamshire, UK</td>
+ </tr>
+ <tr class="border-b border-[#b5811c]/20 hover:bg-black/30 transition-colors">
+ <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda align-top">Prof. Interests:</th>
+ <td class="py-3 pr-2">CyberSecurity, Development, LLM, Automation</td>
+ </tr>
+ <tr class="border-b border-[#b5811c]/20 bg-black/20 hover:bg-black/40 transition-colors">
+ <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda align-top">Pers. Interests:</th>
+ <td class="py-3 pr-2">VRChat World &amp; Avatar Creator, Star Trek, Cyberdecks, Retrofuturism, Fallout, Sci-fi</td>
+ </tr>
+ <tr class="border-b border-[#b5811c]/20 hover:bg-black/30 transition-colors">
+ <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda">Instagram:</th>
+ <td class="py-3 pr-2 flex items-center gap-2"><span class="text-xl"></span> thedomainatrix</td>
+ </tr>
+ <tr class="border-b border-[#b5811c]/20 bg-black/20 hover:bg-black/40 transition-colors">
+ <th class="py-3 pl-2 pr-4 text-[#ffad33] uppercase font-bold font-borda">Website:</th>
+ <td class="py-3 pr-2 flex items-center gap-2"><span class="text-xl"></span> Technically-Possible</td>
+ </tr>
 
-      <div class="mt-12 relative z-[100] text-center w-full">
-        <button id="contact-toggle" class="shd-card inline-block text-[#ffad33] hover:bg-[#ffad33] hover:text-black px-8 py-4 font-bold uppercase tracking-widest font-borda text-lg transition-all">
-          Establish Secure Comms
-        </button>
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </div>
 
-        <div id="contact-form-wrapper" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out mt-6">
-          <div class="shd-card p-8 border-4 border-[#ffad33]">
-            <form id="contact-form" action="https://public.herotofu.com/v1/70ba36f0-5b3d-11f0-98a2-6758cdf5c89b" method="post">
-              <input type="text" placeholder="NAME" class="w-full bg-[#191000] border-2 border-[#b5811c] text-[#b5811c] p-3 mb-4 focus:border-[#ffad33] outline-none">
-              <input type="email" placeholder="EMAIL" class="w-full bg-[#191000] border-2 border-[#b5811c] text-[#b5811c] p-3 mb-4 focus:border-[#ffad33] outline-none">
-              <textarea placeholder="MESSAGE" rows="4" class="w-full bg-[#191000] border-2 border-[#b5811c] text-[#b5811c] p-3 mb-4 focus:border-[#ffad33] outline-none"></textarea>
-              <button type="submit" class="w-full bg-[#ffad33] text-black font-bold py-3 uppercase tracking-widest hover:bg-white transition-colors">Transmit Data</button>
-            </form>
-          </div>
-        </div>
-      </div>
+ <div class="w-full border-t border-dashed border-[#b5811c]/50 my-4 relative">
+ <div class="absolute left-1/2 -translate-x-1/2 -top-3 bg-[#190f00] px-4 text-[#ffad33] font-borda uppercase text-sm">End of File</div>
+ </div>
 
-    </main>
+ <div class="mt-12 relative z-[100] text-center w-full">
+ <button id="contact-toggle" class="shd-card inline-block text-[#ffad33] hover:bg-[#ffad33] hover:text-black px-8 py-4 font-bold uppercase tracking-widest font-borda text-lg transition-all">
+ Establish Secure Comms
+ </button>
 
-    <footer class="w-full text-center py-10 border-t border-[#ffad33] bg-black mt-auto relative z-[100]">
-      <p class="text-xs text-[#b5811c] uppercase font-mono">&copy; <span id="copyright-year">2026</span> Jennifer Colquhoun</p>
-    </footer>
-  </div>
+ <div id="contact-form-wrapper" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out mt-6">
+ <div class="shd-card p-8 border-4 border-[#ffad33]">
+ <form id="contact-form" action="https://public.herotofu.com/v1/70ba36f0-5b3d-11f0-98a2-6758cdf5c89b" method="post">
+ <input type="text" placeholder="NAME" class="w-full bg-[#191000] border-2 border-[#b5811c] text-[#b5811c] p-3 mb-4 focus:border-[#ffad33] outline-none">
+ <input type="email" placeholder="EMAIL" class="w-full bg-[#191000] border-2 border-[#b5811c] text-[#b5811c] p-3 mb-4 focus:border-[#ffad33] outline-none">
+ <textarea placeholder="MESSAGE" rows="4" class="w-full bg-[#191000] border-2 border-[#b5811c] text-[#b5811c] p-3 mb-4 focus:border-[#ffad33] outline-none"></textarea>
+ <button type="submit" class="w-full bg-[#ffad33] text-black font-bold py-3 uppercase tracking-widest hover:bg-white transition-colors">Transmit Data</button>
+ </form>
+ </div>
+ </div>
+ </div>
 
-  <div id="secret-corner" aria-hidden="true">
-    <svg class="secret-icon" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#3399ff" />
-          <stop offset="55%" stop-color="#0055dd" />
-          <stop offset="100%" stop-color="#001a66" />
-        </radialGradient>
-      </defs>
-      <circle cx="300" cy="300" r="300" fill="url(#lanternGlow)" />
-      <g transform="translate(0.000000,600.000000) scale(0.050000,-0.050000)" fill="#ffffff" stroke="none">
-        <path d="M5698 11952 c-4 -5 -85 -14 -178 -21 -94 -7 -192 -16 -220 -20 -27
+ </main>
+
+ <footer class="w-full text-center py-10 border-t border-[#ffad33] bg-black mt-auto relative z-[100]">
+ <p class="text-xs text-[#b5811c] uppercase font-mono">&copy; <span id="copyright-year">2026</span> Jennifer Colquhoun</p>
+ </footer>
+ </div>
+
+ <div id="secret-corner" aria-hidden="true">
+ <svg class="secret-icon" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+ <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+ <stop offset="0%" stop-color="#3399ff" />
+ <stop offset="55%" stop-color="#0055dd" />
+ <stop offset="100%" stop-color="#001a66" />
+ </radialGradient>
+ </defs>
+ <circle cx="300" cy="300" r="300" fill="url(#lanternGlow)" />
+ <g transform="translate(0.000000,600.000000) scale(0.050000,-0.050000)" fill="#ffffff" stroke="none">
+ <path d="M5698 11952 c-4 -5 -85 -14 -178 -21 -94 -7 -192 -16 -220 -20 -27
 -4 -81 -9 -120 -10 -38 -1 -60 -8 -47 -16 13 -8 -28 -16 -90 -17 -206 -3
 -1076 -231 -1049 -274 8 -13 0 -16 -21 -8 -18 7 -33 6 -33 -2 0 -8 -20 -15
 -45 -17 -25 -1 -103 -29 -175 -62 -71 -33 -150 -66 -175 -74 -25 -7 -45 -24
@@ -500,7 +500,7 @@ m1022 -822 c116 -17 237 -34 270 -39 128 -18 608 -151 764 -211 91 -35 176
 -12 20 -8 20 16 0 17 -13 37 -20 44 -15 7 6 8 4 2 -4 -5 -8 -21 -16 -35 -18
 -13 -2 -36 -7 -51 -11 -15 -4 -31 10 -34 31 -5 28 0 31 16 15 13 -13 31 -23
 40 -23z"/>
-        <path d="M5500 10658 c-82 -10 -231 -32 -330 -48 -161 -28 -264 -54 -645 -163
+ <path d="M5500 10658 c-82 -10 -231 -32 -330 -48 -161 -28 -264 -54 -645 -163
 -58 -16 -102 -36 -97 -43 4 -8 -18 -15 -50 -16 -87 -3 -87 -5 25 -240 57 -120
 102 -225 100 -233 -2 -8 7 -15 18 -15 12 0 16 -8 10 -19 -16 -26 51 -162 74
 -148 10 6 15 -1 12 -16 -12 -62 66 -240 100 -227 82 32 510 150 546 150 22 0
@@ -672,261 +672,261 @@ m1022 -822 c116 -17 237 -34 270 -39 128 -18 608 -151 764 -211 91 -35 176
 16 35 15 9 76 75 135 146 126 154 217 242 333 326 47 33 85 68 85 77 0 8 19
 26 42 38 34 18 40 18 27 -3 -9 -14 12 -6 45 18 34 24 73 44 85 44 13 0 17 11
 9 25 -8 14 -7 19 1 11 8 -7 62 5 118 27 346 139 920 203 1121 125z"/>
-      </g>
-    </svg>
-  </div>
+ </g>
+ </svg>
+ </div>
 
-  <script>
-    const toggleBtn = document.getElementById('contact-toggle');
-    const formWrapper = document.getElementById('contact-form-wrapper');
-    toggleBtn.addEventListener('click', () => {
-      formWrapper.style.maxHeight = formWrapper.style.maxHeight === '1000px' ? '0px' : '1000px';
-    });
+ <script>
+ const toggleBtn = document.getElementById('contact-toggle');
+ const formWrapper = document.getElementById('contact-form-wrapper');
+ toggleBtn.addEventListener('click', () => {
+ formWrapper.style.maxHeight = formWrapper.style.maxHeight === '1000px' ? '0px' : '1000px';
+ });
 
-    document.getElementById('copyright-year').textContent = new Date().getFullYear();
-  </script>
+ document.getElementById('copyright-year').textContent = new Date().getFullYear();
+ </script>
 
-  <script>
-    (function () {
-      const corner = document.getElementById('secret-corner');
-      if (!corner) return;
+ <script>
+ (function () {
+ const corner = document.getElementById('secret-corner');
+ if (!corner) return;
 
-      corner.addEventListener('mouseenter', () => {
-        document.documentElement.classList.add('secret-hue');
-      });
-      corner.addEventListener('mouseleave', () => {
-        document.documentElement.classList.remove('secret-hue');
-      });
+ corner.addEventListener('mouseenter', () => {
+ document.documentElement.classList.add('secret-hue');
+ });
+ corner.addEventListener('mouseleave', () => {
+ document.documentElement.classList.remove('secret-hue');
+ });
 
-      // Touch devices don't have hover, so tap toggles it instead
-      corner.addEventListener('touchstart', () => {
-        corner.classList.toggle('touched');
-        document.documentElement.classList.toggle('secret-hue');
-      }, { passive: true });
-    })();
-  </script>
+ // Touch devices don't have hover, so tap toggles it instead
+ corner.addEventListener('touchstart', () => {
+ corner.classList.toggle('touched');
+ document.documentElement.classList.toggle('secret-hue');
+ }, { passive: true });
+ })();
+ </script>
 
-  <script>
-    function drawFresnelLens() {
-      const canvas = document.getElementById('fresnel-canvas');
-      if (!canvas || !canvas.getContext) return;
+ <script>
+ function drawFresnelLens() {
+ const canvas = document.getElementById('fresnel-canvas');
+ if (!canvas || !canvas.getContext) return;
 
-      const rect = canvas.getBoundingClientRect();
-      const dpr = window.devicePixelRatio || 1;
-      const logicalSize = rect.width || 1200;
-      canvas.width = logicalSize * dpr;
-      canvas.height = logicalSize * dpr;
+ const rect = canvas.getBoundingClientRect();
+ const dpr = window.devicePixelRatio || 1;
+ const logicalSize = rect.width || 1200;
+ canvas.width = logicalSize * dpr;
+ canvas.height = logicalSize * dpr;
 
-      const ctx = canvas.getContext('2d');
-      ctx.scale(dpr, dpr);
+ const ctx = canvas.getContext('2d');
+ ctx.scale(dpr, dpr);
 
-      const cx = logicalSize / 2;
-      const cy = logicalSize / 2;
-      const maxR = logicalSize / 2;
+ const cx = logicalSize / 2;
+ const cy = logicalSize / 2;
+ const maxR = logicalSize / 2;
 
-      // Three real sections of a lighthouse lens: the bullseye core, the main
-      // dioptric belt, and the outer paneled belt built from flat facets.
-      const section1R = maxR * 0.18; // bullseye
-      const section2R = maxR * 0.46; // middle belt
-      const section3R = maxR * 0.985; // outer paneled belt
+ // Three real sections of a lighthouse lens: the bullseye core, the main
+ // dioptric belt, and the outer paneled belt built from flat facets.
+ const section1R = maxR * 0.18; // bullseye
+ const section2R = maxR * 0.46; // middle belt
+ const section3R = maxR * 0.985; // outer paneled belt
 
-      // Whole-lens glow: bright core, still warmly lit all the way to the rim
-      const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, maxR);
-      glow.addColorStop(0, 'rgba(255, 250, 225, 0.95)');
-      glow.addColorStop(0.16, 'rgba(255, 214, 130, 0.75)');
-      glow.addColorStop(0.45, 'rgba(255, 173, 51, 0.42)');
-      glow.addColorStop(0.8, 'rgba(210, 120, 30, 0.22)');
-      glow.addColorStop(1, 'rgba(150, 80, 20, 0.06)');
-      ctx.fillStyle = glow;
-      ctx.beginPath();
-      ctx.arc(cx, cy, maxR, 0, Math.PI * 2);
-      ctx.fill();
+ // Whole-lens glow: bright core, still warmly lit all the way to the rim
+ const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, maxR);
+ glow.addColorStop(0, 'rgba(255, 250, 225, 0.95)');
+ glow.addColorStop(0.16, 'rgba(255, 214, 130, 0.75)');
+ glow.addColorStop(0.45, 'rgba(255, 173, 51, 0.42)');
+ glow.addColorStop(0.8, 'rgba(210, 120, 30, 0.22)');
+ glow.addColorStop(1, 'rgba(150, 80, 20, 0.06)');
+ ctx.fillStyle = glow;
+ ctx.beginPath();
+ ctx.arc(cx, cy, maxR, 0, Math.PI * 2);
+ ctx.fill();
 
-      // Draws a solid bronze/brass structural ring: this is the frame, not the glass,
-      // so no glow and a beveled highlight+shadow pair to read as metal, not light.
-      function metalRing(radius, thickness, withRivets) {
-        ctx.shadowBlur = 0;
-        ctx.strokeStyle = 'rgba(28, 16, 6, 0.9)';
-        ctx.lineWidth = thickness;
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.strokeStyle = 'rgba(140, 98, 48, 0.55)';
-        ctx.lineWidth = thickness * 0.35;
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius - thickness * 0.25, 0, Math.PI * 2);
-        ctx.stroke();
-        if (withRivets) {
-          const rivets = 24;
-          for (let i = 0; i < rivets; i++) {
-            const angle = (i / rivets) * Math.PI * 2;
-            const rx = cx + Math.cos(angle) * radius;
-            const ry = cy + Math.sin(angle) * radius;
-            ctx.fillStyle = 'rgba(90, 62, 28, 0.8)';
-            ctx.beginPath();
-            ctx.arc(rx, ry, thickness * 0.4, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-      }
+ // Draws a solid bronze/brass structural ring: this is the frame, not the glass,
+ // so no glow and a beveled highlight+shadow pair to read as metal, not light.
+ function metalRing(radius, thickness, withRivets) {
+ ctx.shadowBlur = 0;
+ ctx.strokeStyle = 'rgba(28, 16, 6, 0.9)';
+ ctx.lineWidth = thickness;
+ ctx.beginPath();
+ ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+ ctx.stroke();
+ ctx.strokeStyle = 'rgba(140, 98, 48, 0.55)';
+ ctx.lineWidth = thickness * 0.35;
+ ctx.beginPath();
+ ctx.arc(cx, cy, radius - thickness * 0.25, 0, Math.PI * 2);
+ ctx.stroke();
+ if (withRivets) {
+ const rivets = 24;
+ for (let i = 0; i < rivets; i++) {
+ const angle = (i / rivets) * Math.PI * 2;
+ const rx = cx + Math.cos(angle) * radius;
+ const ry = cy + Math.sin(angle) * radius;
+ ctx.fillStyle = 'rgba(90, 62, 28, 0.8)';
+ ctx.beginPath();
+ ctx.arc(rx, ry, thickness * 0.4, 0, Math.PI * 2);
+ ctx.fill();
+ }
+ }
+ }
 
-      // A soft dark halo right at a section boundary: reads as the shadow cast by
-      // a physically raised/stepped edge, not just a flat color change
-      function stepShadow(radius) {
-        ctx.shadowBlur = 0;
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.35)';
-        ctx.lineWidth = maxR * 0.018;
-        ctx.beginPath();
-        ctx.arc(cx, cy, radius + maxR * 0.012, 0, Math.PI * 2);
-        ctx.stroke();
-      }
+ // A soft dark halo right at a section boundary: reads as the shadow cast by
+ // a physically raised/stepped edge, not just a flat color change
+ function stepShadow(radius) {
+ ctx.shadowBlur = 0;
+ ctx.strokeStyle = 'rgba(0, 0, 0, 0.35)';
+ ctx.lineWidth = maxR * 0.018;
+ ctx.beginPath();
+ ctx.arc(cx, cy, radius + maxR * 0.012, 0, Math.PI * 2);
+ ctx.stroke();
+ }
 
-      // Draws glowing glass prism rings between two radii: this is the actual optic,
-      // fine and densely packed like real stacked glass grooves, not soft glow bands
-      function glassRings(innerR, outerR, spacing, opacityBase) {
-        let r = innerR;
-        let ring = 0;
-        while (r < outerR) {
-          const t = (r - innerR) / (outerR - innerR || 1);
-          ctx.strokeStyle = `rgba(255, ${Math.round(235 - t * 55)}, ${Math.round(160 - t * 90)}, ${(opacityBase - t * 0.18).toFixed(2)})`;
-          ctx.shadowColor = 'rgba(255, 200, 120, 0.6)';
-          ctx.shadowBlur = maxR * 0.0015;
-          ctx.lineWidth = maxR * (ring % 2 === 0 ? 0.0032 : 0.0016);
-          ctx.beginPath();
-          ctx.arc(cx, cy, r, 0, Math.PI * 2);
-          ctx.stroke();
-          r += spacing;
-          ring++;
-        }
-      }
+ // Draws glowing glass prism rings between two radii: this is the actual optic,
+ // fine and densely packed like real stacked glass grooves, not soft glow bands
+ function glassRings(innerR, outerR, spacing, opacityBase) {
+ let r = innerR;
+ let ring = 0;
+ while (r < outerR) {
+ const t = (r - innerR) / (outerR - innerR || 1);
+ ctx.strokeStyle = `rgba(255, ${Math.round(235 - t * 55)}, ${Math.round(160 - t * 90)}, ${(opacityBase - t * 0.18).toFixed(2)})`;
+ ctx.shadowColor = 'rgba(255, 200, 120, 0.6)';
+ ctx.shadowBlur = maxR * 0.0015;
+ ctx.lineWidth = maxR * (ring % 2 === 0 ? 0.0032 : 0.0016);
+ ctx.beginPath();
+ ctx.arc(cx, cy, r, 0, Math.PI * 2);
+ ctx.stroke();
+ r += spacing;
+ ring++;
+ }
+ }
 
-      // --- SECTION 1: bullseye ---
-      glassRings(maxR * 0.014, section1R, maxR * 0.011, 0.85);
+ // --- SECTION 1: bullseye ---
+ glassRings(maxR * 0.014, section1R, maxR * 0.011, 0.85);
 
-      // --- structural ring between bullseye and the middle belt ---
-      stepShadow(section1R);
-      metalRing(section1R, maxR * 0.014, false);
+ // --- structural ring between bullseye and the middle belt ---
+ stepShadow(section1R);
+ metalRing(section1R, maxR * 0.014, false);
 
-      // --- SECTION 2: middle dioptric belt, plain curved rings, no panel seams ---
-      glassRings(section1R + maxR * 0.018, section2R, maxR * 0.015, 0.55);
+ // --- SECTION 2: middle dioptric belt, plain curved rings, no panel seams ---
+ glassRings(section1R + maxR * 0.018, section2R, maxR * 0.015, 0.55);
 
-      // --- structural ring between the middle belt and the outer panels, riveted ---
-      stepShadow(section2R);
-      metalRing(section2R, maxR * 0.018, true);
+ // --- structural ring between the middle belt and the outer panels, riveted ---
+ stepShadow(section2R);
+ metalRing(section2R, maxR * 0.018, true);
 
-      // --- SECTION 3: outer paneled belt. Each panel is angled outward, so it isn't
-      // concentric with the main center at all — it reads like the edge of a whole
-      // separate lens sitting just beyond it. Draw each panel's rings around its own
-      // offset center, positioned out past the rim in that panel's own direction.
-      const panels = 10;
-      let facetSeed = 7;
-      for (let i = 0; i < panels; i++) {
-        facetSeed = (facetSeed * 9301 + 49297) % 233280;
-        const wobble = facetSeed / 233280; // deterministic pseudo-random 0..1
+ // --- SECTION 3: outer paneled belt. Each panel is angled outward, so it isn't
+ // concentric with the main center at all — it reads like the edge of a whole
+ // separate lens sitting just beyond it. Draw each panel's rings around its own
+ // offset center, positioned out past the rim in that panel's own direction.
+ const panels = 10;
+ let facetSeed = 7;
+ for (let i = 0; i < panels; i++) {
+ facetSeed = (facetSeed * 9301 + 49297) % 233280;
+ const wobble = facetSeed / 233280; // deterministic pseudo-random 0..1
 
-        const a0 = (i / panels) * Math.PI * 2;
-        const a1 = ((i + 1) / panels) * Math.PI * 2;
-        const aMid = (a0 + a1) / 2;
+ const a0 = (i / panels) * Math.PI * 2;
+ const a1 = ((i + 1) / panels) * Math.PI * 2;
+ const aMid = (a0 + a1) / 2;
 
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(cx + Math.cos(a0) * section2R, cy + Math.sin(a0) * section2R);
-        ctx.arc(cx, cy, section3R, a0, a1);
-        ctx.arc(cx, cy, section2R, a1, a0, true);
-        ctx.closePath();
-        ctx.clip();
+ ctx.save();
+ ctx.beginPath();
+ ctx.moveTo(cx + Math.cos(a0) * section2R, cy + Math.sin(a0) * section2R);
+ ctx.arc(cx, cy, section3R, a0, a1);
+ ctx.arc(cx, cy, section2R, a1, a0, true);
+ ctx.closePath();
+ ctx.clip();
 
-        // Panel tint: each facet catches the light a little differently from its neighbors
-        ctx.shadowBlur = 0;
-        ctx.fillStyle = wobble > 0.5
-          ? `rgba(255, 235, 190, ${(0.04 + wobble * 0.06).toFixed(2)})`
-          : `rgba(15, 9, 3, ${(0.06 + (1 - wobble) * 0.1).toFixed(2)})`;
-        ctx.fillRect(cx - section3R, cy - section3R, section3R * 2, section3R * 2);
+ // Panel tint: each facet catches the light a little differently from its neighbors
+ ctx.shadowBlur = 0;
+ ctx.fillStyle = wobble > 0.5
+ ? `rgba(255, 235, 190, ${(0.04 + wobble * 0.06).toFixed(2)})`
+ : `rgba(15, 9, 3, ${(0.06 + (1 - wobble) * 0.1).toFixed(2)})`;
+ ctx.fillRect(cx - section3R, cy - section3R, section3R * 2, section3R * 2);
 
-        // This panel's own lens center: pushed outward along its own angle, well
-        // beyond the rim, so only a thin curved slice of it falls inside the panel
-        const vDist = section3R * 1.45;
-        const vcx = cx + Math.cos(aMid) * vDist;
-        const vcy = cy + Math.sin(aMid) * vDist;
-        const vNear = vDist - section3R;
-        const vFar = vDist - section2R;
+ // This panel's own lens center: pushed outward along its own angle, well
+ // beyond the rim, so only a thin curved slice of it falls inside the panel
+ const vDist = section3R * 1.45;
+ const vcx = cx + Math.cos(aMid) * vDist;
+ const vcy = cy + Math.sin(aMid) * vDist;
+ const vNear = vDist - section3R;
+ const vFar = vDist - section2R;
 
-        let vr = vNear + maxR * 0.01;
-        let vring = 0;
-        while (vr < vFar) {
-          const t = (vr - vNear) / (vFar - vNear || 1);
-          ctx.strokeStyle = `rgba(255, ${Math.round(230 - t * 60)}, ${Math.round(150 - t * 70)}, ${(0.5 - t * 0.18).toFixed(2)})`;
-          ctx.shadowColor = 'rgba(255, 200, 120, 0.5)';
-          ctx.shadowBlur = maxR * 0.0015;
-          ctx.lineWidth = maxR * (vring % 2 === 0 ? 0.0032 : 0.0016);
-          ctx.beginPath();
-          ctx.arc(vcx, vcy, vr, 0, Math.PI * 2);
-          ctx.stroke();
-          vr += maxR * 0.013;
-          vring++;
-        }
+ let vr = vNear + maxR * 0.01;
+ let vring = 0;
+ while (vr < vFar) {
+ const t = (vr - vNear) / (vFar - vNear || 1);
+ ctx.strokeStyle = `rgba(255, ${Math.round(230 - t * 60)}, ${Math.round(150 - t * 70)}, ${(0.5 - t * 0.18).toFixed(2)})`;
+ ctx.shadowColor = 'rgba(255, 200, 120, 0.5)';
+ ctx.shadowBlur = maxR * 0.0015;
+ ctx.lineWidth = maxR * (vring % 2 === 0 ? 0.0032 : 0.0016);
+ ctx.beginPath();
+ ctx.arc(vcx, vcy, vr, 0, Math.PI * 2);
+ ctx.stroke();
+ vr += maxR * 0.013;
+ vring++;
+ }
 
-        ctx.restore();
-      }
+ ctx.restore();
+ }
 
-      // Radial spokes: solid metal bars, only across the outer paneled section,
-      // matching how the real frame only divides the outer belt into panels
-      for (let i = 0; i < panels; i++) {
-        const angle = (i / panels) * Math.PI * 2;
-        const x1 = cx + Math.cos(angle) * section2R;
-        const y1 = cy + Math.sin(angle) * section2R;
-        const x2 = cx + Math.cos(angle) * section3R;
-        const y2 = cy + Math.sin(angle) * section3R;
-        ctx.shadowBlur = 0;
-        ctx.strokeStyle = 'rgba(28, 16, 6, 0.85)';
-        ctx.lineWidth = maxR * 0.009;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.stroke();
-        ctx.strokeStyle = 'rgba(150, 105, 52, 0.5)';
-        ctx.lineWidth = maxR * 0.003;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.stroke();
-      }
+ // Radial spokes: solid metal bars, only across the outer paneled section,
+ // matching how the real frame only divides the outer belt into panels
+ for (let i = 0; i < panels; i++) {
+ const angle = (i / panels) * Math.PI * 2;
+ const x1 = cx + Math.cos(angle) * section2R;
+ const y1 = cy + Math.sin(angle) * section2R;
+ const x2 = cx + Math.cos(angle) * section3R;
+ const y2 = cy + Math.sin(angle) * section3R;
+ ctx.shadowBlur = 0;
+ ctx.strokeStyle = 'rgba(28, 16, 6, 0.85)';
+ ctx.lineWidth = maxR * 0.009;
+ ctx.beginPath();
+ ctx.moveTo(x1, y1);
+ ctx.lineTo(x2, y2);
+ ctx.stroke();
+ ctx.strokeStyle = 'rgba(150, 105, 52, 0.5)';
+ ctx.lineWidth = maxR * 0.003;
+ ctx.beginPath();
+ ctx.moveTo(x1, y1);
+ ctx.lineTo(x2, y2);
+ ctx.stroke();
+ }
 
-      // Outer rim: the thick, solid outer frame holding the whole assembly
-      metalRing(section3R, maxR * 0.022, false);
-      ctx.strokeStyle = 'rgba(255, 220, 150, 0.4)';
-      ctx.shadowColor = 'rgba(255, 210, 130, 0.6)';
-      ctx.shadowBlur = maxR * 0.008;
-      ctx.lineWidth = maxR * 0.004;
-      ctx.beginPath();
-      ctx.arc(cx, cy, section3R + maxR * 0.014, 0, Math.PI * 2);
-      ctx.stroke();
+ // Outer rim: the thick, solid outer frame holding the whole assembly
+ metalRing(section3R, maxR * 0.022, false);
+ ctx.strokeStyle = 'rgba(255, 220, 150, 0.4)';
+ ctx.shadowColor = 'rgba(255, 210, 130, 0.6)';
+ ctx.shadowBlur = maxR * 0.008;
+ ctx.lineWidth = maxR * 0.004;
+ ctx.beginPath();
+ ctx.arc(cx, cy, section3R + maxR * 0.014, 0, Math.PI * 2);
+ ctx.stroke();
 
-      // Specular highlight: a soft bright crescent where light catches the curved glass edge
-      const hlStart = -2.4;
-      const hlEnd = -0.6;
-      const hlSteps = 24;
-      ctx.shadowColor = 'rgba(255, 240, 200, 0.9)';
-      for (let i = 0; i < hlSteps; i++) {
-        const a0 = hlStart + (hlEnd - hlStart) * (i / hlSteps);
-        const a1 = hlStart + (hlEnd - hlStart) * ((i + 1) / hlSteps);
-        const fall = Math.sin(((i + 0.5) / hlSteps) * Math.PI); // fades in/out at each end
-        ctx.strokeStyle = `rgba(255, 248, 224, ${(fall * 0.8).toFixed(2)})`;
-        ctx.lineWidth = maxR * (0.004 + fall * 0.006);
-        ctx.shadowBlur = maxR * 0.014;
-        ctx.beginPath();
-        ctx.arc(cx, cy, maxR * 0.97, a0, a1);
-        ctx.stroke();
-      }
-    }
+ // Specular highlight: a soft bright crescent where light catches the curved glass edge
+ const hlStart = -2.4;
+ const hlEnd = -0.6;
+ const hlSteps = 24;
+ ctx.shadowColor = 'rgba(255, 240, 200, 0.9)';
+ for (let i = 0; i < hlSteps; i++) {
+ const a0 = hlStart + (hlEnd - hlStart) * (i / hlSteps);
+ const a1 = hlStart + (hlEnd - hlStart) * ((i + 1) / hlSteps);
+ const fall = Math.sin(((i + 0.5) / hlSteps) * Math.PI); // fades in/out at each end
+ ctx.strokeStyle = `rgba(255, 248, 224, ${(fall * 0.8).toFixed(2)})`;
+ ctx.lineWidth = maxR * (0.004 + fall * 0.006);
+ ctx.shadowBlur = maxR * 0.014;
+ ctx.beginPath();
+ ctx.arc(cx, cy, maxR * 0.97, a0, a1);
+ ctx.stroke();
+ }
+ }
 
-    drawFresnelLens();
+ drawFresnelLens();
 
-    let resizeTimer = null;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(drawFresnelLens, 200);
-    }, { passive: true });
-  </script>
+ let resizeTimer = null;
+ window.addEventListener('resize', () => {
+ clearTimeout(resizeTimer);
+ resizeTimer = setTimeout(drawFresnelLens, 200);
+ }, { passive: true });
+ </script>
 </body>
 </html>
